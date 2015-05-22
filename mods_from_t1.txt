@@ -1,0 +1,27 @@
+Apêndice: Adaptações do primeiro trabalho
+
+I - Inicial
+	->Registro de cabeçalho (top stack)
+	->Campos de tamanho variável (alterar as strings)
+	->Incluir delimitadores (registros e campos)
+	->Reciclar o código atual
+
+II - Índices secundários (Rita)
+	->Fortemente ligados
+	->Author e Publisher
+	->Tratar: duplicações usando listas invertidas
+	->Índices devem ser criados a partir do 10º registro
+
+III - Recuperação de dados
+	->Usando Author OU Publisher (merging)
+	->Usando Author E Publisher (matching)
+
+IV - Remoção (Edward)
+	->A partir de Author
+	->Remoção lógica
+
+V - Inserção de registros
+	->Adição usando Worst-Fit
+	->Fragmentação Interna (tratar com leitura->inserção em outro arquivo)
+
+VI - Documentação e entrega (prioritariamente o mais breve antes da entrega!)
