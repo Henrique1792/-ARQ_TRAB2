@@ -1,5 +1,19 @@
 Apêndice: Adaptações do primeiro trabalho
 
+ Reclamacoes/Revisao do trabalho 1:
+
+ Documentação:
+ Funcionalidades deveriam ser descritas mais detalhadamente.
+
+ Implementação:
+ Busca sequencial por RRN.
+ Não usou método de reaproveitamento de espaço ensinados na aula (pilha).
+
+ Interface:
+ Não informa formato dos campos pros usuários.
+
+
+
 I - Inicial
 	->Registro de cabeçalho (top stack)
 	->Campos de tamanho variável (alterar as strings)
