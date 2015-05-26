@@ -26,7 +26,7 @@
 #define BUFFER_MAX 1024  /*!< tamanho maximo do buffer  */
 #define DATAFILE_PATH "data.bin"   /*!< nome do arquivo de dados  */
 #define CHAR_REM '*'    /*!< caracter de remocao  */
-#define DELIM '|' /*!< caracter delimitador de campos  */
+#define char
 
 /**
    @brief Estrutura que representa as booktags/informacoes do livro no nosso programa
