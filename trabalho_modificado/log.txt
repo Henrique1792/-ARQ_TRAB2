@@ -1,0 +1,31 @@
+
+[LENDO] lendo o arquivo
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1e690d0 com sucesso
+
+[INPUT]: pegamos o input  1
+ 
+
+[INPUT]: pegamos o input  1
+ 
+
+[INPUT]: pegamos o input  2
+ 
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x21da0d0 com sucesso
+
+[INPUT]: pegamos o input  1
+ 
+
+[INPUT]: pegamos o input  3
+ 
+
+[INPUT]: pegamos o input  d
+ 
+
+[INPUT]: pegamos o input  d
+ 
