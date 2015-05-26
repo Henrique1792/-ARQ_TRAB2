@@ -9,7 +9,7 @@ Apêndice: Adaptações do primeiro trabalho
  Busca sequencial por RRN.
  Não usou método de reaproveitamento de espaço ensinados na aula (pilha).
 
- Interface:
+ Interface: (IMPLEMENTADO)
  Não informa formato dos campos pros usuários.
 
 
