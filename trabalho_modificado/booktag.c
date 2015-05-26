@@ -4,19 +4,20 @@
 #include <stdlib.h> //utilizamos para malloc/free
 #include <string.h> //utilizamos o fgets
 
+//arquivos nossos
 #include "debug.h"
 #include "booktag.h"
 #include "screen.h"
 
 /*
-   Trabalho de Organizacao de Arquivos - Trabalho 1
+   Trabalho de Organizacao de Arquivos - Trabalho 2
 
    Integrantes:
 
    Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
    Rita Raad                                       numero USP: 8061452
    Henrique Fernandes de Matos Freitas             numero USP: 8937225
-   Gustavo                                         numero USP: 8937416
+   Gustavo Santiago                                numero USP: 8937416
 
    Descricao do arquivo booktag.c: arquivo que possui a implementacao das funcoes definidas no arquivo booktag.h.
    Possui funcoes relativas a manipulacao, criacao, remocao e checagem dos registros(booktags) no arquivo.

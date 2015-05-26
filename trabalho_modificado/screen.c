@@ -3,22 +3,22 @@
 #include <unistd.h> // utilizado para fazer o system(clear);
 #include <assert.h> //utilizamos o assert para guarantir que alguns parametros sejam corretos
 #include <string.h> //fgets
-#include "screen.h"
 
 //arquivos nossos
+#include "screen.h"
 #include "booktag.h"
 #include "debug.h"
 
 
 /*
-   Trabalho de Organizacao de Arquivos - Trabalho 1
+   Trabalho de Organizacao de Arquivos - Trabalho 2
 
    Integrantes:
 
    Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
    Rita Raad                                       numero USP: 8061452
    Henrique Fernandes de Matos Freitas             numero USP: 8937225
-   Gustavo                                         numero USP: 8937416
+   Gustavo Santiago                                numero USP: 8937416
 
    Descricao do arquivo screen.c: implementa as funcoes definidas no arquivo screen.h. Possui as funcoes relativas a
    a interface grafica, manipulacao das opcoes nela e tratamentos.

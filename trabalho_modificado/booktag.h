@@ -4,14 +4,14 @@
 #include <stdio.h>
 
 /*
-   Trabalho de Organizacao de Arquivos - Trabalho 1
+   Trabalho de Organizacao de Arquivos - Trabalho 2
 
    Integrantes:
 
    Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
    Rita Raad                                       numero USP: 8061452
    Henrique Fernandes de Matos Freitas             numero USP: 8937225
-   Gustavo                                         numero USP: 8937416
+   Gustavo Santiago                                numero USP: 8937416
 
    Descricao do arquivo booktag.h: possui a definicao da estrutura e assinatura das funcoes (implementadas na booktag.c). Alem disso,
    possui os defines do tamanho de dados (mais detalhes na documentacao impressa ou em formato pdf).
@@ -26,6 +26,7 @@
 #define BUFFER_MAX 1024  /*!< tamanho maximo do buffer  */
 #define DATAFILE_PATH "data.bin"   /*!< nome do arquivo de dados  */
 #define CHAR_REM '*'    /*!< caracter de remocao  */
+#define DELIM '|' /*!< caracter delimitador de campos  */
 
 /**
    @brief Estrutura que representa as booktags/informacoes do livro no nosso programa
