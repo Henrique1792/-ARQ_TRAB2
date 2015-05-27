@@ -390,7 +390,6 @@ void booktag_search_screen() {
         break;
     case 3: //chama busca por rrn
         system("clear");
-        booktag_search_rrn_screen();
 
         break;
     case 4:
@@ -400,23 +399,6 @@ void booktag_search_screen() {
         printf("\nOpção errada");
         break;
     }
-}
-
-/**
-   Função booktag_search_screen() Tela de procura de pesquisa de booktag
- **/
-void booktag_search_rrn_screen() {
-
-    printf("---------------------- Tela De Busca Por RRN- Digite a RRN ----------------------"
-           "\n"
-           "\n"
-           "\n\n"
-           "Digite a RRN à ser buscado: "
-        );
-    int rrn;
-    scanf("%d", &rrn);
-    recover_rrn(DATAFILE_PATH, rrn);
-sleep(10);
 }
 
 /**

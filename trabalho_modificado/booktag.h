@@ -1,7 +1,11 @@
 #ifndef BOOKTAG_H_
 #define BOOKTAG_H_
-
 #include <stdio.h>
+
+#define DELIM '|'
+#define CHAR_REM '*'
+
+
 
 /*
    Trabalho de Organizacao de Arquivos - Trabalho 1
@@ -23,6 +27,7 @@
  **/
 typedef struct{
 	char *title;//titulo
+
 	char *author; //autor
 	char *publisher;//editora
 	int year;//ano
@@ -59,16 +64,6 @@ void free_booktag(BOOKTAG_T *booktag);
 void write_booktags(BOOKTAG_T *booktag, char filename[]);
 
 /**
-   [TODO]
-   Função write_booktag_opt() Recebe um booktag que irá ser gravado em um arquivo
-   possui otimização na inserção (insere em registros que foram removidos lógicamente)
-
-   @param booktag que irá ser gravada no arquivo
-   @param char filename[] nome do arquivo que será gravado
- **/
-void write_booktag_opt(BOOKTAG_T *booktag, char filename[]);
-
-/**
    Funcao read_booktag() lê do arquivo de nome filename e retorna o primeiro booktag
 
    @param char filename[] nome do arquivo a ser lido
@@ -102,22 +97,6 @@ int  markrem_booktag(char filename[], int rrn);
    @return int se sucedido ou não (-1 para erro, 1 se o arquivo foi gravado com sucesso)
 **/
 int  diskrem_booktag(char filename[]);
-
-/**
-   Função read_booktag_list_one() que le um registro por vez do arquivo e pede input para
-   continuar aleitura
-   @param char filename[] nome do arquivo a ser lido os dados
- **/
-void read_booktag_list_one(char filename[]);
-
-
-/**
-* recover_rrn
-* recupera o registro de acordo com o RRN
-* @param FILE* file,
-* @param int rrn á ser pesquisado
-*/
-void recover_rrn (char filename[],  int rrn);
 
 /**
 * recover_year

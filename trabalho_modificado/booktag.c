@@ -8,7 +8,7 @@
 #include "booktag.h"
 #include "screen.h"
 #define DELIM '|'
-
+#define CHAR_REM '*'
 /*
    Trabalho de Organizacao de Arquivos - Trabalho 1
 
@@ -41,7 +41,6 @@ char *readstr(FILE *target){
 	}while(getter!= DELIM);
 	string[--i]='\0';
 	return string;
-
 }
 
 /**
@@ -93,35 +92,6 @@ void free_booktag(BOOKTAG_T *booktag) {
 }
 
 /**
-   Funcao interna search_last_removed que retorna o rrn de um registro marcado para remocao
-   @param char filename[] nome do arquivo de dados;
-   @return o rrn encontrado
- **/
-int search_last_removed(char filename[]){
-	//garantimos os paramêtros corretos para evitar erros no arquivo de dados
-	assert(filename != NULL);
-
-	int rrn = -1;
-	FILE *f = fopen_log(filename,"r");
-	if (f == NULL) {
-        return -1;
-    }
-    BOOKTAG_T *booktag_temp = create_booktag();
-    do{
-    	if(booktag_temp->title[0] == '*'){
-    		free(booktag_temp);
-    		fclose_log(f);
-    		return rrn;
-    	}
-    	rrn++;
-    }while(fread_log(booktag_temp, sizeof(BOOKTAG_T), 1, f));
-
-    free(booktag_temp);
-    fclose_log(f);
-    return -1;
-}
-
-/**
    @brief Função write_booktags() recebe um booktag que irá ser gravado em um arquivo
 
    @param BOOKTAG_T *booktag que irá ser gravada no arquivo
@@ -136,26 +106,13 @@ void write_booktags(BOOKTAG_T *booktag, char filename[]) {
     //garantimos os paramêtros corretos para evitar erros no arquivo de dados
     assert(booktag != NULL || filename != NULL);
 
-    int rrn = search_last_removed(filename);
-
     //abrimos o arquivo de log e em caso de erro, gravamos aviso nele
     FILE *f;
-    if(rrn == -1){
-    	f = fopen_log(filename, "a");
-    }
-    else{
-    	f = fopen_log(filename, "r+");
-    }
+    f = fopen_log(filename, "a");
 
     if (f == NULL) {
         printf("\n[ERRO] erro na abertura do arquivo\n");
         return;
-    }
-
-    if(rrn != -1){
-    	//reiniciamos o ponteiro no arquivo (boa pratica)
-    	rewind(f);
-    	fseek(f,(sizeof(BOOKTAG_T) * rrn), SEEK_CUR);
     }
 
     int tam = sizeof(booktag);
@@ -244,6 +201,7 @@ BOOKTAG_T *read_booktag(FILE *f) {
 
    @param char filename[] nome do arquivo a ser lido
  **/
+// NAO ALTERADA
 void read_booktag_list(char filename[]) {
 
     //verificamos os parametros e em caso de erro, avisamos

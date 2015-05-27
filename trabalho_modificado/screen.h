@@ -40,12 +40,14 @@ void remove_screen();
 
    @param booktag a ser impressa
  **/
+/// PRECISA SER ATUALIZADA
 void printf_booktag(BOOKTAG_T *booktag);
 
 /**
    Função get_input() pega o input, e alocado a memória assim que necessário
    @return BOOKTAG_T booktag criada com as informações de input
  **/
+/// ATUALIZADA
 BOOKTAG_T *screen_get_input();
 
 /**
