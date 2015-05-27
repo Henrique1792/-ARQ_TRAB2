@@ -21,7 +21,7 @@
 //funçoes de manipulação do índice primário
 	FILE *create_idxprim(char *name);
 	int add_idxprim(BOOKTAG_T *book);
-	int rm_idxprim(FILE *target, const void *);
+	int rm_idxprim(FILE *target, const void *field);
 	BOOKTAG_T *search_idxprim(FILE *target, int rrn);
 
 
@@ -30,7 +30,7 @@
 	 * 		  arquivo aberto com nome "name"
 	 * 		  ponteiro duplicate é NULL
 	*/
-	IDXSEC_T create_idxsec(char *name);
+	IDXSEC_T *create_idxsec(char *name);
 	/*add: construirá o índice secundário
 	 *     a partir de idxprim, adicionando 
 	 *     as referências em target
@@ -44,6 +44,6 @@
 	 *
 	*/
 	int rm_idxsec(IDXSEC_T *target, char *field);
-	void recorver_idxsec_byfield(IDXSEC_T *target, char *field);
+	void recover_idxsec_byfield(IDXSEC_T *target, char *field);
 	BOOKTAG_T *search_idxsec(IDXSEC_T *target,FILE *idxprim);
 #endif

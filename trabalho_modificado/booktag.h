@@ -25,8 +25,10 @@
 #define LANG_MAX 30 /*!< quantidade maxima de caracteres da do idioma  */
 #define BUFFER_MAX 1024  /*!< tamanho maximo do buffer  */
 #define DATAFILE_PATH "data.bin"   /*!< nome do arquivo de dados  */
+#define IDXPRIM_PATH "idxprim.idx" /*!< nome do arquivo de indice primario  */
+#define IDXSEC_PATH "idxsec.idx" /*!< nome do arquivo de indice secundario  */
 #define CHAR_REM '*'    /*!< caracter de remocao  */
-#define char
+#define DELIM '|' /*!< caracter delimitador  */
 
 /**
    @brief Estrutura que representa as booktags/informacoes do livro no nosso programa
