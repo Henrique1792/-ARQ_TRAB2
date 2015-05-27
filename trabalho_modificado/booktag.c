@@ -118,7 +118,6 @@ void write_booktags(BOOKTAG_T *booktag, char filename[]) {
     int tam = sizeof(booktag);
     // gravamos os campos no arquivo
     fwrite_log(&tam, sizeof(int), 1, f);
-    fwrite_log(&sizeof(BOOKTAG_T), sizeof(int), 1, f);
 
     fwrite_log(booktag->title, sizeof(char),strlen(booktag->title), f);
 	fwrite_log(&chr,sizeof(char),1,f);

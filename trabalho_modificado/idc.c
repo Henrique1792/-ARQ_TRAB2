@@ -99,7 +99,7 @@ void recover_idxsec_byfield(IDXSEC_T *target, char *field){
 	}
 }
 
-BOOKTAG_T *search_idxsec(IDXSEC_T *target,FILE *idxprim){
+BOOKTAG_T *search_idxsec(IDXSEC_T *target,FILE *idxprim, const void *field){
 	if(target && idxprim){
 		BOOKTAG_T *tmptag = (BOOKTAG_T *)malloc(sizeof(BOOKTAG_T));
 		return tmptag;

@@ -47,19 +47,17 @@
 	 * 1: caso o valor seja removido.
 	*/
 	int rm_idxsec(IDXSEC_T *target, char *field);
-<<<<<<< HEAD
 	void recover_idxsec_byfield(IDXSEC_T *target, char *field);
-	BOOKTAG_T *search_idxsec(IDXSEC_T *target,FILE *idxprim);
-=======
+
 	/*recover byfield: recupera os dados em relação
 	 * ao field especificado.
 	*/
 	void recorver_idxsec_byfield(IDXSEC_T *target, char *field);
+
 	/* search: busca uma booktag específica usando target e idxprim e um campo específico
 	 * @return:
 	 * BOOKTAG_T: caso o valor seja encontrado
 	 * NULL: caso não encontre.
 	*/
-	BOOKTAG_T *search_idxsec(IDXSEC_T *target,FILE *idxprim, const void *);
->>>>>>> 5b7d9925981299d0f44dd1e0b367784926e79662
+	BOOKTAG_T *search_idxsec(IDXSEC_T *target,FILE *idxprim, const void *field);
 #endif
