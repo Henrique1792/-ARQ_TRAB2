@@ -9,14 +9,18 @@
 #include "booktag.h"
 #include "screen.h"
 
-/*
+/*  
    Trabalho de Organizacao de Arquivos - Trabalho 2
 
    Integrantes:
 
    Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
    Rita Raad                                       numero USP: 8061452
+<<<<<<< HEAD
    Henrique Fernandes de Matos Freitas             numero USP: 8937225
+=======
+   Henrique Fernandes de Mattos Freitas            numero USP: 8937225
+>>>>>>> 5b7d9925981299d0f44dd1e0b367784926e79662
    Gustavo Santiago                                numero USP: 8937416
 
    Descricao do arquivo booktag.c: arquivo que possui a implementacao das funcoes definidas no arquivo booktag.h.
@@ -25,18 +29,39 @@
    Toda memoria liberada nas funcoes sao liberadas nelas, exceto a funcao create_booktag.
 
  */
+	/*
+	 *@param: target é o arquivo a ser lido.
+	 *@return: string lida.
+	 * */
+char *readstr(FILE *target){
+	char getter='a';
+	char *string = NULL;
+	int i=0;
+	do{
+		getter=fgetc(target);
+		string = (char *)realloc(string,(i+1)*sizeof(char));
+		string[i++]=getter;
+	}while(getter!=DELIM);
+	string[i]='\0';
+	return string;
 
-
+}
 
 /**
    @brief Função create_booktag() que aloca uma estrutura do tipo BOOKTAG_T
    @return estrutura alocada
  **/
+ /*atualizado*/
 BOOKTAG_T *create_booktag() {
 
     //alocamos o novo livro
     BOOKTAG_T *book = malloc(sizeof(BOOKTAG_T)); // criamos a variavel
 
+//atribuindo ponteiros como NULL.
+	book->title=NULL;
+	book->author=NULL;
+	book->publisher=NULL;
+	book->language=NULL;
 
     //abrimos arquivo de log, caso de erro, mandamos msg
     FILE *fp = fopen_log(LOG_FILENAME, "a");
@@ -47,33 +72,9 @@ BOOKTAG_T *create_booktag() {
     } else
         fprintf(fp, "\n\n[AVISO] erro na abertura/escrita do arquivo de log\n\n");
 
-    int i; //contador
 
     //preechemos todos valores pois o gcc por alguma razão utiliza o mesmo espaço de memória de outro registro alocado anteriormente, logo quando alocamos
     // podemos encontrar sujeiras(como informações dos registros anteriores)
-    for (i = 0; i < TITLE_MAX; i++) { //titulo
-        if (book->title[i]) {
-            book->title[i] = ' ';
-        }
-    }
-
-    for (i = 0; i < AUTHOR_MAX; i++) { // autor
-        if (book->author[i]) {
-            book->author[i] = ' ';
-        }
-    }
-
-    for (i = 0; i < PUB_MAX; i++) { // editora
-        if (book->publisher[i]) {
-            book->publisher[i] = ' ';
-        }
-    }
-
-    for (i = 0; i < LANG_MAX; i++) { //idioma
-        if (book->language[i]) {
-            book->language[i] = ' ';
-        }
-    }
 
     return book;
 }
@@ -82,10 +83,16 @@ BOOKTAG_T *create_booktag() {
    @brief Função free_booktag() Libera uma booktag da memória
    @param BOOKTAG_T *booktag que será liberada
 **/
+
+/*atualizado*/
 void free_booktag(BOOKTAG_T *booktag) {
     if (booktag != NULL) { // verificamos parametro e os liberamos da memória
-        free(booktag);
-    }
+		free(booktag->title);
+		free(booktag->author);
+		free(booktag->publisher);
+		free(booktag->language);
+		free(booktag);
+	}
 }
 
 /**
@@ -125,8 +132,10 @@ int search_last_removed(char filename[]){
    @param int n número de booktags que serão gravadas no filename
    @return int
  **/
-void write_booktags(BOOKTAG_T *booktag, char filename[], int n) {
 
+ /**alterado.*/
+void write_booktags(BOOKTAG_T *booktag, char filename[], int n) {
+	char chr='|';
     //garantimos os paramêtros corretos para evitar erros no arquivo de dados
     assert(booktag != NULL || filename != NULL);
 
@@ -152,10 +161,22 @@ void write_booktags(BOOKTAG_T *booktag, char filename[], int n) {
     	fseek(f,(sizeof(BOOKTAG_T) * rrn), SEEK_CUR);
     }
 
-    // gravamooso booktag no arquivo
-    fwrite_log(booktag, sizeof(BOOKTAG_T), 1, f);
+    // gravamos os campos no arquivo
+    fwrite_log(&sizeof(BOOKTAG_T), sizeof(int), 1, f);
+    fwrite_log(booktag->title, sizeof(char),strlen(booktag->title), f);
+	fwrite_log(chr,sizeof(char),1,f);
+	fwrite_log(booktag->author, sizeof(char),strlen(booktag->author), f);
+	fwrite_log(chr,sizeof(char),1,f);
+	fwrite_log(booktag->publisher, sizeof(char),strlen(booktag->publisher), f);
+    fwrite_log(chr,sizeof(char),1,f);
+	fwrite_log(booktag->year, sizeof(int), 1, f);
+	fwrite_log(booktag->language, sizeof(char)*strlen(booktag->language), 1, f);
+	fwrite_log(chr,sizeof(char),1,f);
+	fwrite_log(booktag->pages, sizeof(int), 1, f);
+	fwrite_log(booktag->price, sizeof(float), 1, f);
+		
 
-    printf("\n\nGravação com sucesso\n\n");
+	printf("\n\nGravação com sucesso\n\n");
     fclose_log(f); //fechamos o log
 }
 
@@ -181,29 +202,28 @@ void str_untrim(char string[]) {
 
    @param char filename[] nome do arquivo a ser lido
  **/
-BOOKTAG_T *read_booktag(char filename[]){
-
-    //verificamos o parametro, em caso de erro avisamos
-    if (filename == NULL) {
-        printf("\n[AVISO] filename precisa ser o nome do arquivo a ser utilizado\n");
-        return NULL;
-    }
+/*alterado.*/
+BOOKTAG_T *read_booktag(FILE *f){
+	int size;
+   if(f==NULL){
+	printf("AVISO: erro no ponteiro do arquivo (==NULL)" );
+	return NULL;
+   }
 
     //alocamos a estrutura temporária e o ponteiro para o arquivo
     BOOKTAG_T *booktag_temp = create_booktag();
-    FILE *f = fopen_log(filename, "rb");
 
-    //verificamos o ponteiro para o arquivo, em caso de erro avisamos
-    if(f == NULL) {
-        printf("\n[ERRO]Erro na abertura do arquivo %s\n", filename);
-        free(booktag_temp);
-        return NULL;
-    }
-    //reiniciamos o ponteiro do arquivo (boa prática)
-    rewind(f);
 
     //lemos uma booktag do arquivo
-    fread_log(booktag_temp, sizeof(BOOKTAG_T), 1, f);
+		fread(&size,sizeof(int),1,f);
+		booktag_temp->title=readstr(f);
+		booktag_temp->author=readstr(f);
+	    booktag_temp->publisher=readstr(f);
+		fread(booktag->year,sizeof(int)1,f);
+		booktag_temp->language=readstr(f);
+		fread(booktag->pages,sizeof(int),1,f);
+		fread(booktag->price,sizeof(float),1,f);	
+	
 
     //fechamos e retornamos
     fclose_log(f);
