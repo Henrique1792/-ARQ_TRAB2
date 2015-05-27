@@ -4,13 +4,13 @@
 #include <stdlib.h> //utilizamos para malloc/free
 #include <string.h> //utilizamos o fgets
 
+//arquivos nossos
 #include "debug.h"
 #include "booktag.h"
 #include "screen.h"
-#define DELIM '|'
-#define CHAR_REM '*'
-/*
-   Trabalho de Organizacao de Arquivos - Trabalho 1
+
+/*  
+   Trabalho de Organizacao de Arquivos - Trabalho 2
 
    Integrantes:
 
@@ -118,6 +118,7 @@ void write_booktags(BOOKTAG_T *booktag, char filename[]) {
     int tam = sizeof(booktag);
     // gravamos os campos no arquivo
     fwrite_log(&tam, sizeof(int), 1, f);
+    fwrite_log(&sizeof(BOOKTAG_T), sizeof(int), 1, f);
 
     fwrite_log(booktag->title, sizeof(char),strlen(booktag->title), f);
 	fwrite_log(&chr,sizeof(char),1,f);
@@ -134,7 +135,6 @@ void write_booktags(BOOKTAG_T *booktag, char filename[]) {
 	fwrite_log(&chr,sizeof(char),1,f);
 
 	fwrite_log(&booktag->pages, sizeof(int), 1, f);
-
 	fwrite_log(&booktag->price, sizeof(float), 1, f);
 
 	printf("\n\nGravação com sucesso\n\n");

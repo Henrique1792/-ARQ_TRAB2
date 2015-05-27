@@ -29,3 +29,7 @@
 
 [INPUT]: pegamos o input  d
  
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x177d0d0 com sucesso

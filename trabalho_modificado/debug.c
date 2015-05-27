@@ -7,14 +7,14 @@
 
 
 /*
-   Trabalho de Organizacao de Arquivos - Trabalho 1
+   Trabalho de Organizacao de Arquivos - Trabalho 2
 
    Integrantes:
 
    Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
    Rita Raad                                       numero USP: 8061452
    Henrique Fernandes de Matos Freitas             numero USP: 8937225
-   Gustavo                                         numero USP: 8937416
+   Gustavo Santiago                                numero USP: 8937416
 
    Descricao do arquivo debug.c: implementacao das funcoes definida no debug.h Possui funcoes de de logging de leitura, escrita, captura
    de input e relacionadas. Lembrando que o logging utilizada o fwrite e fread por baixo, principais funcoes principais do <stdio.h>
