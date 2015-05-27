@@ -18,24 +18,15 @@
 
 */
 
-
-#define TITLE_MAX 80  /*!< quantidade maxima de caracteres do titulo  */
-#define AUTHOR_MAX 40 /*!< quantidade maxima de caracteres do autor  */
-#define PUB_MAX 20 /*!< quantidade maxima de caracteres da editora  */
-#define LANG_MAX 30 /*!< quantidade maxima de caracteres da do idioma  */
-#define BUFFER_MAX 1024  /*!< tamanho maximo do buffer  */
-#define DATAFILE_PATH "data.bin"   /*!< nome do arquivo de dados  */
-#define CHAR_REM '*'    /*!< caracter de remocao  */
-
 /**
    @brief Estrutura que representa as booktags/informacoes do livro no nosso programa
  **/
 typedef struct{
-	char title[TITLE_MAX];//titulo
-	char author[AUTHOR_MAX]; //autor
-	char publisher[PUB_MAX];//editora
+	char *title;//titulo
+	char *author; //autor
+	char *publisher;//editora
 	int year;//ano
-	char language[LANG_MAX];//idioma
+	char *language;//idioma
 	int pages;//qtd paginas
 	float price; // preco
 } BOOKTAG_T;
@@ -65,7 +56,7 @@ void free_booktag(BOOKTAG_T *booktag);
    @param int n número de booktags que serão gravadas no filename
    @return int
  **/
-void write_booktags(BOOKTAG_T *booktag, char filename[], int n);
+void write_booktags(BOOKTAG_T *booktag, char filename[]);
 
 /**
    [TODO]
@@ -82,7 +73,7 @@ void write_booktag_opt(BOOKTAG_T *booktag, char filename[]);
 
    @param char filename[] nome do arquivo a ser lido
  **/
-BOOKTAG_T *read_booktag(char filename[]);
+BOOKTAG_T *read_booktag(FILE *f);
 
 /**
    Funcao read_booktag_list() que le uma lista de booktags de um arquivo e os imprimi

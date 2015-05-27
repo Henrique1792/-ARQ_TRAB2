@@ -3,13 +3,16 @@
 #include <unistd.h> // utilizado para fazer o system(clear);
 #include <assert.h> //utilizamos o assert para guarantir que alguns parametros sejam corretos
 #include <string.h> //fgets
-#include "screen.h"
+#include <ctype.h> // tolower
 
-//arquivos nossos
+//arquivos do programa
 #include "booktag.h"
 #include "debug.h"
+#include "screen.h"
 
-
+// defines
+#define DATAFILE_PATH "data.bin"// nome do arquivo de dados utilizado
+#define DEBUG 1 //flag de depuracao
 /*
    Trabalho de Organizacao de Arquivos - Trabalho 1
 
@@ -24,6 +27,20 @@
    a interface grafica, manipulacao das opcoes nela e tratamentos.
 
 */
+
+//
+// funcao que deixa a string para lower
+// modifica por referencia
+//
+void lower_case(char *string) {
+
+    int i;
+    int tam = strlen(string);
+    for(i = 0; i < tam; i++) {
+        string[i] = (char)tolower(string[i]);
+    }
+}
+
 
 
 /**
@@ -141,77 +158,58 @@ BOOKTAG_T *screen_get_input() {
     //pegando o titulo do livro
     fprintf(stdout, "Digite o título do livro (caracteres alfanumericos [A-Z/0-9]): ");
 
-    //utilizamos o fgets dentro de uma rotina de logging e checamos o tamanho do input
-    do {
-        BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
-
-        if (strlen(BUFFER) > TITLE_MAX) { //verificamos se ele digitou coisa mais
-            printf("\nUltrapassou a quantidade máxima de caracteres %d, digite novamente: ", TITLE_MAX);
-        } else
-            break; //validado
-
-    } while (1);
-
-    //completamos o restante do espaço que sobrou
-    string_complete(BUFFER, 1);
-
-    //copiamos o input
-    strncpy(booktag->title, BUFFER, strlen(BUFFER));
+    BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
+    booktag->title = malloc(sizeof(char) * strlen(BUFFER));
+    //
+    // TRATAMENTO DE STRING (lowercase)
+    //
+    lower_case(BUFFER);
+    if (DEBUG) {
+        printf("\t\tDEBUG: digitado %s", BUFFER);
+    }
+    // copiamos para estrutura
+    strcpy(booktag->title, BUFFER);
 
     //pegamos o autor
     fprintf(stdout, "Digite o autor do livro(caracteres alfanumericos [A-Z/0-9]): ");
 
-    do {
-        BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
-
-        if (strlen(BUFFER) > AUTHOR_MAX) { //verificamos se ele digitou coisa mais
-            printf("\nUltrapassou a quantidade máxima de caracteres %d, digite novamente: ", AUTHOR_MAX);
-        } else
-            break; //validado
-    } while (1);
-
-    //completamos o restante do espaço vago no buffer
-    string_complete(BUFFER, 2);
-
-    //guardamos
-    strncpy(booktag->author, BUFFER, strlen(BUFFER));
+    BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
+    booktag->author = malloc(sizeof(char)*strlen(BUFFER));
+    //
+    // TRATAMENTO DA STRING (lowercase)
+    //e copia
+    lower_case(BUFFER);
+    if (DEBUG) {
+        printf("\t\tDEBUG: digitado %s", BUFFER);
+    }
+    strcpy(booktag->author, BUFFER);
 
     //pegando editora
     fprintf(stdout, "Digite a editora do livro(caracteres alfanumericos [A-Z/0-9]): ");
-
-    do { //validamos
-        BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
-
-        if (strlen(BUFFER) > PUB_MAX) { //verificamos se ele digitou coisa mais
-            printf("\nUltrapassou a quantidade máxima de caracteres %d, digite novamente: ", PUB_MAX);
-        } else
-            break; //validado
-
-    } while(1);
-
-    //completamos o espaço em branco
-    string_complete(BUFFER, 3);
-
-    //copiamos para estrutura
-    strncpy(booktag->publisher, BUFFER, strlen(BUFFER));
+    BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
+    booktag->publisher = malloc(sizeof(char)*strlen(BUFFER));
+    //
+    // TRATAMENTO DE STRING (lowercase)
+    // e copia
+    lower_case(BUFFER);
+    if (DEBUG) {
+        printf("\t\tDEBUG: digitado %s", BUFFER);
+    }
+    strcpy(booktag->publisher, BUFFER);
 
     //pegamos idioma
     fprintf(stdout, "Digite o idioma do livro(caracteres alfabeticos [A-Z]): ");
 
-    do { //validamos
-        BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
-
-        if (strlen(BUFFER) > LANG_MAX) { //verificamos se ele digitou coisa mais
-            printf("\nUltrapassou a quantidade máxima de caracteres %d, digite novamente: ", LANG_MAX);
-        } else
-            break; //validado
-    } while (1);
-
-    //completamos o espaço que sobrou
-    string_complete(BUFFER, 4);
-    //copiamos
-    strncpy(booktag->language, BUFFER, strlen(BUFFER));
-
+    BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
+    booktag->language = malloc(sizeof(char)*strlen(BUFFER));
+    //
+    // TRATAMENTO DE STRING (lowercase)
+    // e copia
+    lower_case(BUFFER);
+    if (DEBUG) {
+        printf("\t\tDEBUG: digitado %s", BUFFER);
+    }
+    strcpy(booktag->language, BUFFER);
 
     //validamos o ano (sem negativos) e o guardamos
     printf("Digite o ano do livro(caracteres numericos [0-9]): ");
@@ -222,7 +220,6 @@ BOOKTAG_T *screen_get_input() {
             printf("O ano não pode ser negativo, digite novamente: ");
         } else
             break;
-
     }
     booktag->year = atoi(BUFFER);
 
@@ -280,7 +277,7 @@ void insert_screen() {
     while (cont == 1)    {
         booktag_temp = screen_get_input();
         //substituir aqui
-        write_booktags(booktag_temp, DATAFILE_PATH, 1);
+        write_booktags(booktag_temp, DATAFILE_PATH);
         printf("\nInformações cadastradas foram: ");
         printf_booktag(booktag_temp);
         printf("\nDigite 1 para inserir mais um cadastro: ");
@@ -463,48 +460,6 @@ void booktag_search_all_screen() {
         break;
     case 3: // opcao para sair
         return;
-    }
-
-}
-
-
-/**
-   Função interna string_complete() que preenche o restante da string para evitar
-   problemas de diferenças nos tamanhos
-
-   @param char string[] que será preenchida
-   @param int n qual campo será preencido (1 para titulo, para autor, 3 para editora e 4 para idioma)
- **/
-void string_complete(char string[], int n) {
-
-    //pegamos o tamanho dela e o contador
-    int size = strlen(string);
-    int i;
-
-    switch(n) {
-    case 1: // titulo
-        for(i = size+1; i < TITLE_MAX; i++) { //completamos para o tamanho do título
-            string[i] = ' ';
-        }
-        break;
-    case 2: // autor
-        for(i = size+1; i < AUTHOR_MAX; i++) { // para o autor
-            string[i] = ' ';
-        }
-
-        break;
-    case 3://editora
-        for(i = size+1; i < PUB_MAX; i++) { //para o editor
-            string[i] = ' ';
-        }
-        break;
-    case 4://idioma
-        for(i = size+1; i < LANG_MAX; i++) { // para o idioma
-            string[i] = ' ';
-        }
-        break;
-    default:
-        break;
     }
 
 }

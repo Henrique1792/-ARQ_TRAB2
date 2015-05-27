@@ -3,7 +3,6 @@
 
 #include "booktag.h" //arquivo de booktags
 
-
 /*
    Trabalho de Organizacao de Arquivos - Trabalho 1
 
