@@ -413,7 +413,11 @@ void booktag_search_year_screen() {
         );
     int year;
     scanf("%d", &year);
-    recover_year(DATAFILE_PATH, year);
+    //
+    // TODO:
+    // adicoinar funcao de recuperar ano nova
+    //
+    //    recover_year(DATAFILE_PATH, year);
 }
 
 /**
@@ -438,7 +442,10 @@ void booktag_search_all_screen() {
         read_booktag_list(DATAFILE_PATH);
         break;
     case 2: // opcao para aver um registor por vez
-        read_booktag_list_one(DATAFILE_PATH);
+        //
+        // TODO:  inserir nova funcao que imprime na tela um registro por vez
+        //
+//        read_booktag_list_one(DATAFILE_PATH);
         break;
     case 3: // opcao para sair
         return;
