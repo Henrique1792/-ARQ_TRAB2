@@ -1,0 +1,51 @@
+TRAB2 ARQUIVOS
+
++ inserção de livros
++ recuperação de dados
+	- todos os registros
+	- campo year (busca sequencial + top stack)
+	- author (indice secundario forte a partir de 10 registros com listas invertidas para chaves repetidas)
+	- publisher (indice secundario forte a partir de 10 registros com listas invertidas para chaves repetidas)
+	- author X e publisher Y (matching)
+	- author X ou publisher Y (merging)
++ remoção lógica
+	- campo author (mais de um reg mostrado a partir do indice secundario e depois user decide qual excluir)
++ inserção com aproveitamento dinâmico
+	- worst fit
+	- tratar fragmentação interna
++ arquivo data em modo binário
+
+MODELO DOS DADOS
+
+45titulo|autor|editora|ano|lingua|45titulo|autor|editora|ano|lingua|
+
+INDICE
+
+- campos de tamanho fixo
+- busca binária
+- operações: pesquisa/criação/inserção/remoção/atualização/destruição/carregamento/reescrita
+- na criação ter um registro de cabeçalho + status
+- inserção ordenada
+- remoção logica ou física
+- armazenado em memória primária
+
+INDICE SECUNDARIO
+
+-fortemente ligado
+-busca = pesquisa no indice/recupera byte/recupera no arq de dado
+-inserção = insere no arquivo/insere no indice ordenado/agrupa as chaves duplicadas
+-remoção = remove do arquivo/remove do indice secundario
+-atualização = so se alterar as chaves secundarias
+- repetição das chaves secundarias
+	-inserção = insere no arquivo de dados/ insere no fim do aquivo de indice primario com RRN = RRN que estava no indice
+	secundario(se tiver repetição) ou RRN = -1/insere ordenado no indice secundario com o RRN da ocorrencia no indice primario
+
+MERGING (união)
+
+- as duas listas são processadas até o fim
+- tratas nomes duplicados na saída
+
+MATCHING (intersecção)
+
+-processo acaba se uma das listas acabar
+- tratas nomes duplicados na saída
