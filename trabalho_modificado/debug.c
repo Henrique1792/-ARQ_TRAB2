@@ -106,13 +106,13 @@ size_t fwrite_log(void *buffer,
     }
 
     //fazemos de fato a operacao de escrita
-    BOOKTAG_T *book = buffer;
+//    BOOKTAG_T *book = buffer;
     size_t i = fwrite(buffer, size, count, stream); //gravamos
 
     //mandamos os dados gravados pro log
-    fprintf(f, "\n[GRAVOU] retorno %lu Autor: %s Titulo: %s Editora %s Ano %d Idioma: %s Paginas: %d Preco %f\n", i,
-            book->author, book->title, book->publisher, book->year, book->language, book->pages,
-            book->price);
+    /* fprintf(f, "\n[GRAVOU] retorno %lu Autor: %s Titulo: %s Editora %s Ano %d Idioma: %s Paginas: %d Preco %f\n", i, */
+            /* book->author, book->title, book->publisher, book->year, book->language, book->pages, */
+            /* book->price); */
 
     fclose_log(f);
     return i;

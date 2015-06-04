@@ -38,7 +38,6 @@
  **/
 typedef struct{
 	char *title;//titulo
-
 	char *author; //autor
 	char *publisher;//editora
 	int year;//ano

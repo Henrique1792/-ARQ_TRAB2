@@ -128,6 +128,7 @@ void printf_booktag(BOOKTAG_T *booktag) {
     printf("Titulo: %s\n", booktag->title);
     printf("Autor: %s\n", booktag->author);
     printf("Editora: %s\n", booktag->publisher);
+    printf("Idioma: %s\n", booktag->language);
     printf("Ano: %d\nPáginas: %d\nPreço: %.2f\n",
            booktag->year, booktag->pages, booktag->price);
     printf("-----------------------------------------------\n");
@@ -144,80 +145,60 @@ BOOKTAG_T *screen_get_input() {
     //estrutura temporária para guardar o input do usuário
     BOOKTAG_T *booktag = create_booktag();
 
-    char *BUFFER = NULL; // nossa variavel 'buffer' ou no caso temporária para o input
+    char *BUFFER = malloc(sizeof(char) * BUFFER_MAX);
 
-    // pegamos esse caracter pois alguma sujeira esta vindo do stdin
-    // que o fflush(stdin) não consegue pegar.
+    fflush(stdin);
     getchar();
-
-    // limpamos a string na segunda utilização para garantir que não haja sujeiras
-    if (BUFFER) memset(BUFFER,0,strlen(BUFFER));
-
-    //DEBUG: vendo conteudo se o buffer existir
-
-    if(DEBUG && (BUFFER))    printf("TAMANHO: %lu\n", strlen(BUFFER));
 
     //pegando o titulo do livro
     fprintf(stdout, "Digite o título do livro (caracteres alfanumericos [A-Z/0-9]): ");
-
-    BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
+    fgets(BUFFER, sizeof BUFFER, stdin);
     booktag->title = malloc(sizeof(char) * strlen(BUFFER));
-    //
-    // TRATAMENTO DE STRING (lowercase)
-    //
-    lower_case(BUFFER);
-    if (DEBUG) {
-        printf("\t\tDEBUG: digitado %s", BUFFER);
-    }
-    // copiamos para estrutura
     strcpy(booktag->title, BUFFER);
+    if (DEBUG) {
+        printf("\t\tDEBUG: digitado %s", booktag->title);
+    }
+
+    fflush(stdin);
 
     //pegamos o autor
     fprintf(stdout, "Digite o autor do livro(caracteres alfanumericos [A-Z/0-9]): ");
-
-    BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
-    booktag->author = malloc(sizeof(char)*strlen(BUFFER));
-    //
-    // TRATAMENTO DA STRING (lowercase)
-    //e copia
-    lower_case(BUFFER);
-    if (DEBUG) {
-        printf("\t\tDEBUG: digitado %s", BUFFER);
-    }
+    fgets(BUFFER, sizeof BUFFER, stdin);
+    booktag->author = malloc(sizeof(char) * strlen(BUFFER));
     strcpy(booktag->author, BUFFER);
 
-    //pegando editora
-    fprintf(stdout, "Digite a editora do livro(caracteres alfanumericos [A-Z/0-9]): ");
-    BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
-    booktag->publisher = malloc(sizeof(char)*strlen(BUFFER));
-    //
-    // TRATAMENTO DE STRING (lowercase)
-    // e copia
-    lower_case(BUFFER);
     if (DEBUG) {
-        printf("\t\tDEBUG: digitado %s", BUFFER);
+        printf("\t\tDEBUG: digitado %s", booktag->author);
     }
+
+    fflush(stdin);
+
+    //pegamos o autor
+    fprintf(stdout, "Digite a editora do livro(caracteres alfanumericos [A-Z/0-9]): ");
+    fgets(BUFFER, sizeof BUFFER, stdin);
+    booktag->publisher = malloc(sizeof(char) * strlen(BUFFER));
     strcpy(booktag->publisher, BUFFER);
 
-    //pegamos idioma
-    fprintf(stdout, "Digite o idioma do livro(caracteres alfabeticos [A-Z]): ");
-
-    BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
-    booktag->language = malloc(sizeof(char)*strlen(BUFFER));
-    //
-    // TRATAMENTO DE STRING (lowercase)
-    // e copia
-    lower_case(BUFFER);
     if (DEBUG) {
-        printf("\t\tDEBUG: digitado %s", BUFFER);
+        printf("\t\tDEBUG: digitado %s", booktag->publisher);
     }
+
+    fflush(stdin);
+    getchar();
+    //pegamos o autor
+    fprintf(stdout, "\nDigite o idioma do livro(caracteres alfanumericos [A-Z/0-9]): ");
+    fgets(BUFFER, sizeof BUFFER, stdin);
+    booktag->language = malloc(sizeof(char) * strlen(BUFFER));
     strcpy(booktag->language, BUFFER);
+
+    if (DEBUG) {
+        printf("\t\tDEBUG: digitado %s", booktag->language);
+    }
 
     //validamos o ano (sem negativos) e o guardamos
     printf("Digite o ano do livro(caracteres numericos [0-9]): ");
     while (1) {
-        fgets(BUFFER, sizeof(BUFFER), stdin);
-
+        fgets(BUFFER, sizeof BUFFER, stdin);
         if (atoi(BUFFER) < 0) {
             printf("O ano não pode ser negativo, digite novamente: ");
         } else
@@ -225,34 +206,35 @@ BOOKTAG_T *screen_get_input() {
     }
     booktag->year = atoi(BUFFER);
 
+    fflush(stdin);
+
     // pegamos a qtd paginas
     printf("Digite a quantidade de paginas do livro(caracteres numericos [0-9]): ");
     while(1)    {
-        fgets(BUFFER, sizeof(BUFFER), stdin);
-        if (atoi(BUFFER) < 0) {
+        fgets(BUFFER, sizeof BUFFER, stdin);
+        if (atof(BUFFER) < 0) {
             printf("As paginas não podem ser negativo, digite novamente: ");
         } else
             break;
     }
-    booktag->pages = atoi(BUFFER);
+    booktag->pages = atof(BUFFER);
+
+    fflush(stdin);
 
     // pegamos o preço e o validamos
     printf("Digite o preço(caracteres numericos [0-9]): ");
-
     while (1) {
-        fgets(BUFFER, sizeof(BUFFER), stdin);
-        if (atoi(BUFFER) < 0) { //preco negativo
+        fgets(BUFFER, sizeof BUFFER, stdin);
+        if (atof(BUFFER) < 0) { //preco negativo
             printf("O preco não podem ser negativo, digite novamente: ");
         } else
             break;
     }
 
     booktag->price = atof(BUFFER);
-
     //liberamos espaço
     //e retornamos a booktag com as informações
     free(BUFFER);
-    BUFFER = NULL;
     return booktag;
 }
 

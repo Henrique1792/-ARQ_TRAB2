@@ -82,4 +82,6 @@ void logicrem_booktag_log(const char *filename, const char *title, int topstack,
 void diskrem_booktag_log(const char *filename);
 
 
+
+char * getline_input(void);
 #endif
