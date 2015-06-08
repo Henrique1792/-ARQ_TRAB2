@@ -18,7 +18,7 @@
 
 
 //tempo de espera entre cada registro impresso pela função de impressão/visualização
-#define TIME_PRINTF 1
+
 
 /**
    Função start_screen() comeca a tela inicial do programa

@@ -24,12 +24,13 @@
    Toda memoria liberada nas funcoes sao liberadas nelas, exceto a funcao create_booktag.
 
  */
+
 /**
  * Le uma string ate encontrar o delimitador
  *@param: target é o arquivo a ser lido.
  *@return: string lida.
  **/
-char *readstr(FILE *target){
+static char *readstr(FILE *target){
 	char getter='a';
 	char *string = NULL;
 	int i=0;
@@ -72,10 +73,6 @@ BOOKTAG_T *create_booktag() {
     } else
         fprintf(fp, "\n\n[AVISO] erro na abertura/escrita do arquivo de log\n\n");
 
-
-    //preechemos todos valores pois o gcc por alguma razão utiliza o mesmo espaço de memória de outro registro alocado anteriormente, logo quando alocamos
-    // podemos encontrar sujeiras(como informações dos registros anteriores)
-
     return book;
 }
 
@@ -84,7 +81,6 @@ BOOKTAG_T *create_booktag() {
    @param BOOKTAG_T *booktag que será liberada
 **/
 
-/*atualizado*/
 void free_booktag(BOOKTAG_T *booktag) {
     if (booktag != NULL) { // verificamos parametro e os liberamos da memória
 		free(booktag->title);
@@ -140,7 +136,7 @@ void write_booktags(BOOKTAG_T *booktag, char filename[]) {
 	fwrite_log(&booktag->pages, sizeof(int), 1, f);
 	fwrite_log(&booktag->price, sizeof(float), 1, f);
 
-	printf("\n\nGravação com sucesso\n\n");
+	printf_debug("\n\nGravação com sucesso\n\n");
     fclose_log(f); //fechamos o log
 }
 
@@ -166,7 +162,6 @@ void str_untrim(char string[]) {
 
    @param char filename[] nome do arquivo a ser lido
  **/
-/*alterado.*/
 BOOKTAG_T *read_booktag(FILE *f) {
 	int size;
     if(f==NULL){
@@ -199,12 +194,18 @@ BOOKTAG_T *read_booktag(FILE *f) {
     fclose_log(f);
     return booktag_temp;
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// funcoes nao alteradas ///////////////////////////////////////////// ////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 /**
    Funcao read_booktag_list() que le uma lista de booktags de um arquivo e os imprimi
 
    @param char filename[] nome do arquivo a ser lido
  **/
-// NAO ALTERADA
 void read_booktag_list(char filename[]) {
 
     //verificamos os parametros e em caso de erro, avisamos
@@ -219,21 +220,44 @@ void read_booktag_list(char filename[]) {
 
     //verificamos o ponteiro de arquivo, em caso de erro, avisamos
     if(f == NULL) {
-        printf("\n[ERRO]Erro na abertura do arquivo %s\n", filename);
+        printf_error("\n[ERRO]Erro na abertura do arquivo\n");
         free(booktag_temp);
         return;
     }
 
     rewind(f); //reiniciamos posiçaõ no arquivo por precaução
 
+    int size = 0;
     //lemos uma estrutura do arquivo e mostramos seu RRN e contéudo
-    while(fread_log(booktag_temp, sizeof(BOOKTAG_T), 1, f)) {
+    while(fread(&size,sizeof(int),1,f) != 0) {
+
+        if (DEBUG) {
+            printf_debug("\n\tDEBUG: Lido estrutura de tamanho: ");
+            char num[100];
+            sprintf(num, "%d", size);
+            printf_debug(num);
+        }
+        if (!size || size < 0) break;
+
+        booktag_temp->title=readstr(f);
+
+        booktag_temp->author=readstr(f);
+
+        booktag_temp->publisher=readstr(f);
+
+        fread(&booktag_temp->year,sizeof(int), 1,f);
+
+        booktag_temp->language=readstr(f);
+
+        fread(&booktag_temp->pages,sizeof(int),1,f);
+
         printf_booktag(booktag_temp);
+
     }
 
     //liberamos memória e fechamos o ponteiro
+
     free_booktag(booktag_temp);
-    fclose_log(f);
     return;
 }
 
@@ -406,7 +430,7 @@ void recover_year (char filename[], int year){
     }
 
     if(found == 0) printf("\nNenhum livro foi encontrado!\n");
-    sleep(TIME_PRINTF);
+//    sleep(TIME_PRINTF);
 
     fclose(file);
 }

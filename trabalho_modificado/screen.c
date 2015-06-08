@@ -106,20 +106,27 @@ void start_screen() {
  **/
 void printf_booktag(BOOKTAG_T *booktag) {
     //verificamos se o paramẽtro está ok
+
+
+    if (DEBUG) {
+        printf_debug("\n\tDEBUG: imprimindo a estrutura: \n");
+    }
+
+
     if (booktag == NULL) {
-        printf("[ERRO] booktag nula, precisa de paramêtro para impressão");
+        printf_error("[ERRO] booktag nula, precisa de paramêtro para impressão");
         return;
     }
 
     //vemos se o tamanho é zero, se for saimos porque naõ é um registro válido
-    if (strlen(booktag->title) == 0) return;
+    if (strlen(booktag->title) == 0 || booktag->title == NULL) return;
+    if (booktag->price == 0 || booktag->pages == 0 || booktag->price == 0) return;
 
     if(booktag->title[0] == '*'){
         printf_separator();
         printf_debug("Registro removido");
         printf_separator();
         printf_separator();
-        sleep(TIME_PRINTF);
         return;
     }
     printf_separator();
@@ -143,10 +150,9 @@ void printf_booktag(BOOKTAG_T *booktag) {
     printf("%d\n", booktag->pages);
 
     printf_colorful("Preco:: ", ANSI_CYAN);
-    printf("%0.2f\n", booktag->price);
+    if (booktag->price != 0) printf("%0.2f\n", booktag->price);
 
     printf_separator();
-    sleep(TIME_PRINTF);
 }
 
 
@@ -352,35 +358,6 @@ void remove_screen() {
 /**
    Função booktag_search_all_screen() Tela  de impressaõ de todas booktags
  **/
-void booktag_search_all_screen() {
-    int opt;
-
-    printf("---------------------- Tela De Listagem - Digite uma opção ----------------------"
-           "\n"
-           "\n"
-           "\n"
-           "1) Ver todos os registros\n"
-           "2) Ver um registro por vez\n"
-           "3) Voltar\n\n"
-           "Digite a opção desejada: "
-        );
-    scanf("%d", &opt);
-
-    switch(opt) {
-    case 1: // opcao para ver todos os registros
-        read_booktag_list(DATAFILE_PATH);
-        break;
-    case 2: // opcao para aver um registor por vez
-        //
-        // TODO:  inserir nova funcao que imprime na tela um registro por vez
-        //
-//        read_booktag_list_one(DATAFILE_PATH);
-        break;
-    case 3: // opcao para sair
-        return;
-    }
-
-}
 
 
 
@@ -418,19 +395,25 @@ void remove_def_screen() {
 }
 
 /**
-   Função booktag_search_screen() Tela de procura de pesquisa de booktag
+   Função booktag_search_screen() Tela de procura/pesquisa de booktags
  **/
+//
+// TODO: ver as buscas que estao sendo pedidas no pdf e fazer as as telas para elas
+//
 void booktag_search_screen() {
-    printf("---------------------- Tela De Listagem/Busca - Escolha as opcões ----------------------"
-           "\n"
-           "\n"
-           "\n"
-           "1) Mostrar todos os registros\n\n"
-           "2) Buscar por ano\n\n"
-           "3) Buscar por RRN\n\n"
-           "4) Voltar\n\n"
-           "Digite a opção desejada: "
-       );
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Listagem/Busca - Escolha as opções ", ANSI_WHITE);
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("\n\n1)", ANSI_WHITE);
+    printf_colorful(" Mostra todos os registros", ANSI_BLUE);
+    printf_colorful("\n\n2)", ANSI_WHITE);
+    printf_colorful(" Buscar por Editora", ANSI_BLUE);
+    printf_colorful("\n\n3)", ANSI_WHITE);
+    printf_colorful(" Buscar por Autor",ANSI_BLUE);
+    printf_colorful("\n\n4)", ANSI_WHITE);
+    printf_colorful(" Voltar",ANSI_BLUE);
+
+    printf_colorful("\n\nDigite a opcao desejada: ", ANSI_YELLOW);
 
     int op;
     scanf("%d", &op);
@@ -439,6 +422,7 @@ void booktag_search_screen() {
     case 1: // lista todos os registros
         system("clear");
         booktag_search_all_screen();
+        printf_error("oi");
         return;
         break;
     case 2: // chama busca por ano
@@ -447,17 +431,49 @@ void booktag_search_screen() {
 
         break;
     case 3: //chama busca por rrn
-        system("clear");
 
         break;
-    case 4:
+    case 4: // sia
         return;
 
     default:
-        printf("\nOpção errada");
+        printf_error("\nOpcao errada\n");
         break;
     }
 }
+void booktag_search_all_screen() {
+    int opt;
+    system("clear");
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Listagem - Escolha as opções ", ANSI_WHITE);
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("\n\n1)", ANSI_WHITE);
+    printf_colorful(" Ver todos Registros", ANSI_BLUE);
+    printf_colorful("\n\n2)", ANSI_WHITE);
+    printf_colorful(" Ver um registro por vez", ANSI_BLUE);
+    printf_colorful("\n\n3)", ANSI_WHITE);
+    printf_colorful(" Voltar",ANSI_BLUE);
+    printf_colorful("\n\nDigite a opcao desejada: ", ANSI_YELLOW);
+
+    scanf("%d", &opt);
+
+    switch(opt) {
+    case 1: // opcao para ver todos os registros
+        read_booktag_list(DATAFILE_PATH);
+        break;
+    case 2: // opcao para aver um registor por vez
+        //
+        // TODO:  inserir nova funcao que imprime na tela um registro por vez
+        //
+
+        break;
+    case 3: // opcao para sair
+        return;
+    }
+
+}
+
+
 
 /**
    Função booktag_search_year_screen Tela de procura de pesquisa de booktag pelo ano
