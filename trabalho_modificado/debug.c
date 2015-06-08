@@ -23,6 +23,32 @@
 */
 
 /**
+ * Imprime uma mensagem utilizando a cor passada
+ **/
+void printf_colorful(char string[], char color[]) {
+    printf(color);
+    printf(string);
+    printf(ANSI_RESET);
+}
+
+/**
+ * Imprime uma mensagem de depuracao (cor fixa amarelo)
+ **/
+void printf_debug(char string[]) {
+    printf_colorful(string,ANSI_YELLOW);
+}
+/**
+ * Imprime uma mensagem de erro (cor fixa vermelho)
+ **/
+void printf_error(char string[]) {
+    printf_colorful(string, ANSI_RED);
+}
+
+void printf_separator() {
+    printf_colorful("\n----------------------------------------------\n", ANSI_WHITE);
+}
+
+/**
    Função fopen com funcionalidade logging
 
    @param filename nome do arquivo que será aberto

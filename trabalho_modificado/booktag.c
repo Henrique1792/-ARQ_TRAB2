@@ -4,12 +4,11 @@
 #include <stdlib.h> //utilizamos para malloc/free
 #include <string.h> //utilizamos o fgets
 
-//arquivos nossos
 #include "debug.h"
 #include "booktag.h"
 #include "screen.h"
 
-/*  
+/*
    Trabalho de Organizacao de Arquivos - Trabalho 2
 
    Integrantes:
@@ -25,10 +24,11 @@
    Toda memoria liberada nas funcoes sao liberadas nelas, exceto a funcao create_booktag.
 
  */
-	/*
-	 *@param: target é o arquivo a ser lido.
-	 *@return: string lida.
-	 * */
+/**
+ * Le uma string ate encontrar o delimitador
+ *@param: target é o arquivo a ser lido.
+ *@return: string lida.
+ **/
 char *readstr(FILE *target){
 	char getter='a';
 	char *string = NULL;
@@ -37,6 +37,10 @@ char *readstr(FILE *target){
 		getter=fgetc(target);
         // WARNING here
 		string = (char *)realloc(string,(i+1)*sizeof(char));
+        if (!string) {
+            free(string);
+
+        }
 		string[i++]=getter;
 	}while(getter!= DELIM);
 	string[--i]='\0';
@@ -222,14 +226,9 @@ void read_booktag_list(char filename[]) {
 
     rewind(f); //reiniciamos posiçaõ no arquivo por precaução
 
-    int rrn = 0; // rrn inicial
-
-
     //lemos uma estrutura do arquivo e mostramos seu RRN e contéudo
     while(fread_log(booktag_temp, sizeof(BOOKTAG_T), 1, f)) {
-        printf("\nRRN: %d", rrn);
         printf_booktag(booktag_temp);
-        rrn++;
     }
 
     //liberamos memória e fechamos o ponteiro

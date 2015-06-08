@@ -8,6 +8,25 @@
 #define LOG_FILENAME "log.txt" //arquivo de log
 #define DEBUG 1 //flag de depuração
 
+// definicao de cores utilizadas no output
+// define-se dois padroes de cores pois o
+
+#define ANSI_RED     "\x1b[31m"
+#define ANSI_GREEN   "\x1b[32m"
+#define ANSI_YELLOW  "\x1b[33m"
+#define ANSI_BLUE    "\x1b[34m"
+#define ANSI_MAGENTA "\x1b[35m"
+#define ANSI_CYAN    "\x1b[36m"
+#define ANSI_WHITE   "\x1b[37m"
+#define ANSI_RESET   "\x1b[0m"
+
+
+
+void printf_colorful(char string[], char color[]);
+void printf_error(char string[]);
+void printf_debug();
+void printf_separator();
+
 
 /**
    Funcao fread com sistema de logging
