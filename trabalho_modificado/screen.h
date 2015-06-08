@@ -17,9 +17,6 @@
 */
 
 
-//tempo de espera entre cada registro impresso pela função de impressão/visualização
-
-
 /**
    Função start_screen() comeca a tela inicial do programa
  **/
@@ -36,18 +33,9 @@ void insert_screen();
 void remove_screen();
 
 /**
-   Função printf_booktag() que imprime uma booktag
-
-   @param booktag a ser impressa
- **/
-/// PRECISA SER ATUALIZADA
-void printf_booktag(BOOKTAG_T *booktag);
-
-/**
    Função get_input() pega o input, e alocado a memória assim que necessário
    @return BOOKTAG_T booktag criada com as informações de input
  **/
-/// ATUALIZADA
 BOOKTAG_T *screen_get_input();
 
 /**

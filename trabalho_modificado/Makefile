@@ -1,6 +1,7 @@
 all: main.o screen.o debug.o booktag.o idx.o
 	gcc -g -Wall -o trabalho main.o screen.o debug.o booktag.o
 
+
 main.o:
 	gcc -Wall -g -c main.c
 
@@ -21,3 +22,8 @@ run:
 
 clean:
 	rm -rf *.o trabalho
+
+step:
+	make clean
+	make
+	make run

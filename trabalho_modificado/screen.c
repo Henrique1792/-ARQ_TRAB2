@@ -99,62 +99,6 @@ void start_screen() {
 }
 
 
-/**
-   Função printf_booktag() que imprime uma booktag
-
-   @param booktag a ser impressa
- **/
-void printf_booktag(BOOKTAG_T *booktag) {
-    //verificamos se o paramẽtro está ok
-
-
-    if (DEBUG) {
-        printf_debug("\n\tDEBUG: imprimindo a estrutura: \n");
-    }
-
-
-    if (booktag == NULL) {
-        printf_error("[ERRO] booktag nula, precisa de paramêtro para impressão");
-        return;
-    }
-
-    //vemos se o tamanho é zero, se for saimos porque naõ é um registro válido
-    if (strlen(booktag->title) == 0 || booktag->title == NULL) return;
-    if (booktag->price == 0 || booktag->pages == 0 || booktag->price == 0) return;
-
-    if(booktag->title[0] == '*'){
-        printf_separator();
-        printf_debug("Registro removido");
-        printf_separator();
-        printf_separator();
-        return;
-    }
-    printf_separator();
-
-    printf_colorful("Titulo: ", ANSI_CYAN);
-    printf("%s", booktag->title);
-
-    printf_colorful("Autor: ", ANSI_CYAN);
-    printf("%s", booktag->author);
-
-    printf_colorful("Editora: ", ANSI_CYAN);
-    printf("%s\n", booktag->publisher);
-
-    printf_colorful("Idioma: ", ANSI_CYAN);
-    printf("%s", booktag->language);
-
-    printf_colorful("Ano: ", ANSI_CYAN);
-    printf("%d\n", booktag->year);
-
-    printf_colorful("Paginas: ", ANSI_CYAN);
-    printf("%d\n", booktag->pages);
-
-    printf_colorful("Preco:: ", ANSI_CYAN);
-    if (booktag->price != 0) printf("%0.2f\n", booktag->price);
-
-    printf_separator();
-}
-
 
 /**
    Função get_input() pega o input, e alocado a memória assim que necessário
@@ -167,13 +111,15 @@ BOOKTAG_T *screen_get_input() {
 
     char *BUFFER = malloc(sizeof(char) * BUFFER_MAX);
 
+
     fflush(stdin);
-    getchar();
 
     //pegando o titulo do livro
     printf_colorful("\n\nDigite o Titulo do livro ", ANSI_CYAN);
     printf_colorful("(caracteres alfanumericos [A-Z/0-9]): ", ANSI_RED);
-    fgets(BUFFER, sizeof BUFFER, stdin);
+//    BUFFER = getline_input(); //fgets_log(BUFFER, sizeof BUFFER, stdin);
+    scanf(" %[^\n]s",BUFFER);
+
     if (DEBUG) {
         printf_debug("\tDEBUG: digitado ");
         printf_debug(BUFFER);
@@ -188,7 +134,9 @@ BOOKTAG_T *screen_get_input() {
     printf_colorful("\nDigite o Autor do livro ", ANSI_CYAN);
     printf_colorful("(caracteres alfanumericos [A-Z/0-9]): ", ANSI_RED);
 
-    fgets(BUFFER, sizeof BUFFER, stdin);
+    scanf(" %[^\n]s",BUFFER);
+//    fgets(BUFFER, sizeof BUFFER, stdin);
+
     if (DEBUG) {
         printf_debug("\tDEBUG: digitado ");
         printf_debug(BUFFER);
@@ -204,7 +152,7 @@ BOOKTAG_T *screen_get_input() {
     //pegamos o autor
     printf_colorful("\nDigite a Editora do livro ", ANSI_CYAN);
     printf_colorful("(caracteres alfanumericos [A-Z/0-9]): ", ANSI_RED);
-    fgets(BUFFER, sizeof BUFFER, stdin);
+    scanf(" %[^\n]s",BUFFER);
     if (DEBUG) {
         printf_debug("\tDEBUG: digitado ");
         printf_debug(BUFFER);
@@ -219,8 +167,8 @@ BOOKTAG_T *screen_get_input() {
     //pegamos o autor
     printf_colorful("\n\nDigite o Idioma do livro ", ANSI_CYAN);
     printf_colorful("(caracteres alfanumericos [A-Z/0-9]): ", ANSI_RED);
+    scanf(" %[^\n]s",BUFFER);
 
-    fgets(BUFFER, sizeof BUFFER, stdin);
     if (DEBUG) {
         printf_debug("\tDEBUG: digitado ");
         printf_debug(BUFFER);
@@ -229,6 +177,9 @@ BOOKTAG_T *screen_get_input() {
     booktag->language = malloc(sizeof(char) * strlen(BUFFER));
     lower_case(BUFFER);
     strcpy(booktag->language, BUFFER);
+
+    fflush(stdin);
+    getchar();
 
     //validamos o ano (sem negativos) e o guardamos
     printf_colorful("\nDigite o ano do livro ", ANSI_CYAN);
@@ -243,7 +194,6 @@ BOOKTAG_T *screen_get_input() {
     booktag->year = atoi(BUFFER);
     if (DEBUG) printf_debug("\tDEBUG: digitado %d\n", booktag->year);
     fflush(stdin);
-
     // pegamos a qtd paginas
     printf_colorful("\nDigite o numero de paginas do livro ", ANSI_CYAN);
     printf_colorful("(caracteres numericos e inteiros[0-9]): ", ANSI_RED);
@@ -422,7 +372,7 @@ void booktag_search_screen() {
     case 1: // lista todos os registros
         system("clear");
         booktag_search_all_screen();
-        printf_error("oi");
+
         return;
         break;
     case 2: // chama busca por ano
@@ -460,6 +410,7 @@ void booktag_search_all_screen() {
     switch(opt) {
     case 1: // opcao para ver todos os registros
         read_booktag_list(DATAFILE_PATH);
+        system("clear");
         break;
     case 2: // opcao para aver um registor por vez
         //

@@ -44,6 +44,9 @@ void printf_error(char string[]) {
     printf_colorful(string, ANSI_RED);
 }
 
+/**
+ * Imprime um separador na tela de terminal (cor fixa branca)
+ **/
 void printf_separator() {
     printf_colorful("\n----------------------------------------------\n", ANSI_WHITE);
 }
@@ -59,7 +62,7 @@ FILE *fopen_log(const char *filename, const char *mode) {
     assert(filename != NULL && mode != NULL); //checamos se parametro esta correto
 
 
-//abrimos arquivo de log e gravamos msg de aviso
+   //abrimos arquivo de log e gravamos msg de aviso
     FILE *f_log = fopen(LOG_FILENAME, mode);
     if (f_log == NULL) {
         printf("\n[AVISO]erro na abertura do arquivo de log, continuando\n");
@@ -178,6 +181,7 @@ size_t fread_log(void *buffer, size_t size, size_t count,
 
    @return char *  a string do input
  **/
+
 char * getline_input(void) {
 
 

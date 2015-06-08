@@ -116,5 +116,6 @@ int  diskrem_booktag(char filename[]);
 */
 void recover_year (char filename[],  int year);
 
+void printf_booktag(BOOKTAG_T *booktag);
 
 #endif
