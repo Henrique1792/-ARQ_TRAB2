@@ -118,4 +118,15 @@ void recover_year (char filename[],  int year);
 
 void printf_booktag(BOOKTAG_T *booktag);
 
+
+
+/**
+   Funcao read_booktag_list_one() que le uma lista de booktags imprimindo um registor por vez
+
+   @param char filename[] nome do arquivo a ser lido
+ **/
+void read_booktag_list_one(char filename[]);
+
+
+
 #endif

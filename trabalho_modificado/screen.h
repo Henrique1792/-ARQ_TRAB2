@@ -47,10 +47,12 @@ void remove_def_screen();
    Função booktag_search_screen() Tela de procura de pesquisa de booktag
  **/
 void booktag_search_screen();
+
 /**
-   Função booktag_search_year_screen Tela de procura de pesquisa de booktag pelo ano
+ * Funcao bookatg_search_author() Tela de procura por Autor
  **/
-void booktag_search_year_screen();
+
+void booktag_search_author();
 
 /**
    Função booktag_search_rrn_screen() Tela de procura de pesquisa de booktag pelo RRN
@@ -63,6 +65,17 @@ void booktag_search_rrn_screen();
 void booktag_search_all_screen();
 
 /**
+ * Funcao booktag_search_publisher() Tela de procura de editora
+ **/
+void booktag_search_publisher();
+
+/**
+ * Funcao booktag_search_publisher_author() Tela de procura com merging/matching
+ * @param int i que ira indicar qual operacao esta sendo feita (1 para matching, 2 para merging)
+ */
+void booktag_search_publisher_author(int i);
+
+/**
    Função interna string_complete() que preenche o restante da string para evitar
    problemas de diferenças nos tamanhos
 
@@ -70,4 +83,10 @@ void booktag_search_all_screen();
    @param int n qual campo será preencido (1 para titulo, para autor, 3 para editora e 4 para idioma)
  **/
 void string_complete(char string[], int n);
+/**
+ * Funcao booktag_search_list_one() que mostra um registro por vez
+ **/
+void booktag_search_list_one();
+
+
 #endif

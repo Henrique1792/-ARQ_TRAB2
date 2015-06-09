@@ -335,6 +335,74 @@ void read_booktag_list(char filename[]) {
     }
 }
 
+
+/**
+   Funcao read_booktag_one() que le uma lista de booktags de um arquivo e os imprimi
+
+   @param char filename[] nome do arquivo a ser lido
+ **/
+void read_booktag_list_one(char filename[]) {
+
+    //verificamos os parametros e em caso de erro, avisamos
+    if (filename == NULL) {
+        printf("\n[AVISO] filename precisa ser o nome do arquivo a ser utilizado\n");
+        return;
+    }
+
+    //alocamos a estrutura temporária e o ponteiro para o arquivo
+    BOOKTAG_T *booktag_temp = create_booktag();
+    FILE *f = fopen(filename, "rb");
+
+    //verificamos o ponteiro de arquivo, em caso de erro, avisamos
+    if(f == NULL) {
+        printf_error("\n[ERRO]Erro na abertura do arquivo\n");
+        free(booktag_temp);
+        return;
+    }
+    int cont = 1;
+    int size = 0;
+    while(!feof(f) && cont == 1) {
+
+        fread(&size, sizeof(int), 1, f);
+
+        booktag_temp->title=readstr(f);
+
+        booktag_temp->author=readstr(f);
+
+        booktag_temp->publisher=readstr(f);
+
+        fread(&booktag_temp->year,sizeof(int), 1,f);
+
+        booktag_temp->language=readstr(f);
+
+        fread(&booktag_temp->pages,sizeof(int),1,f);
+
+        fread(&booktag_temp->price,sizeof(float),1,f);
+
+        printf_booktag(booktag_temp);
+
+        printf_separator();
+
+        printf_colorful("\n\nDigite 1 para continuar a impressao ", ANSI_CYAN);
+        rewind(stdin);
+        scanf("%d", &cont);
+    }
+
+
+
+    printf_separator();
+    printf_debug("\n\nFinal do arquivo");
+    printf_separator();
+
+
+    fclose(f);
+    free_booktag(booktag_temp);
+    return;
+}
+
+
+
+
 /**
    Função markrem_booktag() remove logicamente uma booktag
    A função recebe o RRN de um registro, procura ele no arquivo e se o encontrar
@@ -344,6 +412,8 @@ void read_booktag_list(char filename[]) {
    @param int rrn a ser removido
    @return int se encontrado ou não (-1 para erro, 1 para encontrado, 0 para não)
 **/
+
+
 int markrem_booktag(char filename[], int rrn){
 
     //checamos os parametros
