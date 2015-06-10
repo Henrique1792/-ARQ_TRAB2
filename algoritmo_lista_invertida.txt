@@ -1,0 +1,43 @@
+ALGORITMO PARA CRIAR LISTA INVERTIDA
+
+- leitura do arquivo de dados do campo author
+- inserção na lista invertida do byteoffset do registro lido
+- pesquisa na lista em ordem contrária (começando do ultimo registro) e procurar a partir do byteoffset um registro cujo author seja o mesmo
+  + se não encontrar -> RRN lista invertida = -1 
+                        inserção no indice secundario o campo author do registro e o RRN do arquivo da lista onde se encontra o byteoffset
+  + se encontrar -> RRN lista invertida = RRN do arquivo da lista do primeiro que encontrar da pesquisa
+
+
+
+PASSO A PASSO
+
++ arquivo de dados:
+
+byte  campo author
+1     rita
+2     rita
+3     mv
+4     maq
+5     mv
+6     rita
+
++ indice secundário gerado pelo algoritmo:
+
+chave sec   RRN
+rita        0
+mv          2
+maq         3
+
+obs: ordenar o indice secundario após todas as inserções
+
++ lista gerada:
+
+RRN do arq   byteoffset   RRN lista
+0            1            -1
+1            2            0
+2            3            -1
+3            4            -1
+4            5            2
+5            6            1
+
+
