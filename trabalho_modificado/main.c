@@ -17,6 +17,6 @@
  */
 
 int main(int argc, char *argv[]) {
-    start_screen();
+	start_screen();
     return 0;
 }

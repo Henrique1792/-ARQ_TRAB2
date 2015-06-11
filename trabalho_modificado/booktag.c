@@ -71,6 +71,23 @@ void free_booktag(BOOKTAG_T *booktag) {
 	}
 }
 
+int booktag_sizeof(BOOKTAG_T *booktag){
+	if(booktag != NULL){
+		int size = 0;
+
+		size += sizeof(booktag->title);
+		size += sizeof(booktag->author);
+		size += sizeof(booktag->publisher);
+		size += sizeof(booktag->year);
+		size += sizeof(booktag->language);
+		size += sizeof(booktag->pages);
+		size += sizeof(booktag->price);
+
+		return size;
+	}
+	return -1; //não é possível operar
+}
+
 /**
    @brief Função write_booktags() recebe um booktag que irá ser gravado em um arquivo
 
@@ -95,7 +112,7 @@ void write_booktags(BOOKTAG_T *booktag, char filename[]) {
         return;
     }
 
-    int tam = sizeof(booktag);
+    int tam = booktag_sizeof(booktag);
     // gravamos os campos no arquivo
     fwrite_log(&tam, sizeof(int), 1, f);
 
@@ -136,6 +153,32 @@ void str_untrim(char string[]) {
 
 
 }
+
+BOOKTAG_T *get_booktag(FILE *f, int *tam){
+	int size;
+	if(f==NULL){
+		printf("AVISO: erro no ponteiro do arquivo");
+		return NULL;
+	}
+
+	if(feof(f)) return NULL;
+
+	BOOKTAG_T *getter=create_booktag();
+
+	fread(&size,sizeof(int),1,f);
+	*tam = size;
+
+	getter->title = readstr(f);	
+	getter->author = readstr(f);
+	getter->publisher = readstr(f);
+	fread(&getter->year,sizeof(int),1,f);
+	getter->language = readstr(f);
+	fread(&getter->pages,sizeof(int),1,f);
+	fread(&getter->price,sizeof(float),1,f);
+
+	return getter;
+}
+
 
 /**
    Funcao read_booktag() lê do arquivo de nome filename e retorna o primeiro booktag

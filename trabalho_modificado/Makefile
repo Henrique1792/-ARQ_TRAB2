@@ -1,5 +1,5 @@
-all: main.o screen.o debug.o booktag.o idx.o
-	gcc -g -Wall -o trabalho main.o screen.o debug.o booktag.o
+all: main.o screen.o debug.o booktag.o idc.o 
+	gcc -g -Wall -o trabalho main.o screen.o debug.o booktag.o idc.o
 
 
 main.o:
@@ -14,7 +14,7 @@ debug.o:
 booktag.o:
 	gcc -Wall -g -c booktag.c
 
-idx.o:
+idc.o:
 	gcc -Wall -g -c idc.c
 
 run:

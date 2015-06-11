@@ -14,7 +14,7 @@
 
    Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
    Rita Raad                                       numero USP: 8061452
-   Henrique Fernandes de Matos Freitas             numero USP: 8937225
+   Henrique Fernandes de Mattos Freitas             numero USP: 8937225
    Gustavo Santiago                                numero USP: 8937416
 
    Descricao do arquivo booktag.h: possui a definicao da estrutura e assinatura das funcoes (implementadas na booktag.c). Alem disso,
@@ -118,7 +118,7 @@ void recover_year (char filename[],  int year);
 
 void printf_booktag(BOOKTAG_T *booktag);
 
-
+BOOKTAG_T *get_booktag(FILE *f, int *tam);
 
 /**
    Funcao read_booktag_list_one() que le uma lista de booktags imprimindo um registor por vez
