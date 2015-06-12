@@ -1,70 +1,106 @@
-#include <stdio.h> //funÃ§Ã£o de gravaÃ§Ã£o e leitura
-#include <stdlib.h> // funÃ§Ãµes padrÃµes (malloc por ex)
+#include <stdio.h> //função de gravação e leitura
+#include <stdlib.h> // funções padrões (malloc por ex)
 #include <unistd.h> // utilizado para fazer o system(clear);
-#include <assert.h> //utilizamos o assert para guarantir que alguns parametros sejam corretos
 #include <string.h> //fgets
-#include "screen.h"
+#include <ctype.h> // tolower
 
-//arquivos nossos
 #include "booktag.h"
 #include "debug.h"
+#include "screen.h"
+#include "idc.h"
 
+// defines
+#define DATAFILE_PATH "data.bin"// nome do arquivo de dados utilizado
+#define DEBUG 1 //flag de depuracao
 
 /*
-   Trabalho de Organizacao de Arquivos - Trabalho 1
-
+   Trabalho de Organizacao de Arquivos - Trabalho 2
    Integrantes:
-
    Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
    Rita Raad                                       numero USP: 8061452
    Henrique Fernandes de Matos Freitas             numero USP: 8937225
-   Gustavo                                         numero USP: 8937416
-
+   Gustavo Santiago                                numero USP: 8937416
    Descricao do arquivo screen.c: implementa as funcoes definidas no arquivo screen.h. Possui as funcoes relativas a
    a interface grafica, manipulacao das opcoes nela e tratamentos.
-
 */
+
+//
+// funcao que deixa a string para lower
+// modifica por referencia
+//
+static void lower_case(char *string) {
+
+    int i;
+    int tam = strlen(string);
+    for(i = 0; i < tam; i++) {
+        string[i] = (char)tolower(string[i]);
+    }
+}
+
+void write_topstack(int *topstack){
+	FILE *f = fopen(TOPSTACK_PATH,"r+");
+
+	fwrite(topstack,sizeof(int),1,f);
+
+	fclose(f);
+}
+
+void load_topstack(int *topstack){
+	FILE *f = fopen(TOPSTACK_PATH,"r");
+
+	if(!f){
+		f = fopen(TOPSTACK_PATH,"w+");
+		fclose(f);
+		write_topstack(topstack);
+		return;
+	}
+
+	fread(topstack,sizeof(int),1,f);
+
+	fclose(f);
+}
 
 
 /**
-   FunÃ§Ã£o start_screen() comeca a tela inicial do programa
+   Função start_screen() comeca a tela inicial do programa
  **/
 void start_screen() {
 
     //loop principal do programa
     while(1) {
         system("clear"); //limpamos a telax
-        printf("---------------------- Tela Inicial - Escolha as opÃ§Ãµes ----------------------"
-               "\n"
-               "\n"
-               "\n"
-               "Menu de opÃ§Ãµes: \n"
-               "\n"
-               "1) Menu de Cadastro " "\n\n" "2) Menu de RemoÃ§Ã£o" "\n\n"
-               "3) Menu de Relatorio " "\n\n" "4) Sair"
-               "\n"
-               "\n"
-               "Digite a opÃ§Ã£o desejada:  "
-            );
+        printf_colorful("----------------------", ANSI_WHITE);
+        printf_colorful(" Tela Inicial - Escolha as opções ", ANSI_WHITE);
+        printf_colorful("----------------------", ANSI_WHITE);
 
-        int op; // operaÃ§Ã£o do usuÃ¡rio
+        printf_colorful("\n\n1)", ANSI_WHITE);
+        printf_colorful(" Menu de Cadastro", ANSI_BLUE);
+        printf_colorful("\n\n2)", ANSI_WHITE);
+        printf_colorful(" Menu de Remocao", ANSI_BLUE);
+        printf_colorful("\n\n3)", ANSI_WHITE);
+        printf_colorful(" Menu de Relatorio",ANSI_BLUE);
+        printf_colorful("\n\n4)", ANSI_WHITE);
+        printf_colorful(" Sair", ANSI_BLUE);
+        printf_colorful("\n\nDigite a opcao desejada: ", ANSI_YELLOW);
+
+        int op; // operação do usuário
         scanf("%d", &op);
 
         switch(op) {
         case 1: // tela de cadastro
-            //limpamos e chamamos a tela de inserÃ§Ã£o
+            //limpamos e chamamos a tela de inserção
             system("clear");
             insert_screen();
 
             break;
         case 2: // tela de remocao
-            //limpamos e chamamos a tela de remoÃ§Ã£ox
+            //limpamos e chamamos a tela de remoçãox
             system("clear");
             remove_screen();
 
             break;
         case 3: // tela de relatorio
-            //limpamos e chamamos a tela de relatÃ³rio/busca
+            //limpamos e chamamos a tela de relatório/busca
             system("clear");
             booktag_search_screen();
 
@@ -72,206 +108,159 @@ void start_screen() {
         case 4: // tela de sair
             //sai e faco a limpeza/checagem do arquivo
             printf("\nSaindo...\n");
-            diskrem_booktag(DATAFILE_PATH);
+			int a = verify_index(DATAFILE_PATH);
+			if(a == 0) create_index(DATAFILE_PATH);
             return;
         default:
-            printf("\n OpÃ§Ã£o incorreta, digite novamente\n");
+            printf("\n Opção incorreta, digite novamente\n");
             break;
         }
     }
 }
 
 
-/**
-   FunÃ§Ã£o printf_booktag() que imprime uma booktag
-
-   @param booktag a ser impressa
- **/
-void printf_booktag(BOOKTAG_T *booktag) {
-    //verificamos se o paramáº½tro estÃ¡ ok
-    if (booktag == NULL) {
-        printf("[ERRO] booktag nula, precisa de paramÃªtro para impressÃ£o");
-        return;
-    }
-
-    //vemos se o tamanho Ã© zero, se for saimos porque naÃµ Ã© um registro vÃ¡lido
-    if (strlen(booktag->title) == 0) return;
-
-    if(booktag->title[0] == '*'){
-        printf("\n----------------------------------------------\n");
-        printf("Registro removido");
-        printf("\n----------------------------------------------\n");
-        sleep(TIME_PRINTF);
-        return;
-    }
-    //imprimos todo o conteÃºdo da estrutura na tela
-    printf("\n----------------------------------------------\n");
-    printf("Titulo: %s\n", booktag->title);
-    printf("Autor: %s\n", booktag->author);
-    printf("Editora: %s\n", booktag->publisher);
-    printf("Ano: %d\nPÃ¡ginas: %d\nPreÃ§o: %.2f\n",
-           booktag->year, booktag->pages, booktag->price);
-    printf("-----------------------------------------------\n");
-    sleep(TIME_PRINTF);
-}
-
 
 /**
-   FunÃ§Ã£o get_input() pega o input, e alocado a memÃ³ria assim que necessÃ¡rio
-   @return BOOKTAG_T booktag criada com as informaÃ§Ãµes de input
+   Função get_input() pega o input, e alocado a memória assim que necessário
+   @return BOOKTAG_T booktag criada com as informações de input
  **/
 BOOKTAG_T *screen_get_input() {
 
-    //estrutura temporÃ¡ria para guardar o input do usuÃ¡rio
+    //estrutura temporária para guardar o input do usuário
     BOOKTAG_T *booktag = create_booktag();
 
-    char *BUFFER = NULL; // nossa variavel 'buffer' ou no caso temporÃ¡ria para o input
+    char *BUFFER = malloc(sizeof(char) * BUFFER_MAX);
 
-    // pegamos esse caracter pois alguma sujeira esta vindo do stdin
-    // que o fflush(stdin) nÃ£o consegue pegar.
-    getchar();
 
-    // limpamos a string na segunda utilizaÃ§Ã£o para garantir que nÃ£o haja sujeiras
-    if (BUFFER) memset(BUFFER,0,strlen(BUFFER));
-
-    //DEBUG: vendo conteudo se o buffer existir
-
-    if(DEBUG && (BUFFER))    printf("TAMANHO: %lu\n", strlen(BUFFER));
+    fflush(stdin);
 
     //pegando o titulo do livro
-    fprintf(stdout, "Digite o tÃ­tulo do livro (caracteres alfanumericos [A-Z/0-9]): ");
+    printf_colorful("\n\nDigite o Titulo do livro ", ANSI_CYAN);
+    printf_colorful("(caracteres alfanumericos [A-Z/0-9]): ", ANSI_RED);
+//    BUFFER = getline_input(); //fgets_log(BUFFER, sizeof BUFFER, stdin);
+    scanf(" %[^\n]s",BUFFER);
 
-    //utilizamos o fgets dentro de uma rotina de logging e checamos o tamanho do input
-    do {
-        BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
+    if (DEBUG) {
+        printf_debug("\tDEBUG: digitado ");
+        printf_debug(BUFFER);
+    }
 
-        if (strlen(BUFFER) > TITLE_MAX) { //verificamos se ele digitou coisa mais
-            printf("\nUltrapassou a quantidade mÃ¡xima de caracteres %d, digite novamente: ", TITLE_MAX);
-        } else
-            break; //validado
-
-    } while (1);
-
-    //completamos o restante do espaÃ§o que sobrou
-    string_complete(BUFFER, 1);
-
-    //copiamos o input
-    strncpy(booktag->title, BUFFER, strlen(BUFFER));
+    booktag->title = malloc(sizeof(char) * strlen(BUFFER));
+    lower_case(BUFFER);
+    strcpy(booktag->title, BUFFER);
+    fflush(stdin);
 
     //pegamos o autor
-    fprintf(stdout, "Digite o autor do livro(caracteres alfanumericos [A-Z/0-9]): ");
+    printf_colorful("\nDigite o Autor do livro ", ANSI_CYAN);
+    printf_colorful("(caracteres alfanumericos [A-Z/0-9]): ", ANSI_RED);
 
-    do {
-        BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
+    scanf(" %[^\n]s",BUFFER);
+//    fgets(BUFFER, sizeof BUFFER, stdin);
 
-        if (strlen(BUFFER) > AUTHOR_MAX) { //verificamos se ele digitou coisa mais
-            printf("\nUltrapassou a quantidade mÃ¡xima de caracteres %d, digite novamente: ", AUTHOR_MAX);
-        } else
-            break; //validado
-    } while (1);
+    if (DEBUG) {
+        printf_debug("\tDEBUG: digitado ");
+        printf_debug(BUFFER);
+    }
 
-    //completamos o restante do espaÃ§o vago no buffer
-    string_complete(BUFFER, 2);
+    booktag->author = malloc(sizeof(char) * strlen(BUFFER));
+    lower_case(BUFFER);
+    strcpy(booktag->author, BUFFER);
 
-    //guardamos
-    strncpy(booktag->author, BUFFER, strlen(BUFFER));
 
-    //pegando editora
-    fprintf(stdout, "Digite a editora do livro(caracteres alfanumericos [A-Z/0-9]): ");
+    fflush(stdin);
 
-    do { //validamos
-        BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
+    //pegamos o autor
+    printf_colorful("\nDigite a Editora do livro ", ANSI_CYAN);
+    printf_colorful("(caracteres alfanumericos [A-Z/0-9]): ", ANSI_RED);
+    scanf(" %[^\n]s",BUFFER);
+    if (DEBUG) {
+        printf_debug("\tDEBUG: digitado ");
+        printf_debug(BUFFER);
+    }
 
-        if (strlen(BUFFER) > PUB_MAX) { //verificamos se ele digitou coisa mais
-            printf("\nUltrapassou a quantidade mÃ¡xima de caracteres %d, digite novamente: ", PUB_MAX);
-        } else
-            break; //validado
+    booktag->publisher = malloc(sizeof(char) * strlen(BUFFER));
+    lower_case(BUFFER);
+    strcpy(booktag->publisher, BUFFER);
 
-    } while(1);
+    fflush(stdin);
+    getchar();
+    //pegamos o autor
+    printf_colorful("\n\nDigite o Idioma do livro ", ANSI_CYAN);
+    printf_colorful("(caracteres alfanumericos [A-Z/0-9]): ", ANSI_RED);
+    scanf(" %[^\n]s",BUFFER);
 
-    //completamos o espaÃ§o em branco
-    string_complete(BUFFER, 3);
+    if (DEBUG) {
+        printf_debug("\tDEBUG: digitado ");
+        printf_debug(BUFFER);
+    }
 
-    //copiamos para estrutura
-    strncpy(booktag->publisher, BUFFER, strlen(BUFFER));
+    booktag->language = malloc(sizeof(char) * strlen(BUFFER));
+    lower_case(BUFFER);
+    strcpy(booktag->language, BUFFER);
 
-    //pegamos idioma
-    fprintf(stdout, "Digite o idioma do livro(caracteres alfabeticos [A-Z]): ");
-
-    do { //validamos
-        BUFFER = fgets_log(BUFFER, sizeof(BUFFER), stdin);
-
-        if (strlen(BUFFER) > LANG_MAX) { //verificamos se ele digitou coisa mais
-            printf("\nUltrapassou a quantidade mÃ¡xima de caracteres %d, digite novamente: ", LANG_MAX);
-        } else
-            break; //validado
-    } while (1);
-
-    //completamos o espaÃ§o que sobrou
-    string_complete(BUFFER, 4);
-    //copiamos
-    strncpy(booktag->language, BUFFER, strlen(BUFFER));
-
+    fflush(stdin);
+    getchar();
 
     //validamos o ano (sem negativos) e o guardamos
-    printf("Digite o ano do livro(caracteres numericos [0-9]): ");
+    printf_colorful("\nDigite o ano do livro ", ANSI_CYAN);
+    printf_colorful("(caracteres numericos e inteiros[0-9]): ", ANSI_RED);
     while (1) {
-        fgets(BUFFER, sizeof(BUFFER), stdin);
-
+        fgets(BUFFER, sizeof BUFFER, stdin);
         if (atoi(BUFFER) < 0) {
-            printf("O ano nÃ£o pode ser negativo, digite novamente: ");
+            printf_error("\nO ano nao pode ser negativo, digite novamente: \n");
         } else
             break;
-
     }
     booktag->year = atoi(BUFFER);
-
+    if (DEBUG) printf_debug("\tDEBUG: digitado %d\n", booktag->year);
+    fflush(stdin);
     // pegamos a qtd paginas
-    printf("Digite a quantidade de paginas do livro(caracteres numericos [0-9]): ");
+    printf_colorful("\nDigite o numero de paginas do livro ", ANSI_CYAN);
+    printf_colorful("(caracteres numericos e inteiros[0-9]): ", ANSI_RED);
     while(1)    {
-        fgets(BUFFER, sizeof(BUFFER), stdin);
-        if (atoi(BUFFER) < 0) {
-            printf("As paginas nÃ£o podem ser negativo, digite novamente: ");
+        fgets(BUFFER, sizeof BUFFER, stdin);
+        if (atof(BUFFER) < 0) {
+            printf_error("\nAs paginas não podem ser negativas, digite novamente: ");
         } else
             break;
     }
-    booktag->pages = atoi(BUFFER);
+    booktag->pages = atof(BUFFER);
+    if (DEBUG) printf_debug("\tDEBUG: digitado %d\n", booktag->pages);
 
-    // pegamos o preÃ§o e o validamos
-    printf("Digite o preÃ§o(caracteres numericos [0-9]): ");
 
+    fflush(stdin);
+
+    // pegamos o preço e o validamos
+    printf_colorful("\nDigite o preco do livro:  ", ANSI_CYAN);
+    printf_colorful("(caracteres numericos e ponto flutuante[0.0-9.9]): ", ANSI_RED);
     while (1) {
-        fgets(BUFFER, sizeof(BUFFER), stdin);
-        if (atoi(BUFFER) < 0) { //preco negativo
-            printf("O preco nÃ£o podem ser negativo, digite novamente: ");
+        fgets(BUFFER, sizeof BUFFER, stdin);
+        if (atof(BUFFER) < 0) { //preco negativo
+            printf_error("O preco não podem ser negativo, digite novamente: ");
         } else
             break;
     }
-
     booktag->price = atof(BUFFER);
+    if (DEBUG) printf_debug("\tDEBUG: digitado %d\n", booktag->price);
 
-    //liberamos espaÃ§o
-    //e retornamos a booktag com as informaÃ§Ãµes
+    //liberamos espaço
+    //e retornamos a booktag com as informcações
     free(BUFFER);
-    BUFFER = NULL;
     return booktag;
 }
 
 
 /**
-   FunÃ§Ã£o insert_screen() tela de cadastrado
+   Função insert_screen() tela de cadastrado
  **/
 void insert_screen() {
     //limpamos a tela
     system("clear");
 
-    //imprimos menu
-    printf("---------------------- Tela De Cadastro - Cadastre uma booktag ----------------------"
-           "\n"
-           "\n"
-           "\n"
-           "Digite as informaÃ§Ãµes: \n\n"
-        );
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Cadastro - Digite as informacoes: ", ANSI_WHITE);
+    printf_colorful("----------------------", ANSI_WHITE);
+
     //booktag temporaria e contador
     BOOKTAG_T *booktag_temp; //temporario para guardar os dados do input e guardar o usuario
     int cont = 1; //variavel para continuar
@@ -280,10 +269,11 @@ void insert_screen() {
     while (cont == 1)    {
         booktag_temp = screen_get_input();
         //substituir aqui
-        write_booktags(booktag_temp, DATAFILE_PATH, 1);
-        printf("\nInformaÃ§Ãµes cadastradas foram: ");
+        write_booktags(booktag_temp, DATAFILE_PATH);
+
+        printf_debug("\nInformações cadastradas foram: ");
         printf_booktag(booktag_temp);
-        printf("\nDigite 1 para inserir mais um cadastro: ");
+        printf_debug("\nDigite 1 para inserir mais um cadastro: ");
         scanf("%d", &cont);
         printf("\n\n");
     }
@@ -293,89 +283,120 @@ void insert_screen() {
 }
 
 /**
-   FuncÃ£o remove_screen() tela de remocao
+   Funcão remove_screen() tela de remocao
  **/
 void remove_screen() {
-    //limpamos a tela e imprimos a tela de remoÃ§Ã£o
+    //limpamos a tela e imprimos a tela de remoção
     system("clear");
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Remocao - Escolha as opções ", ANSI_WHITE);
+    printf_colorful("----------------------", ANSI_WHITE);
 
-    printf("---------------------- Tela De RemoÃ§Ã£o - Escolha as opÃ§Ãµes ----------------------"
-           "\n"
-           "\n"
-           "\n"
-           "Menu de opcoes: \n"
-           "\n"
-           "1) Deseja a ver relatorios/busca?  " "\n\n" "2) Continuar com a remoÃ§Ã£o?\n"
-           "\n3) Voltar"
-           "\n\n"
-           "Digite a opÃ§Ã£o desejada: " );
-    //pegamos a opÃ§aÃµ digitada
+    printf_colorful("\n\n1)", ANSI_WHITE);
+    printf_colorful(" Remover Registro", ANSI_BLUE);
+    printf_colorful("\n\n2)", ANSI_WHITE);
+    printf_colorful(" Menu de Relatorios", ANSI_BLUE);
+    printf_colorful("\n\n3)", ANSI_WHITE);
+    printf_colorful(" Voltar",ANSI_BLUE);
+    printf_colorful("\n\nDigite a opcao desejada: ", ANSI_YELLOW);
+
+    //pegamos a opçaõ digitada
     int op;
     scanf("%d", &op);
 
-    //verificamos qual a opÃ§Ã£o digitada
+    //verificamos qual a opção digitada
     switch(op) {
-    case 1: // chama tela de relatorios
+    case 1:
+        system("clear");
+        remove_def_screen();
+
+        break;
+    case 2:
         system("clear");
         booktag_search_screen();
 
         break;
-    case 2: // continua com a remocao
-        system("clear");
-        remove_def_screen();
-        break;
-
     case 3: // sai
         return;
 
     default:
-        printf("\n OpÃ§Ã£o incorreta");
+        printf_error("\n Opção incorreta");
         break;
     }
 }
 
 /**
-   FunÃ§Ã£o remove_def_screen() Tela de remoÃ§Ã£o definitiva de um registro
+   Função booktag_search_all_screen() Tela  de impressaõ de todas booktags
  **/
-void remove_def_screen() {
 
+void booktag_search_all_screen() {
+    int opt;
     system("clear");
-    printf("---------------------- Tela De RemoÃ§Ã£o - Digite o RRN ----------------------"
-           "\n"
-           "\n"
-           "\n"
-           " Digite o RRN que deseja remover:"
-        );
-    fflush(stdin);
-    int op;
-    scanf("%d", &op); //pegamos rrn do stdin
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Listagem - Escolha as opções ", ANSI_WHITE);
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("\n\n1)", ANSI_WHITE);
+    printf_colorful(" Ver todos Registros", ANSI_BLUE);
+    printf_colorful("\n\n2)", ANSI_WHITE);
+    printf_colorful(" Ver um registro por vez", ANSI_BLUE);
+    printf_colorful("\n\n3)", ANSI_WHITE);
+    printf_colorful(" Voltar",ANSI_BLUE);
+    printf_colorful("\n\nDigite a opcao desejada: ", ANSI_YELLOW);
 
-    printf("\nRRN DIGITADO %d\n", op);
+    scanf("%d", &opt);
 
-    //chamamos a funÃ§Ã£o de remoÃ§Ã£o;
-    int r = markrem_booktag(DATAFILE_PATH, op);
-
-    if (!r) {
-        printf("Registro nÃ£o encontrado\n");
+    switch(opt) {
+    case 1: // opcao para ver todos os registros
+        read_booktag_list(DATAFILE_PATH);
+        system("clear");
+        break;
+    case 2: // opcao para aver um registor por vez
+        booktag_search_list_one();
+        break;
+    case 3: // opcao para sair
+        return;
     }
 
-    sleep(10);
 }
 
 /**
-   FunÃ§Ã£o booktag_search_screen() Tela de procura de pesquisa de booktag
+   Função booktag_search_screen() Tela de procura/pesquisa de booktags
  **/
 void booktag_search_screen() {
-    printf("---------------------- Tela De Listagem/Busca - Escolha as opcÃµes ----------------------"
-           "\n"
-           "\n"
-           "\n"
-           "1) Mostrar todos os registros\n\n"
-           "2) Buscar por ano\n\n"
-           "3) Buscar por RRN\n\n"
-           "4) Voltar\n\n"
-           "Digite a opÃ§Ã£o desejada: "
-       );
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Listagem/Busca - Escolha as opções ", ANSI_WHITE);
+    printf_colorful("----------------------", ANSI_WHITE);
+
+    printf_colorful("\n\n1)", ANSI_WHITE);
+    printf_colorful(" Mostra todos os registros", ANSI_BLUE);
+
+    printf_colorful("\n\n2)", ANSI_WHITE);
+    printf_colorful(" Buscar por Editora", ANSI_BLUE);
+
+    printf_colorful("\n\n3)", ANSI_WHITE);
+    printf_colorful(" Buscar por Autor",ANSI_BLUE);
+
+    printf_colorful("\n\n4)", ANSI_WHITE);
+    printf_colorful(" Buscar por Autor E Editora(NAO IMPLEMENTADO)",ANSI_BLUE);
+
+    printf_colorful("\n\n5)", ANSI_WHITE);
+    printf_colorful(" Buscar por Autor OU Editora(NAO IMPLEMENTADO)",ANSI_BLUE);
+
+    printf_colorful("\n\n6)", ANSI_WHITE);
+    printf_colorful(" Buscar por Ano",ANSI_BLUE);
+
+    printf_colorful("\n\n7)", ANSI_WHITE);
+    printf_colorful(" Mostrar conteúdo das listas invertidas",ANSI_BLUE);
+
+    printf_colorful("\n\n8)", ANSI_WHITE);
+    printf_colorful(" Mostrar conteúdo dos índices secundários (Autor e Editora)",ANSI_BLUE);
+
+    printf_colorful("\n\n9)", ANSI_WHITE);
+    printf_colorful(" Voltar",ANSI_BLUE);
+
+    printf_colorful("\n\nDigite a opcao desejada: ", ANSI_YELLOW);
+
+
 
     int op;
     scanf("%d", &op);
@@ -384,127 +405,259 @@ void booktag_search_screen() {
     case 1: // lista todos os registros
         system("clear");
         booktag_search_all_screen();
+
         return;
         break;
-    case 2: // chama busca por ano
+    case 2: // busca por editora
         system("clear");
-        booktag_search_year_screen();
+        booktag_search_publisher();
 
         break;
-    case 3: //chama busca por rrn
+    case 3: //busca por autor
         system("clear");
-        booktag_search_rrn_screen();
+        booktag_search_author();
 
         break;
-    case 4:
+    case 4: // busca por autor E editora
+        system("clear");
+        booktag_search_publisher_author(1);
+
+        break;
+    case 5: // busca por autor OU editora
+        system("clear");
+        booktag_search_publisher_author(2);
+
+        break;
+    case 6: // pesquisar por ano
+    	system("clear");
+
+        return;
+
+    case 7: // mostrar conteúdo das listas
+    	system("clear");
+    	booktag_show_lists();
+        return;
+
+    case 8: // mostrar conteúdo dos índices
+    	system("clear");
+    	booktag_show_index();
+        return;
+
+    case 9: // sair
         return;
 
     default:
-        printf("\nOpÃ§Ã£o errada");
+        printf_error("\nOpcão inválida\n");
         break;
+    }
+}
+/**
+ * Tela de busca pelo campo secundario autor
+ **/
+void booktag_search_author() {
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Busca por Autor - Escolha as opções ", ANSI_WHITE);
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("\n\n", ANSI_WHITE);
+    printf_colorful("Digite o autor que deseja procurar", ANSI_CYAN);
+    printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
+
+    char author[BUFFER_MAX];
+    scanf("%s", author);
+
+    lower_case(author);
+    //index_search_author(author);
+
+    printf_colorful("\nDigite 1 para voltar ou 2 para fazer outra pesquisa: ", ANSI_YELLOW);
+
+    int op;
+    scanf("%d",&op);
+    switch(op){
+    	case 1:
+    		break;
+    	case 2:
+    		system("clear");
+    		booktag_search_publisher();
+    		break;
+    	default:
+    		break;
+    }
+}
+
+
+
+/**
+ * Tela de busca pelo campo secundario Editora
+ **/
+void booktag_search_publisher() {
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Busca por Editora - Escolha as opções ", ANSI_WHITE);
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("\n\n", ANSI_WHITE);
+    printf_colorful("Digite a Editora que deseja procurar", ANSI_CYAN);
+    printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
+
+    char publisher[BUFFER_MAX];
+    scanf("%s", publisher);
+
+    lower_case(publisher);
+//    index_search_publisher(publisher);
+
+    printf_colorful("\nDigite 1 para voltar ou 2 para fazer outra pesquisa: ", ANSI_YELLOW);
+
+    int op;
+    scanf("%d",&op);
+    switch(op){
+    	case 1:
+    		break;
+    	case 2:
+    		system("clear");
+    		booktag_search_publisher();
+    		break;
+    	default:
+    		break;
+    }
+}
+
+
+void booktag_search_publisher_author(int i) {
+    printf_colorful("----------------------", ANSI_WHITE);
+
+    if (i == 1)
+        printf_colorful(" Tela de Busca por Editora E Editora - Escolha as opções ", ANSI_WHITE);
+    else
+        printf_colorful(" Tela de Busca por Editora OU Editora - Escolha as opções ", ANSI_WHITE);
+
+    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("\n\n", ANSI_WHITE);
+
+    printf_colorful("Digite a Editora que deseja procurar", ANSI_CYAN);
+    printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
+    char publisher[BUFFER_MAX];
+    scanf("%s", publisher);
+
+    printf_colorful("Digite o Autor que deseja procurar", ANSI_CYAN);
+    printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
+    char author[BUFFER_MAX];
+    scanf("%s", author);
+
+
+
+    //
+    // TODO: adicionar funcao que busca por editora e/ou digitado
+    // olha o indice secundario e mostra o que tiver com o autor digitado
+    //
+
+    //verifica qual o valor do parametro i e chama as funcoes correspondentes
+    //(1 para matching ou 2 para merging)
+}
+
+void booktag_show_lists() {
+	printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Mostrar Listas Invertidas ", ANSI_WHITE);
+    printf_colorful("----------------------\n\n", ANSI_WHITE);
+
+	index_show_lists();
+
+	printf_colorful("\nDigite 1 para voltar ou 2 para mostrar de novo: ", ANSI_YELLOW);
+
+    int op;
+    scanf("%d",&op);
+    switch(op){
+    	case 1:
+    		break;
+    	case 2:
+    		system("clear");
+    		booktag_show_lists();
+    		break;
+    	default:
+    		break;
+    }
+}
+
+void booktag_show_index() {
+	printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Mostrar Índices Secundários ", ANSI_WHITE);
+    printf_colorful("----------------------\n\n", ANSI_WHITE);
+
+	index_show_index();
+
+	printf_colorful("\nDigite 1 para voltar ou 2 para mostrar de novo: ", ANSI_YELLOW);
+
+    int op;
+    scanf("%d",&op);
+    switch(op){
+    	case 1:
+    		break;
+    	case 2:
+    		system("clear");
+    		booktag_show_index();
+    		break;
+    	default:
+    		break;
     }
 }
 
 /**
-   FunÃ§Ã£o booktag_search_screen() Tela de procura de pesquisa de booktag
+ * Funcao booktag_search_list_one() que mostra um registro por vez
  **/
-void booktag_search_rrn_screen() {
+void booktag_search_list_one() {
 
-    printf("---------------------- Tela De Busca Por RRN- Digite a RRN ----------------------"
-           "\n"
-           "\n"
-           "\n\n"
-           "Digite a RRN Ã  ser buscado: "
-        );
-    int rrn;
-    scanf("%d", &rrn);
-    recover_rrn(DATAFILE_PATH, rrn);
-sleep(10);
+    read_booktag_list_one(DATAFILE_PATH);
+
 }
 
+////////////////////////////////////////// Funcoes que precisam ser alteradas /////////// /////////// /////////// /////////// /////////// /////////// /////////// //////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 /**
-   FunÃ§Ã£o booktag_search_year_screen Tela de procura de pesquisa de booktag pelo ano
+   Função remove_def_screen() Tela de remoção definitiva de um registro
+ **/
+void remove_def_screen() {
+	static int topstack = -1; //inicializa e mantém o valor de topstack para cada iteração
+	load_topstack(&topstack);
+
+    system("clear");
+    printf("---------------------- Tela De Remoção - Digite o Autor ----------------------"
+           "\n"
+           "\n"
+           "\n"
+           " Digite o nome do autor:"
+        );
+    char *input;
+
+    //
+    // inserir rotina de ler o input
+    //
+
+    //chamamos a função de remoção;
+    int r = markrem_booktag(DATAFILE_PATH, input, topstack);
+
+    if (!r) {
+        printf("Registro não encontrado\n");
+    }
+
+//    sleep(10);
+}
+
+
+
+
+/**
+   Função booktag_search_year_screen Tela de procura de pesquisa de booktag pelo ano
  **/
 void booktag_search_year_screen() {
     printf("---------------------- Tela De Busca Por Ano - Digite o ano ----------------------"
            "\n"
            "\n"
            "\n\n"
-           "Digite o ano Ã  ser buscado: "
+           "Digite o ano a ser buscado: "
         );
     int year;
     scanf("%d", &year);
-    recover_year(DATAFILE_PATH, year);
-}
-
-/**
-   FunÃ§Ã£o booktag_search_all_screen() Tela  de impressaÃµ de todas booktags
- **/
-void booktag_search_all_screen() {
-    int opt;
-
-    printf("---------------------- Tela De Listagem - Digite uma opÃ§Ã£o ----------------------"
-           "\n"
-           "\n"
-           "\n"
-           "1) Ver todos os registros\n"
-           "2) Ver um registro por vez\n"
-           "3) Voltar\n\n"
-           "Digite a opÃ§Ã£o desejada: "
-        );
-    scanf("%d", &opt);
-
-    switch(opt) {
-    case 1: // opcao para ver todos os registros
-        read_booktag_list(DATAFILE_PATH);
-        break;
-    case 2: // opcao para aver um registor por vez
-        read_booktag_list_one(DATAFILE_PATH);
-        break;
-    case 3: // opcao para sair
-        return;
-    }
-
-}
-
-
-/**
-   FunÃ§Ã£o interna string_complete() que preenche o restante da string para evitar
-   problemas de diferenÃ§as nos tamanhos
-
-   @param char string[] que serÃ¡ preenchida
-   @param int n qual campo serÃ¡ preencido (1 para titulo, para autor, 3 para editora e 4 para idioma)
- **/
-void string_complete(char string[], int n) {
-
-    //pegamos o tamanho dela e o contador
-    int size = strlen(string);
-    int i;
-
-    switch(n) {
-    case 1: // titulo
-        for(i = size+1; i < TITLE_MAX; i++) { //completamos para o tamanho do tÃ­tulo
-            string[i] = ' ';
-        }
-        break;
-    case 2: // autor
-        for(i = size+1; i < AUTHOR_MAX; i++) { // para o autor
-            string[i] = ' ';
-        }
-
-        break;
-    case 3://editora
-        for(i = size+1; i < PUB_MAX; i++) { //para o editor
-            string[i] = ' ';
-        }
-        break;
-    case 4://idioma
-        for(i = size+1; i < LANG_MAX; i++) { // para o idioma
-            string[i] = ' ';
-        }
-        break;
-    default:
-        break;
-    }
-
+    //
+    // TODO:
+    // adicoinar funcao de recuperar ano nova
+    //
+    //    recover_year(DATAFILE_PATH, year);
 }

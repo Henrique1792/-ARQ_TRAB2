@@ -3,82 +3,87 @@
 
 #include "booktag.h" //arquivo de booktags
 
-
 /*
-   Trabalho de Organizacao de Arquivos - Trabalho 1
-
+   Trabalho de Organizacao de Arquivos - Trabalho 2
    Integrantes:
-
    Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
    Rita Raad                                       numero USP: 8061452
    Henrique Fernandes de Matos Freitas             numero USP: 8937225
-   Gustavo                                         numero USP: 8937416
-
+   Gustavo Santiago                                numero USP: 8937416
    Descricao do arquivo debug.h: possui assinatura das funcoes implementadas no arquivo debug.c
 */
 
 
-//tempo de espera entre cada registro impresso pela fun√ß√£o de impress√£o/visualiza√ß√£o
-#define TIME_PRINTF 1
-
 /**
-   Fun√ß√£o start_screen() comeca a tela inicial do programa
+   FunÁ„o start_screen() comeca a tela inicial do programa
  **/
 void start_screen();
 
 /**
-   Fun√ß√£o insert_screen() tela de cadastrado
+   FunÁ„o insert_screen() tela de cadastrado
  **/
 void insert_screen();
 
 /**
-   Func√£o remove_screen() tela de remocao
+   Func„o remove_screen() tela de remocao
  **/
 void remove_screen();
 
 /**
-   Fun√ß√£o printf_booktag() que imprime uma booktag
-
-   @param booktag a ser impressa
- **/
-void printf_booktag(BOOKTAG_T *booktag);
-
-/**
-   Fun√ß√£o get_input() pega o input, e alocado a mem√≥ria assim que necess√°rio
-   @return BOOKTAG_T booktag criada com as informa√ß√µes de input
+   FunÁ„o get_input() pega o input, e alocado a memÛria assim que necess·rio
+   @return BOOKTAG_T booktag criada com as informaÁıes de input
  **/
 BOOKTAG_T *screen_get_input();
 
 /**
-   Fun√ß√£o remove_def_screen() Tela de remo√ß√£o definitiva de um registro
+   FunÁ„o remove_def_screen() Tela de remoÁ„o definitiva de um registro
  **/
 void remove_def_screen();
 
 /**
-   Fun√ß√£o booktag_search_screen() Tela de procura de pesquisa de booktag
+   FunÁ„o booktag_search_screen() Tela de procura de pesquisa de booktag
  **/
 void booktag_search_screen();
-/**
-   Fun√ß√£o booktag_search_year_screen Tela de procura de pesquisa de booktag pelo ano
- **/
-void booktag_search_year_screen();
 
 /**
-   Fun√ß√£o booktag_search_rrn_screen() Tela de procura de pesquisa de booktag pelo RRN
+ * Funcao bookatg_search_author() Tela de procura por Autor
+ **/
+
+void booktag_search_author();
+
+/**
+   FunÁ„o booktag_search_rrn_screen() Tela de procura de pesquisa de booktag pelo RRN
  **/
 void booktag_search_rrn_screen();
 
 /**
-   Fun√ß√£o booktag_search_all_screen() Tela  de impressa√µ de todas booktags
+   FunÁ„o booktag_search_all_screen() Tela  de impressaı de todas booktags
  **/
 void booktag_search_all_screen();
 
 /**
-   Fun√ß√£o interna string_complete() que preenche o restante da string para evitar
-   problemas de diferen√ßas nos tamanhos
+ * Funcao booktag_search_publisher() Tela de procura de editora
+ **/
+void booktag_search_publisher();
 
-   @param char string[] que ser√° preenchida
-   @param int n qual campo ser√° preencido (1 para titulo, para autor, 3 para editora e 4 para idioma)
+/**
+ * Funcao booktag_search_publisher_author() Tela de procura com merging/matching
+ * @param int i que ira indicar qual operacao esta sendo feita (1 para matching, 2 para merging)
+ */
+void booktag_search_publisher_author(int i);
+
+/**
+   FunÁ„o interna string_complete() que preenche o restante da string para evitar
+   problemas de diferenÁas nos tamanhos
+   @param char string[] que ser· preenchida
+   @param int n qual campo ser· preencido (1 para titulo, para autor, 3 para editora e 4 para idioma)
  **/
 void string_complete(char string[], int n);
+/**
+ * Funcao booktag_search_list_one() que mostra um registro por vez
+ **/
+void booktag_search_list_one();
+
+
 #endif
+

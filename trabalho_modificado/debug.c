@@ -7,25 +7,49 @@
 
 
 /*
-   Trabalho de Organizacao de Arquivos - Trabalho 1
-
+   Trabalho de Organizacao de Arquivos - Trabalho 2
    Integrantes:
-
    Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
    Rita Raad                                       numero USP: 8061452
    Henrique Fernandes de Matos Freitas             numero USP: 8937225
-   Gustavo                                         numero USP: 8937416
-
+   Gustavo Santiago                                numero USP: 8937416
    Descricao do arquivo debug.c: implementacao das funcoes definida no debug.h Possui funcoes de de logging de leitura, escrita, captura
    de input e relacionadas. Lembrando que o logging utilizada o fwrite e fread por baixo, principais funcoes principais do <stdio.h>
-
    Os cabecalhos de comentarios das funcoes estaos no arquivo debug.h
 */
 
 /**
-   Fun√ß√£o fopen com funcionalidade logging
+ * Imprime uma mensagem utilizando a cor passada
+ **/
+void printf_colorful(char string[], char color[]) {
+    printf(color);
+    printf(string);
+    printf(ANSI_RESET);
+}
 
-   @param filename nome do arquivo que ser√° aberto
+/**
+ * Imprime uma mensagem de depuracao (cor fixa amarelo)
+ **/
+void printf_debug(char string[]) {
+    printf_colorful(string,ANSI_YELLOW);
+}
+/**
+ * Imprime uma mensagem de erro (cor fixa vermelho)
+ **/
+void printf_error(char string[]) {
+    printf_colorful(string, ANSI_RED);
+}
+
+/**
+ * Imprime um separador na tela de terminal (cor fixa branca)
+ **/
+void printf_separator() {
+    printf_colorful("\n----------------------------------------------\n", ANSI_WHITE);
+}
+
+/**
+   FunÁ„o fopen com funcionalidade logging
+   @param filename nome do arquivo que ser· aberto
    @param mode modo de abeertura desse arquivo
    @return FILE* ponteiro para o arquivo aberto
  **/
@@ -33,7 +57,7 @@ FILE *fopen_log(const char *filename, const char *mode) {
     assert(filename != NULL && mode != NULL); //checamos se parametro esta correto
 
 
-//abrimos arquivo de log e gravamos msg de aviso
+   //abrimos arquivo de log e gravamos msg de aviso
     FILE *f_log = fopen(LOG_FILENAME, mode);
     if (f_log == NULL) {
         printf("\n[AVISO]erro na abertura do arquivo de log, continuando\n");
@@ -51,9 +75,8 @@ FILE *fopen_log(const char *filename, const char *mode) {
 }
 
 /**
-   Fun√ß√£o fclose com funcionalidade logging
-
-   @param stream ponteiro para o arquivo que ser√° fechado
+   FunÁ„o fclose com funcionalidade logging
+   @param stream ponteiro para o arquivo que ser· fechado
    @return int retorna 0 ou EOF
  **/
 
@@ -81,11 +104,10 @@ int fclose_log(FILE *stream) {
 
 /**
     Funcao fwrite com sistema de logging
-
-    @param *buffer que cont√©m o que ser√° escrito
+    @param *buffer que contÈm o que ser· escrito
     @param size tamanho do buffer a ser escrito
     @param count quantidade de buffers a serem escritos
-    @param stream filehandle/arquivo que ser√° escrito
+    @param stream filehandle/arquivo que ser· escrito
     @return size_t retorna o resultado do fwrite.
  **/
 size_t fwrite_log(void *buffer,
@@ -102,29 +124,28 @@ size_t fwrite_log(void *buffer,
     if (f == NULL) {
         printf("\n[AVISO]erro na abertura do arquivo de log, continuando\n");
     } else {
-        fprintf(f, "\n[GRAVANDO] as informa√ß√µes: \n");
+        fprintf(f, "\n[GRAVANDO] as informaÁıes: \n");
     }
 
     //fazemos de fato a operacao de escrita
-    BOOKTAG_T *book = buffer;
+//    BOOKTAG_T *book = buffer;
     size_t i = fwrite(buffer, size, count, stream); //gravamos
 
     //mandamos os dados gravados pro log
-    fprintf(f, "\n[GRAVOU] retorno %lu Autor: %s Titulo: %s Editora %s Ano %d Idioma: %s Paginas: %d Preco %f\n", i,
-            book->author, book->title, book->publisher, book->year, book->language, book->pages,
-            book->price);
+    /* fprintf(f, "\n[GRAVOU] retorno %lu Autor: %s Titulo: %s Editora %s Ano %d Idioma: %s Paginas: %d Preco %f\n", i, */
+            /* book->author, book->title, book->publisher, book->year, book->language, book->pages, */
+            /* book->price); */
 
     fclose_log(f);
     return i;
 }
 /**
    Funcao fread com sistema de logging
-
-   @param *buffer que ir√° armazenar os dados que ser√£o lidos
-   @param size tamanho dos dados que ser√£o lidos
-   @param count quantidade de dados que ser√£o lidos
-   @param stream filehandle/arquivo de onde os dados ser√£o lidos
-   @return size_t retorno da fun√ßa√µ fread
+   @param *buffer que ir· armazenar os dados que ser„o lidos
+   @param size tamanho dos dados que ser„o lidos
+   @param count quantidade de dados que ser„o lidos
+   @param stream filehandle/arquivo de onde os dados ser„o lidos
+   @return size_t retorno da funÁaı fread
  **/
 size_t fread_log(void *buffer, size_t size, size_t count,
               FILE * stream) {
@@ -147,11 +168,11 @@ size_t fread_log(void *buffer, size_t size, size_t count,
     return i;
 }
 /**
-   Fun√ß√£o interna getline_input() reescritura da fun√ßa√µ getline (exclusiva para sistemas linux)
+   FunÁ„o interna getline_input() reescritura da funÁaı getline (exclusiva para sistemas linux)
    Le uma linha inteira de caracteres vindo do stdin
-
    @return char *  a string do input
  **/
+
 char * getline_input(void) {
 
 
@@ -193,12 +214,11 @@ char * getline_input(void) {
 }
 
 /**
-   Fun√ßa√µ fgets com sistema de logging
-
-   @param *str ponteiro para o buffer que ir√° guardar a informa√ß√£o
-   @param count quantidade de informa√ß√µes que leremos
-   @param *stream filehandle/arquivo que ir√° ser lido
-   @return char retorno da fun√ß√£o fgets
+   FunÁaı fgets com sistema de logging
+   @param *str ponteiro para o buffer que ir· guardar a informaÁ„o
+   @param count quantidade de informaÁıes que leremos
+   @param *stream filehandle/arquivo que ir· ser lido
+   @return char retorno da funÁ„o fgets
  */
 char *fgets_log( char* str, int count, FILE *stream ) {
     assert(str != NULL || count > 0 || stream != NULL); // checamos os parametros
@@ -218,10 +238,9 @@ char *fgets_log( char* str, int count, FILE *stream ) {
 }
 
 /**
-   Fun√ß√£o logicrem_booktag com funcionalidade logging
-
-   @param filename: Nome do arquivo que ser√° aberto
-   @param title: T√≠tulo da entrada a ser removida
+   FunÁ„o logicrem_booktag com funcionalidade logging
+   @param filename: Nome do arquivo que ser· aberto
+   @param title: TÌtulo da entrada a ser removida
  **/
 void logicrem_booktag_log(const char *filename, const char *title, int topstack, int rrn){
 	assert(filename != NULL || title != NULL); // checando parametros
@@ -230,7 +249,7 @@ void logicrem_booktag_log(const char *filename, const char *title, int topstack,
     FILE *f_log = fopen(LOG_FILENAME, "a");
 
     if (f_log != NULL)
-        fprintf(f_log, "\n[REMO√á√ÉO]: removemos a entrada %s, topstack gravada: %d, novo RRN: %d\n\n", title, topstack, rrn);
+        fprintf(f_log, "\n[REMO«√O]: removemos a entrada %s, topstack gravada: %d, novo RRN: %d\n\n", title, topstack, rrn);
     else
         fprintf(f_log, "\n[AVISO]: erro na abertura do arquivo de log");
 
@@ -239,8 +258,8 @@ void logicrem_booktag_log(const char *filename, const char *title, int topstack,
 
 
 /**
-   Fun√ß√£o diskrem_booktag com funcionalidade logging
-   @param filename: Nome do arquivo que ser√° aberto e atualizado
+   FunÁ„o diskrem_booktag com funcionalidade logging
+   @param filename: Nome do arquivo que ser· aberto e atualizado
  **/
 void diskrem_booktag_log(const char *filename){
     assert(filename != NULL); // checando parametros
@@ -248,7 +267,7 @@ void diskrem_booktag_log(const char *filename){
     // logging
     FILE *f_log = fopen(LOG_FILENAME, "a");
     if (f_log != NULL)
-        fprintf(f_log, "[REMO√á√ÉO]: o arquivo \"%s\" foi atualizado.\n\n", filename);
+        fprintf(f_log, "[REMO«√O]: o arquivo \"%s\" foi atualizado.\n\n", filename);
     else
         fprintf(f_log, "[AVISO] erro na abertura do arquivo de log");
 
@@ -269,3 +288,4 @@ void new_booktag_log() {
 
     fclose(fp);
 }
+
