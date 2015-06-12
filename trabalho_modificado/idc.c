@@ -34,7 +34,7 @@ char *readline(FILE *stream){
 }
 
 //função interna de encontrar a posição na lista
-int list_find_pos(char filename[], char *key){
+int list_find_pos(char filename[]){
 	FILE *stream = fopen(filename,"r");
 
 	rewind(stream);
@@ -55,7 +55,6 @@ int list_find_pos(char filename[], char *key){
 }
 
 void free_list(IDXLIST_T *list){
-	free(list->key);
 	free(list);
 }
 
@@ -66,9 +65,7 @@ void free_idxsec(IDXSEC_T *idx){
 
 
 void print_list(IDXLIST_T *idx){
-	if(idx && idx->key){
-		printf_colorful("\t[Chave]: ",ANSI_CYAN);
-		printf("%s\n",idx->key);
+	if(idx  ){
 		printf_colorful("\t[Offset]: ",ANSI_CYAN);
 		printf("%d\n",idx->offset);
 		printf_colorful("\t[Próximo]: ",ANSI_CYAN);
@@ -103,8 +100,7 @@ IDXLIST_T *read_list(FILE *file, int pos){
 			}
 		}
 
-		read->key = strtok(line,"|");
-		read->offset = atoi(strtok(NULL,"|"));
+		read->offset = atoi(strtok(line,"|"));
 		read->next = atoi(strtok(NULL,"|"));
 
 		return read;
@@ -335,17 +331,16 @@ int insert_to_index(INDICES_T *idx, BOOKTAG_T *booktag, int offset){
 
 	//escreve na lista invertida
 	if(idx->list_aut){
-		list_aut->key = booktag->title;
 		list_aut->offset = offset;
 		list_aut->next = pos;
-		fprintf(idx->list_aut, "%s|%d|%d\n", list_aut->key, list_aut->offset, list_aut->next);
+		fprintf(idx->list_aut, "%d|%d\n", list_aut->offset, list_aut->next);
 		fclose(idx->list_aut);
 	}
 
 	//escreve no índice de author
 	if(idx->author){
 		author->field = booktag->author;
-		author->listPos = list_find_pos(IDXLISTAUT_PATH,list_aut->key);
+		author->listPos = list_find_pos(IDXLISTAUT_PATH);
 		if(pos != -1) 	fseek(idx->author,seekpos,SEEK_CUR);
 		else			fseek(idx->author,0,SEEK_END);
 		fprintf(idx->author, "%s|%d\n", author->field, author->listPos);
@@ -386,17 +381,16 @@ int insert_to_index(INDICES_T *idx, BOOKTAG_T *booktag, int offset){
 
 	//escreve na lista invertida
 	if(idx->list_pub){
-		list_pub->key = booktag->title;
 		list_pub->offset = offset;
 		list_pub->next = pos;
-		fprintf(idx->list_pub, "%s|%d|%d\n", list_pub->key, list_pub->offset, list_pub->next);
+		fprintf(idx->list_pub, "%d|%d\n",  list_pub->offset, list_pub->next);
 		fclose(idx->list_pub);
 	}
 
 	//escreve no índice de publisher
 	if(idx->publisher){
 		publisher->field = booktag->publisher;
-		publisher->listPos = list_find_pos(IDXLISTPUB_PATH,list_pub->key);
+		publisher->listPos = list_find_pos(IDXLISTPUB_PATH);
 		if(pos != -1) 	fseek(idx->publisher,seekpos,SEEK_CUR);
 		else			fseek(idx->publisher,0,SEEK_END);
 		fprintf(idx->publisher, "%s|%d\n", publisher->field, publisher->listPos);
