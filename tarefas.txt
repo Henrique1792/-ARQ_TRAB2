@@ -1,0 +1,92 @@
+Apêndice: Adaptações do primeiro trabalho
+
+ Reclamacoes/Revisao do trabalho 1:
+
+ Documentação:
+ Funcionalidades deveriam ser descritas mais detalhadamente.
+
+ Implementação:
+ Busca sequencial por RRN.
+ Não usou método de reaproveitamento de espaço ensinados na aula (pilha).
+
+ Interface: (IMPLEMENTADO)
+ [FEITO] Não informa formato dos campos pros usuários.
+
+
+
+ * ESTRUTURA DOS ARQUIVOS *
+	
+	LISTA INVERTIDA:
+
+	rrn 	byteoffset	listainvertida(-1 para final dela)
+
+
+	INDICE SECUNDARIO:
+	
+	CAMPO (AUTHOR OU EDITORA)	OCORRENCIA DA LISTA iNVERTIDA
+
+
+I - Inicial
+	[FEITO - edward] ->Registro de cabeçalho (top stack)
+	[FEITO] ->Campos de tamanho variável (alterar as strings)
+	[FEITO] ->Incluir delimitadores (registros e campos)
+	[FEITO] ->Reciclar o código atual
+
+	[FEITO] -> cadastro do registro
+	[FEITO] -> leitura do registro
+	-> remocao do registro (ver V)
+
+	-> aproveitameno de espaco worst fit
+	-> rotina de marcacao de espacos nao aproveitados
+	-> rotina de compactacao 
+
+II - Índices secundários 
+	
+	->Criação do arquivo
+	->Remoção do arquivo
+	->Inserçaõ do arquivo
+	->Ordenação no arquivo
+	->Busca no arquivo	
+
+	** ATENCAO **
+
+	FOI CONVERSADO COM A MONITORA/PROFESSORA (VER EMAIL DA RITA) E
+	NAO EXISTIRA INDICE PRIMARIO, EXISTIRA UM ARQUIVO QUE IRA
+	REPRESENTAR O INDICE SECUNDARIO E UM OUTRO ARQUIVO (OU EM RAM) A
+	LISTA INVERTIDA.
+
+	** ATENCAO **
+
+	->Criação da lista invertida (arquivo separado, ver email)
+	->Adicionar elemento na lista invertida
+	->Atualizar a lista invertida(recria-la?)
+	->Buscar na lista invertida( ALGORITMO IGUAL AS FUNCOES ABAIXO, 
+	A RITA TEM O PSEUDOCODIGO). --> txt algoritmos_lista_invertida
+
+
+
+	->Fortemente ligados
+	->Author e Publisher
+	->Tratar: duplicações usando listas invertidas
+	->Índices devem ser criados a partir do 10º registro
+	
+	->Funcao de atualizacao do indice secundario
+	->Funcao de remocao de um indice secundario
+	->Funcao de busca de um indice secundario que volte o byteoff do registro
+	
+III - Recuperação de dados (Rita)
+	->Usando Author OU Publisher (merging)
+	->Usando Author E Publisher (matching)
+	
+	-> TAD de Lista voltado para implementacoa de indice secundario
+	-> Funcao que Adiciona os registros do indice secundario numa lista
+	-> Funcao que verifica se um registro esta numa lista
+	
+IV - Remoção (Edward)
+	->A partir de Author
+	->Remoção lógica
+
+V  - Documentação e entrega (prioritariamente o mais breve antes da entrega!)
+	-> pseudo codigo de todos algoritmos presentes no sistema
+	-> representacao do indice primario e secundario
+	-> exemplo de utilizacao, mostrando como esta o arquivo de dados, de indice primario e indice secundario

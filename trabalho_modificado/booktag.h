@@ -28,8 +28,10 @@
 #define LANG_MAX 30 /*!< quantidade maxima de caracteres da do idioma  */
 #define BUFFER_MAX 1024  /*!< tamanho maximo do buffer  */
 #define DATAFILE_PATH "data.bin"   /*!< nome do arquivo de dados  */
-#define IDXPRIM_PATH "idxprim.idx" /*!< nome do arquivo de indice primario  */
-#define IDXSEC_PATH "idxsec.idx" /*!< nome do arquivo de indice secundario  */
+#define IDXLISTAUT_PATH "idx_listaut.idx" /*!< nome do arquivo de lista invertida  */
+#define IDXLISTPUB_PATH "idx_listpub.idx" /*!< nome do arquivo de lista invertida  */
+#define IDXSECAUT_PATH "idx_author.idx" /*!< nome do arquivo de indice secundario  */
+#define IDXSECPUB_PATH "idx_publisher.idx" /*!< nome do arquivo de indice secundario  */
 #define CHAR_REM '*'    /*!< caracter de remocao  */
 #define DELIM '|' /*!< caracter delimitador  */
 
@@ -96,7 +98,7 @@ void read_booktag_list(char filename[]);
    @param int rrn a ser removido
    @return int se encontrado ou não (-1 para erro, 1 para encontrado, 0 para não)
 **/
-int  markrem_booktag(char filename[], int rrn);
+int  markrem_booktag(char filename[], char *field, int topstack);
 
 /**
    Função diskrem_booktag() remove fisicamente uma booktag
@@ -126,6 +128,8 @@ BOOKTAG_T *get_booktag(FILE *f, int *tam);
    @param char filename[] nome do arquivo a ser lido
  **/
 void read_booktag_list_one(char filename[]);
+
+char *readstr(FILE *target);
 
 
 

@@ -26,8 +26,6 @@
  */
 
 
-static char *readstr(FILE *target);
-
 /**
    @brief Função create_booktag() que aloca uma estrutura do tipo BOOKTAG_T
    @return estrutura alocada
@@ -75,13 +73,15 @@ int booktag_sizeof(BOOKTAG_T *booktag){
 	if(booktag != NULL){
 		int size = 0;
 
-		size += sizeof(booktag->title);
-		size += sizeof(booktag->author);
-		size += sizeof(booktag->publisher);
+		size += sizeof(int); //indicador de tamanho
+		size += sizeof(char) * strlen(booktag->title);
+		size += sizeof(char) * strlen(booktag->author);
+		size += sizeof(char) * strlen(booktag->publisher);
 		size += sizeof(booktag->year);
-		size += sizeof(booktag->language);
+		size += sizeof(char) * strlen(booktag->language);
 		size += sizeof(booktag->pages);
 		size += sizeof(booktag->price);
+		size += 4 * sizeof(char); // tamanho dos delimitadores
 
 		return size;
 	}
@@ -99,7 +99,7 @@ int booktag_sizeof(BOOKTAG_T *booktag){
 
  /**alterado.*/
 void write_booktags(BOOKTAG_T *booktag, char filename[]) {
-	char chr='|';
+	char chr = DELIM;
     //garantimos os paramêtros corretos para evitar erros no arquivo de dados
     assert(booktag != NULL || filename != NULL);
 
@@ -116,7 +116,7 @@ void write_booktags(BOOKTAG_T *booktag, char filename[]) {
     // gravamos os campos no arquivo
     fwrite_log(&tam, sizeof(int), 1, f);
 
-    fwrite_log(booktag->title, sizeof(char),strlen(booktag->title), f);
+    fwrite_log(booktag->title, sizeof(char), strlen(booktag->title), f);
 	fwrite_log(&chr,sizeof(char),1,f);
 
 	fwrite_log(booktag->author, sizeof(char),strlen(booktag->author), f);
@@ -163,9 +163,9 @@ BOOKTAG_T *get_booktag(FILE *f, int *tam){
 
 	if(feof(f)) return NULL;
 
-	BOOKTAG_T *getter=create_booktag();
+	BOOKTAG_T *getter = create_booktag();
 
-	fread(&size,sizeof(int),1,f);
+	if(!fread(&size,sizeof(int),1,f)) return NULL;
 	*tam = size;
 
 	getter->title = readstr(f);	
@@ -224,7 +224,7 @@ BOOKTAG_T *read_booktag(FILE *f) {
  *@param: target é o arquivo a ser lido.
  *@return: string lida.
  **/
-static char *readstr(FILE *target){
+char *readstr(FILE *target){
 	char getter='a';
 	char *string = NULL;
 	int i=0;
@@ -234,7 +234,6 @@ static char *readstr(FILE *target){
 		string = (char *)realloc(string,(i+1)*sizeof(char));
         if (!string) {
             free(string);
-
         }
 		string[i++]=getter;
         if (feof(target)) break;
@@ -266,12 +265,11 @@ void printf_booktag(BOOKTAG_T *booktag) {
         printf_separator();
         printf_debug("Registro removido");
         printf_separator();
-        printf_separator();
         return;
     }
     printf_separator();
 
-    printf_colorful("\nTitulo: ", ANSI_CYAN);
+    printf_colorful("Titulo: ", ANSI_CYAN);
     printf_colorful(booktag->title, ANSI_MAGENTA);
 
     printf_colorful("\nAutor: ", ANSI_CYAN);
@@ -336,11 +334,10 @@ void read_booktag_list(char filename[]) {
         return;
     }
 
-    int size = 0;
+    int i = 0, size = 0;
     //lemos uma estrutura do arquivo e mostramos seu RRN e contéudo
-    while(!feof(f)) {
+    while(fread(&size, sizeof(int), 1, f)) {
 //    while(fread(&size,sizeof(int),1,f) != 0) {
-        fread(&size, sizeof(int), 1, f);
 
         booktag_temp->title=readstr(f);
 
@@ -356,9 +353,12 @@ void read_booktag_list(char filename[]) {
 
         fread(&booktag_temp->price,sizeof(float),1,f);
 
+        printf("\n[%d] tamanho: %d", i, size);
+
         printf_booktag(booktag_temp);
 
-        printf_separator();
+        i++;
+        //printf_separator();
     }
 
     //liberamos memória e fechamos o ponteiro
@@ -453,15 +453,16 @@ void read_booktag_list_one(char filename[]) {
 
    @param char filename[] nome do arquivo de dados
    @param int rrn a ser removido
-   @return int se encontrado ou não (-1 para erro, 1 para encontrado, 0 para não)
+   @return int se encontrado ou não (-1 para erro, 1 para encontrado, 0 para não encontrado)
 **/
 
 
-int markrem_booktag(char filename[], int rrn){
+int markrem_booktag(char filename[], char *field, int topstack){
 
     //checamos os parametros
-    if (filename == NULL) {
-        printf("\n[AVISO] filename precisa ser o nome do arquivo a ser utilizado\n");
+    if (!filename || !field) {
+        printf("\n[AVISO] Nome do arquivo ou campo inválido\n");
+        return -1;
     }
 
     //alocamos a estrutura temporaria e o ponteiro do arquivo
@@ -478,12 +479,7 @@ int markrem_booktag(char filename[], int rrn){
     rewind(f); //reiniciamos o ponteiro do arquivo (boa prática)
     printf("\nProcurando..\n\n");
 
-    int rrn_rem = 0; // rrn inicial
-
-    //começamos com a primeira leitura
-    fread_log(booktag_temp, sizeof(BOOKTAG_T), 1, f);
-
-    //começamos o loop de leitura no arquivo
+    /*//começamos o loop de leitura no arquivo
     do {
 
         if (rrn_rem == rrn) { //encontramos os registro
@@ -491,41 +487,20 @@ int markrem_booktag(char filename[], int rrn){
                 printf("\nEsse registro ja foi removido\n");
                 return 1;
             } else {
-                printf("\nENCONTRADO");
-
-                // imprimimos os arquivo para checagem e marcamos ele com * para remoção
-                printf_booktag(booktag_temp); // mostramos sua informação
-                booktag_temp->title[0] = CHAR_REM; //marcamos
-
-                if (DEBUG) printf_booktag(booktag_temp); //mostramos em caso de DEBUG
-
-                fclose_log(f); //fechamos para mudar o modo (mais seguro)
-
-                //abrimos como modo de gravação
-                f = fopen_log(filename, "r+");
-                fseek(f,(sizeof(BOOKTAG_T) * rrn_rem), SEEK_CUR);//pegamos a posição anterior
-
-                fwrite_log(booktag_temp, sizeof(BOOKTAG_T), 1, f); //gravamos
-
-                fclose_log(f);
-
-                free(booktag_temp);
-
+            	//recuperar o registro
+            	//fseek na posição do offset
+            	//escreve '*'
+            	//escreve topstack
+            	//printar o item removido
                 return 1;
             }
         }
-        rrn_rem++; // incrementamos o rrn
 
-    } while(fread_log(booktag_temp, sizeof(BOOKTAG_T), 1, f));
-    //continuamos lendo até que o arquivo esteja vazio (a funçaõ feof naõ garante isso)
+    } while(); // pesquisamos a chave secundária */
 
-
-    printf("\nRegistro não encontrado no arquivo\n");
-
+    printf_colorful("\nRegistro não encontrado no arquivo D:\n", ANSI_RED);
     fclose_log(f);
-
     free(booktag_temp);
-
     return 0; // não encontrou
 }
 

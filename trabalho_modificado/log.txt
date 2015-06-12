@@ -2072,3 +2072,2879 @@
 
 ********************************** Registro novo ******************************
 
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x23d8050 com sucesso
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xd31050 com sucesso
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xea0050 com sucesso
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x8f6050 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x21c4050 com sucesso
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x10c1050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x10c1710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x10c14d0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x971050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x971710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x9714d0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19ca050 com sucesso
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x98a050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x98a710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x98a4d0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe91050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0xe91710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0xe91950 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe914d0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2550050 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1869050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1869710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1869950 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18694d0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1f37050 com sucesso
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cb2050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1cb2710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1cb2950 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cb24d0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1656050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1656710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1656950 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x16564d0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xf3a050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0xf3a710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0xf3a950 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xf3a4d0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xad2050 com sucesso
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cb1050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1cb1710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1cb1950 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cb14d0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ced730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cedbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cedbb0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1e74730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1e74bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1e74bb0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cde730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cdebb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1cdebb0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x88e730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x88ebb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x88ebb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1b16730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1b16bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1b16bb0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1801050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x18014d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1801710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1801b90 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1801b90 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1801b90 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1802490 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2088050 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2088ae0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2088f60 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2088f60 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2088f60 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1616730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1616bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1616bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1617270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ec5730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ec5bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ec5bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ec6270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xf59730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xf59bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xf59bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xf5a270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x173e970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x173edf0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x173edf0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x173f4b0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x85e970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xd6c970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1586970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x9d3970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1c50050 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1c50d20 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xae7970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x742970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x742270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18b5970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18b5270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe59970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1d06970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1d06270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xb002b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xb00730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xb00bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xb00bb0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1441970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1441df0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1442270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1442780 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19bc970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19bcdf0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19bd270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19bd780 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x196e970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x196edf0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x196f270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x196f780 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18b1970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18b1df0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18b2270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18b2780 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1745970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1745df0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1746270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1746270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1315970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1315df0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1316270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1316270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x51fcd90 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x52012d0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x5205410 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x520a600 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xa1c970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xa1cdf0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xa1d2c0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xa1d270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ca4970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ca4df0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ca5270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ca5270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1af9970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1af9df0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1afa2c0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1afa270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xfc8970 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xfc8df0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xfc9320 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xfc9270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x172a2b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x172a730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x172abb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x172abb0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xa7e2b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xa7e730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xa7ebb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xa7ebb0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1666050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16664d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1666710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1666710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1666710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1666dd0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1667250 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1667250 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x72f2b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x72f730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x72fbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x72fbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x730270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x227c2b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x227c730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x227cbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x227cbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x227d270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18f92b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18f9730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18f9bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18f9bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18fa270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xde72b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xde7730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xde7bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xde7bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xde8270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xeed2b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xeed730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ecd2b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1ecd730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x21ef2b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x21ef730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x21efbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x21efbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x21f0270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1d9e2b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1d9e730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1d9ebb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1d9ebb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1d9f270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x168b050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x168b4d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x168b710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x168b710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x168b710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x168bdd0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x168c250 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x168bdd0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x168c910 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xba6050 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1f182b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1f18730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1f18bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1f18bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1f19270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1f19790 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x240f2b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x240f730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x240fbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x240fbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2410270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2410790 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x21742b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2174730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2174bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2174bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2175270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2175790 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x20bb2b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x20bb730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x20bbbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x20bbbb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x20bc270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x20bc790 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x15c42b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x15c4730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x15c4bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x15c4bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x15c5270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x15c5790 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x25b42b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x25b4730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x25b4bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x25b4bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x25b5270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x25b5270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x15002b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1500730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1500bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1500bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1501270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1501790 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x11292b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1129730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1129bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1129bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x112a270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x112a790 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18a72b0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18a7730 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18a7bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18a7bb0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18a8270 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x18a8270 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x23522c0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2352740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2352740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2352740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2352740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x2352740 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19e72c0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19e7740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19e7740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19e7740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19e7740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x19e7740 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xd3d2c0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xd3d740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xd3d740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xd3d740 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xd3e310 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xd3e310 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1663050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0x16634d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0x1663710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1663710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1663710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1663dd0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1663dd0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1663dd0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1663dd0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x1664e60 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe59050 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0xe59710 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0xe59950 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0xe59b90 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe594d0 com sucesso
+
+[ABERTO] abrindo o arquivo data.bin modo a
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[GRAVANDO] as informações: 
+
+[FECHADO] fechando arquivo de handler 0xe59dd0 com sucesso
+
+[FECHADO] fechando arquivo de handler 0xe5a010 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe5a010 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe5a010 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe5a6d0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe5a6d0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0xe5a6d0 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+

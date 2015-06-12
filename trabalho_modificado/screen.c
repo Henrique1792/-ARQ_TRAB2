@@ -91,7 +91,7 @@ void start_screen() {
             //sai e faco a limpeza/checagem do arquivo
             printf("\nSaindo...\n");
 			int a = verify_index(DATAFILE_PATH);
-			//if(a == 1) create_index(DATAFILE_PATH,a);
+			if(a == 0) create_index(DATAFILE_PATH);
             return;
         default:
             printf("\n Opção incorreta, digite novamente\n");
@@ -505,22 +505,23 @@ void booktag_search_list_one() {
    Função remove_def_screen() Tela de remoção definitiva de um registro
  **/
 void remove_def_screen() {
+	static int topstack = -1; //inicializa e mantém o valor de topstack para cada iteração
 
     system("clear");
-    printf("---------------------- Tela De Remoção - Digite o RRN ----------------------"
+    printf("---------------------- Tela De Remoção - Digite o Autor ----------------------"
            "\n"
            "\n"
            "\n"
-           " Digite o RRN que deseja remover:"
+           " Digite o nome do autor:"
         );
-    fflush(stdin);
-    int op;
-    scanf("%d", &op); //pegamos rrn do stdin
+    char *input;
 
-    printf("\nRRN DIGITADO %d\n", op);
+    //
+    // inserir rotina de ler o input
+    //
 
     //chamamos a função de remoção;
-    int r = markrem_booktag(DATAFILE_PATH, op);
+    int r = markrem_booktag(DATAFILE_PATH, input, topstack);
 
     if (!r) {
         printf("Registro não encontrado\n");
@@ -540,7 +541,7 @@ void booktag_search_year_screen() {
            "\n"
            "\n"
            "\n\n"
-           "Digite o ano à ser buscado: "
+           "Digite o ano a ser buscado: "
         );
     int year;
     scanf("%d", &year);
