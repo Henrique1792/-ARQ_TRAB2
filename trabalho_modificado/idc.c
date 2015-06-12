@@ -52,6 +52,224 @@ int list_find_pos(char filename[], char *key){
 	return i;
 }
 
+void free_list(IDXLIST_T *list){
+	free(list->key);
+	free(list);
+}
+
+void free_idxsec(IDXSEC_T *idx){
+	free(idx->field);
+	free(idx);
+}
+
+
+void print_list(IDXLIST_T *idx){
+	if(idx && idx->key){
+		printf_colorful("\t[Chave]: ",ANSI_CYAN);
+		printf("%s\n",idx->key);
+		printf_colorful("\t[Offset]: ",ANSI_CYAN);
+		printf("%d\n",idx->offset);
+		printf_colorful("\t[Próximo]: ",ANSI_CYAN);
+		printf("%d\n\n",idx->next);
+	}
+}
+
+void print_idxsec(IDXSEC_T *idx){
+	if(idx && idx->field){
+		printf_colorful("\t[Campo]: ",ANSI_CYAN);
+		printf("%s\n",idx->field);
+		printf_colorful("\t[Posição]: ",ANSI_CYAN);
+		printf("%d\n\n",idx->listPos);
+	}
+}
+
+IDXLIST_T *read_list(FILE *file, int pos){
+	if(file && pos != -1){
+		//modo -2 de pos lê sequencialmente
+		if(pos!=-2) rewind(file);
+
+		int i=0;
+		char *line = readline(file);
+		if(!line) return NULL;
+
+		IDXLIST_T *read = (IDXLIST_T *) malloc(sizeof(IDXLIST_T));
+		if(pos!=-2){
+			while(line && i < pos){
+				free(line);
+				line = readline(file);
+				i++;
+			}
+		}
+
+		read->key = strtok(line,"|");
+		read->offset = atoi(strtok(NULL,"|"));
+		read->next = atoi(strtok(NULL,"|"));
+
+		return read;
+	}
+	return NULL;
+}
+
+IDXSEC_T *read_idxsec(FILE *file){
+	if(file){
+		char *tmp = readline(file);
+		if(!tmp) return NULL;
+
+		IDXSEC_T *read = (IDXSEC_T *) malloc(sizeof(IDXSEC_T));
+
+		read->field = strtok(tmp,"|");
+		read->listPos = atoi(strtok(NULL,"|"));
+		return read;
+	}
+	return NULL;
+}
+
+void index_show_lists(){
+	FILE *listaut = fopen(IDXLISTAUT_PATH,"r");
+	FILE *listpub = fopen(IDXLISTPUB_PATH,"r");
+	if(!listaut || !listpub){
+		printf("\n[AVISO] Listas não existem ou estão corrompidas\n");
+		return;
+	}
+
+	IDXLIST_T *listread;
+
+	printf_colorful("Lista gerada para Author:\n",ANSI_CYAN);
+	listread = read_list(listaut, -2);
+	while(listread){
+		print_list(listread);
+		free_list(listread);
+		listread = read_list(listaut, -2);
+	}
+
+	printf_colorful("\nLista gerada para Publisher:\n",ANSI_CYAN);
+	listread = read_list(listpub, -2);
+	while(listread){
+		print_list(listread);
+		free_list(listread);
+		listread = read_list(listpub, -2);
+	}
+
+	fclose(listaut);
+	fclose(listpub);
+}
+
+void index_show_index(){
+	FILE *idxaut = fopen(IDXSECAUT_PATH,"r");
+	FILE *idxpub = fopen(IDXSECPUB_PATH,"r");
+	if(!idxaut || !idxpub){
+		printf("\n[AVISO] Índices não existem ou estão corrompidos\n");
+		return;
+	}
+
+	IDXSEC_T *idxread;
+
+	printf_colorful("Índice gerado para Author:\n",ANSI_CYAN);
+	idxread = read_idxsec(idxaut);
+	while(idxread){
+		print_idxsec(idxread);
+		free_idxsec(idxread);
+		idxread = read_idxsec(idxaut);
+	}
+
+	printf_colorful("\nÍndice gerado para Publisher:\n",ANSI_CYAN);
+	idxread = read_idxsec(idxpub);
+	while(idxread){
+		print_idxsec(idxread);
+		free_idxsec(idxread);
+		idxread = read_idxsec(idxpub);
+	}
+
+	fclose(idxaut);
+	fclose(idxpub);
+}
+
+void index_search_publisher(char *publisher){
+	if(publisher){
+		FILE *data = fopen(DATAFILE_PATH,"r");
+		FILE *list = fopen(IDXLISTPUB_PATH,"r");
+		FILE *idx = fopen(IDXSECPUB_PATH,"r");
+
+		if(!list || !idx){
+			printf("\n[AVISO] Índices não existem ou estão corrompidos\n");
+			return;
+		}
+
+		IDXSEC_T *read = read_idxsec(idx);
+		IDXLIST_T *listread;
+		BOOKTAG_T *booktag;
+
+		int ok = 0, tmp = 0;
+		while(read){
+			//print_idxsec(read);
+			if(strcmp(read->field,publisher) == 0){
+				ok = 1;
+				break;
+			}
+			read = read_idxsec(idx);
+		}
+
+		if(ok != 1){
+			printf("\nNão foi possível encontrar a editora\n");
+			return;
+		}
+
+		listread = read_list(list, read->listPos);
+		while(listread){
+			rewind(data);
+			fseek(data, listread->offset, SEEK_CUR);
+			booktag = get_booktag(data, &tmp);
+			//print_list(listread);
+			printf_booktag(booktag);
+			listread = read_list(list, listread->next);
+		}
+
+	}
+}
+
+void index_search_author(char *author){
+	if(author){
+		FILE *data = fopen(DATAFILE_PATH,"r");
+		FILE *list = fopen(IDXLISTAUT_PATH,"r");
+		FILE *idx = fopen(IDXSECAUT_PATH,"r");
+
+		if(!list || !idx){
+			printf("\n[AVISO] Índices não existem ou estão corrompidos\n");
+			return;
+		}
+
+		IDXSEC_T *read = read_idxsec(idx);
+		IDXLIST_T *listread;
+		BOOKTAG_T *booktag;
+
+		int ok = 0, tmp = 0;
+		while(read){
+			//print_idxsec(read);
+			if(strcmp(read->field,author) == 0){
+				ok = 1;
+				break;
+			}
+			read = read_idxsec(idx);
+		}
+
+		if(ok != 1){
+			printf("\nNão foi possível encontrar o autor\n");
+			return;
+		}
+
+		listread = read_list(list, read->listPos);
+		while(listread){
+			rewind(data);
+			fseek(data, listread->offset, SEEK_CUR);
+			booktag = get_booktag(data, &tmp);
+			//print_list(listread);
+			printf_booktag(booktag);
+			listread = read_list(list, listread->next);
+		}
+
+	}
+}
+
 /**
    Função insert_to_index() insere em todos os índices e lista, tra-
    tando as colisões e atualizando todas as ocorrências

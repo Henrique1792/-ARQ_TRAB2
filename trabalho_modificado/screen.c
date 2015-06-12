@@ -41,6 +41,28 @@ static void lower_case(char *string) {
     }
 }
 
+void write_topstack(int *topstack){
+	FILE *f = fopen(TOPSTACK_PATH,"r+");
+
+	fwrite(topstack,sizeof(int),1,f);
+
+	fclose(f);
+}
+
+void load_topstack(int *topstack){
+	FILE *f = fopen(TOPSTACK_PATH,"r");
+
+	if(!f){
+		f = fopen(TOPSTACK_PATH,"w+");
+		fclose(f);
+		write_topstack(topstack);
+		return;
+	}
+
+	fread(topstack,sizeof(int),1,f);
+
+	fclose(f);
+}
 
 
 /**
@@ -353,10 +375,10 @@ void booktag_search_screen() {
     printf_colorful(" Mostra todos os registros", ANSI_BLUE);
 
     printf_colorful("\n\n2)", ANSI_WHITE);
-    printf_colorful(" Buscar por Editora(NAO IMPLEMENTADO)", ANSI_BLUE);
+    printf_colorful(" Buscar por Editora", ANSI_BLUE);
 
     printf_colorful("\n\n3)", ANSI_WHITE);
-    printf_colorful(" Buscar por Autor(NAO IMPLEMENTADO)",ANSI_BLUE);
+    printf_colorful(" Buscar por Autor",ANSI_BLUE);
 
     printf_colorful("\n\n4)", ANSI_WHITE);
     printf_colorful(" Buscar por Autor E Editora(NAO IMPLEMENTADO)",ANSI_BLUE);
@@ -365,12 +387,15 @@ void booktag_search_screen() {
     printf_colorful(" Buscar por Autor OU Editora(NAO IMPLEMENTADO)",ANSI_BLUE);
 
     printf_colorful("\n\n6)", ANSI_WHITE);
-    printf_colorful(" Mostrar conteudo do indice primario(AINDA NAO IMPLEMENTADO)",ANSI_BLUE);
+    printf_colorful(" Buscar por Ano",ANSI_BLUE);
 
     printf_colorful("\n\n7)", ANSI_WHITE);
-    printf_colorful(" Mostrar conteudo dos indices secundarios (autor e editora)(AINDA NAO IMPLEMENTADO)",ANSI_BLUE);
+    printf_colorful(" Mostrar conteúdo das listas invertidas",ANSI_BLUE);
 
-    printf_colorful("\n\n7)", ANSI_WHITE);
+    printf_colorful("\n\n8)", ANSI_WHITE);
+    printf_colorful(" Mostrar conteúdo dos índices secundários (Autor e Editora)",ANSI_BLUE);
+
+    printf_colorful("\n\n9)", ANSI_WHITE);
     printf_colorful(" Voltar",ANSI_BLUE);
 
     printf_colorful("\n\nDigite a opcao desejada: ", ANSI_YELLOW);
@@ -407,11 +432,26 @@ void booktag_search_screen() {
         booktag_search_publisher_author(2);
 
         break;
-    case 6: // sair
+    case 6: // pesquisar por ano
+    	system("clear");
+
+        return;
+
+    case 7: // mostrar conteúdo das listas
+    	system("clear");
+    	booktag_show_lists();
+        return;
+
+    case 8: // mostrar conteúdo dos índices
+    	system("clear");
+    	booktag_show_index();
+        return;
+
+    case 9: // sair
         return;
 
     default:
-        printf_error("\nOpcao errada\n");
+        printf_error("\nOpcão inválida\n");
         break;
     }
 }
@@ -425,13 +465,27 @@ void booktag_search_author() {
     printf_colorful("\n\n", ANSI_WHITE);
     printf_colorful("Digite o autor que deseja procurar", ANSI_CYAN);
     printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
+
     char author[BUFFER_MAX];
     scanf("%s", author);
 
-    //
-    // TODO: adicionar funcao que busca o autor digitado
-    // olha o indice secundario e mostra o que tiver com o autor digitado
-    //
+    lower_case(author);
+    index_search_author(author);
+
+    printf_colorful("\nDigite 1 para voltar ou 2 para fazer outra pesquisa: ", ANSI_YELLOW);
+
+    int op;
+    scanf("%d",&op);
+    switch(op){
+    	case 1:
+    		break;
+    	case 2:
+    		system("clear");
+    		booktag_search_publisher();
+    		break;
+    	default:
+    		break;
+    }
 }
 
 
@@ -450,10 +504,23 @@ void booktag_search_publisher() {
     char publisher[BUFFER_MAX];
     scanf("%s", publisher);
 
-    //
-    // TODO: adicionar funcao que busca por editora digitado
-    // olha o indice secundario e mostra o que tiver com o autor digitado
-    //
+    lower_case(publisher);
+    index_search_publisher(publisher);
+
+    printf_colorful("\nDigite 1 para voltar ou 2 para fazer outra pesquisa: ", ANSI_YELLOW);
+
+    int op;
+    scanf("%d",&op);
+    switch(op){
+    	case 1:
+    		break;
+    	case 2:
+    		system("clear");
+    		booktag_search_publisher();
+    		break;
+    	default:
+    		break;
+    }
 }
 
 
@@ -489,6 +556,52 @@ void booktag_search_publisher_author(int i) {
     //(1 para matching ou 2 para merging)
 }
 
+void booktag_show_lists() {
+	printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Mostrar Listas Invertidas ", ANSI_WHITE);
+    printf_colorful("----------------------\n\n", ANSI_WHITE);
+
+	index_show_lists();
+
+	printf_colorful("\nDigite 1 para voltar ou 2 para mostrar de novo: ", ANSI_YELLOW);
+
+    int op;
+    scanf("%d",&op);
+    switch(op){
+    	case 1:
+    		break;
+    	case 2:
+    		system("clear");
+    		booktag_show_lists();
+    		break;
+    	default:
+    		break;
+    }
+}
+
+void booktag_show_index() {
+	printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful(" Tela de Mostrar Índices Secundários ", ANSI_WHITE);
+    printf_colorful("----------------------\n\n", ANSI_WHITE);
+
+	index_show_index();
+
+	printf_colorful("\nDigite 1 para voltar ou 2 para mostrar de novo: ", ANSI_YELLOW);
+
+    int op;
+    scanf("%d",&op);
+    switch(op){
+    	case 1:
+    		break;
+    	case 2:
+    		system("clear");
+    		booktag_show_index();
+    		break;
+    	default:
+    		break;
+    }
+}
+
 /**
  * Funcao booktag_search_list_one() que mostra um registro por vez
  **/
@@ -506,6 +619,7 @@ void booktag_search_list_one() {
  **/
 void remove_def_screen() {
 	static int topstack = -1; //inicializa e mantém o valor de topstack para cada iteração
+	load_topstack(&topstack);
 
     system("clear");
     printf("---------------------- Tela De Remoção - Digite o Autor ----------------------"

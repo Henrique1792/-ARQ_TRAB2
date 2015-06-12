@@ -2,11 +2,6 @@
 #define BOOKTAG_H_
 #include <stdio.h>
 
-#define DELIM '|'
-#define CHAR_REM '*'
-
-
-
 /*
    Trabalho de Organizacao de Arquivos - Trabalho 2
 
@@ -28,6 +23,7 @@
 #define LANG_MAX 30 /*!< quantidade maxima de caracteres da do idioma  */
 #define BUFFER_MAX 1024  /*!< tamanho maximo do buffer  */
 #define DATAFILE_PATH "data.bin"   /*!< nome do arquivo de dados  */
+#define TOPSTACK_PATH "top.stack" /*!< nome do arquivo da topstack  */
 #define IDXLISTAUT_PATH "idx_listaut.idx" /*!< nome do arquivo de lista invertida  */
 #define IDXLISTPUB_PATH "idx_listpub.idx" /*!< nome do arquivo de lista invertida  */
 #define IDXSECAUT_PATH "idx_author.idx" /*!< nome do arquivo de indice secundario  */
