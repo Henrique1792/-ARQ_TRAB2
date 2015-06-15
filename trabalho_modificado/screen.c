@@ -11,7 +11,7 @@
 
 // defines
 #define DATAFILE_PATH "data.bin"// nome do arquivo de dados utilizado
-#define DEBUG 1 //flag de depuracao
+#define DEBUG 0 //flag de depuracao
 
 /*
    Trabalho de Organizacao de Arquivos - Trabalho 2
@@ -40,30 +40,6 @@ static void lower_case(char *string) {
         string[i] = (char)tolower(string[i]);
     }
 }
-
-void write_topstack(int *topstack){
-	FILE *f = fopen(TOPSTACK_PATH,"r+");
-
-	fwrite(topstack,sizeof(int),1,f);
-
-	fclose(f);
-}
-
-void load_topstack(int *topstack){
-	FILE *f = fopen(TOPSTACK_PATH,"r");
-
-	if(!f){
-		f = fopen(TOPSTACK_PATH,"w+");
-		fclose(f);
-		write_topstack(topstack);
-		return;
-	}
-
-	fread(topstack,sizeof(int),1,f);
-
-	fclose(f);
-}
-
 
 /**
    Função start_screen() comeca a tela inicial do programa
@@ -141,7 +117,6 @@ BOOKTAG_T *screen_get_input() {
     //pegando o titulo do livro
     printf_colorful("\n\nDigite o Titulo do livro ", ANSI_CYAN);
     printf_colorful("(caracteres alfanumericos [A-Z/0-9]): ", ANSI_RED);
-//    BUFFER = getline_input(); //fgets_log(BUFFER, sizeof BUFFER, stdin);
     scanf(" %[^\n]s",BUFFER);
 
     if (DEBUG) {
@@ -159,7 +134,6 @@ BOOKTAG_T *screen_get_input() {
     printf_colorful("(caracteres alfanumericos [A-Z/0-9]): ", ANSI_RED);
 
     scanf(" %[^\n]s",BUFFER);
-//    fgets(BUFFER, sizeof BUFFER, stdin);
 
     if (DEBUG) {
         printf_debug("\tDEBUG: digitado ");
@@ -261,9 +235,9 @@ void insert_screen() {
     //limpamos a tela
     system("clear");
 
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("------------------", ANSI_WHITE);
     printf_colorful(" Tela de Cadastro - Digite as informacoes: ", ANSI_WHITE);
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("------------------", ANSI_WHITE);
 
     //booktag temporaria e contador
     BOOKTAG_T *booktag_temp; //temporario para guardar os dados do input e guardar o usuario
@@ -274,6 +248,19 @@ void insert_screen() {
         booktag_temp = screen_get_input();
         //substituir aqui
         write_booktags(booktag_temp, DATAFILE_PATH);
+
+        int a = verify_index(DATAFILE_PATH);
+        if(a == 0){
+            FILE *data = fopen(DATAFILE_PATH,"r");
+            INDICES_T *idx = (INDICES_T *) malloc(sizeof(INDICES_T));
+
+            idx->author = fopen(IDXSECAUT_PATH,"r+");
+            idx->publisher = fopen(IDXSECPUB_PATH,"r+");
+            idx->list_aut = fopen(IDXLISTAUT_PATH,"r+");
+            idx->list_pub = fopen(IDXLISTPUB_PATH,"r+");
+
+            insert_to_index(idx, booktag_temp, get_offset(data));
+        }
 
         printf_debug("\nInformações cadastradas foram: ");
         printf_booktag(booktag_temp);
@@ -286,15 +273,16 @@ void insert_screen() {
     return;
 }
 
+
 /**
    Funcão remove_screen() tela de remocao
  **/
 void remove_screen() {
     //limpamos a tela e imprimos a tela de remoção
     system("clear");
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("---------------------", ANSI_WHITE);
     printf_colorful(" Tela de Remocao - Escolha as opções ", ANSI_WHITE);
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("---------------------", ANSI_WHITE);
 
     printf_colorful("\n\n1)", ANSI_WHITE);
     printf_colorful(" Remover Registro", ANSI_BLUE);
@@ -312,7 +300,7 @@ void remove_screen() {
     switch(op) {
     case 1:
         system("clear");
-        remove_def_screen();
+        booktag_remove_author();
 
         break;
     case 2:
@@ -329,16 +317,16 @@ void remove_screen() {
     }
 }
 
+
 /**
    Função booktag_search_all_screen() Tela  de impressaõ de todas booktags
  **/
-
 void booktag_search_all_screen() {
     int opt;
     system("clear");
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("---------------------", ANSI_WHITE);
     printf_colorful(" Tela de Listagem - Escolha as opções ", ANSI_WHITE);
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("--------------------", ANSI_WHITE);
     printf_colorful("\n\n1)", ANSI_WHITE);
     printf_colorful(" Ver todos Registros", ANSI_BLUE);
     printf_colorful("\n\n2)", ANSI_WHITE);
@@ -363,13 +351,14 @@ void booktag_search_all_screen() {
 
 }
 
+
 /**
    Função booktag_search_screen() Tela de procura/pesquisa de booktags
  **/
 void booktag_search_screen() {
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("-----------------", ANSI_WHITE);
     printf_colorful(" Tela de Listagem/Busca - Escolha as opções ", ANSI_WHITE);
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("-----------------", ANSI_WHITE);
 
     printf_colorful("\n\n1)", ANSI_WHITE);
     printf_colorful(" Mostra todos os registros", ANSI_BLUE);
@@ -434,6 +423,7 @@ void booktag_search_screen() {
         break;
     case 6: // pesquisar por ano
     	system("clear");
+        booktag_search_year_screen();
 
         return;
 
@@ -455,19 +445,22 @@ void booktag_search_screen() {
         break;
     }
 }
+
+
 /**
  * Tela de busca pelo campo secundario autor
  **/
 void booktag_search_author() {
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("-----------------", ANSI_WHITE);
     printf_colorful(" Tela de Busca por Autor - Escolha as opções ", ANSI_WHITE);
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("-----------------", ANSI_WHITE);
     printf_colorful("\n\n", ANSI_WHITE);
     printf_colorful("Digite o autor que deseja procurar", ANSI_CYAN);
     printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
 
     char author[BUFFER_MAX];
-    scanf("%s", author);
+    getchar();
+    scanf("%[^\n]s",author);
 
     lower_case(author);
     index_search_author(author);
@@ -481,7 +474,7 @@ void booktag_search_author() {
     		break;
     	case 2:
     		system("clear");
-    		booktag_search_publisher();
+    		booktag_search_author();
     		break;
     	default:
     		break;
@@ -489,20 +482,20 @@ void booktag_search_author() {
 }
 
 
-
 /**
  * Tela de busca pelo campo secundario Editora
  **/
 void booktag_search_publisher() {
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("-----------------", ANSI_WHITE);
     printf_colorful(" Tela de Busca por Editora - Escolha as opções ", ANSI_WHITE);
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("---------------", ANSI_WHITE);
     printf_colorful("\n\n", ANSI_WHITE);
     printf_colorful("Digite a Editora que deseja procurar", ANSI_CYAN);
     printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
 
     char publisher[BUFFER_MAX];
-    scanf("%s", publisher);
+    getchar();
+    scanf("%[^\n]s",publisher);
 
     lower_case(publisher);
     index_search_publisher(publisher);
@@ -537,13 +530,16 @@ void booktag_search_publisher_author(int i) {
 
     printf_colorful("Digite a Editora que deseja procurar", ANSI_CYAN);
     printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
+
     char publisher[BUFFER_MAX];
-    scanf("%s", publisher);
+    getchar();
+    scanf("%[^\n]s",publisher);
 
     printf_colorful("Digite o Autor que deseja procurar", ANSI_CYAN);
     printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
     char author[BUFFER_MAX];
-    scanf("%s", author);
+    getchar();
+    scanf("%[^\n]s",author);
 
 
 
@@ -579,10 +575,11 @@ void booktag_show_lists() {
     }
 }
 
+
 void booktag_show_index() {
-	printf_colorful("----------------------", ANSI_WHITE);
+	printf_colorful("---------------------", ANSI_WHITE);
     printf_colorful(" Tela de Mostrar Índices Secundários ", ANSI_WHITE);
-    printf_colorful("----------------------\n\n", ANSI_WHITE);
+    printf_colorful("---------------------\n\n", ANSI_WHITE);
 
 	index_show_index();
 
@@ -602,6 +599,7 @@ void booktag_show_index() {
     }
 }
 
+
 /**
  * Funcao booktag_search_list_one() que mostra um registro por vez
  **/
@@ -611,57 +609,60 @@ void booktag_search_list_one() {
 
 }
 
-////////////////////////////////////////// Funcoes que precisam ser alteradas /////////// /////////// /////////// /////////// /////////// /////////// /////////// //////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
    Função remove_def_screen() Tela de remoção definitiva de um registro
  **/
-void remove_def_screen() {
-	static int topstack = -1; //inicializa e mantém o valor de topstack para cada iteração
-	load_topstack(&topstack);
+void booktag_remove_author() {
 
     system("clear");
     printf("---------------------- Tela De Remoção - Digite o Autor ----------------------"
            "\n"
            "\n"
            "\n"
-           " Digite o nome do autor:"
         );
-    char *input;
+    printf_colorful("Digite o autor que deseja procurar para remoção", ANSI_CYAN);
+    printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
 
-    //
-    // inserir rotina de ler o input
-    //
+    char author[BUFFER_MAX];
+    getchar();
+    scanf("%[^\n]s",author);
 
-    //chamamos a função de remoção;
-    int r = markrem_booktag(DATAFILE_PATH, input, topstack);
+    lower_case(author);
+    index_remove_author(author);
 
-    if (!r) {
-        printf("Registro não encontrado\n");
+    printf_colorful("\nDigite 1 para voltar ou 2 para fazer outra remoção: ", ANSI_YELLOW);
+
+    int op;
+    scanf("%d",&op);
+    switch(op){
+        case 1:
+            break;
+        case 2:
+            system("clear");
+            booktag_remove_author();
+            break;
+        default:
+            break;
     }
 
-    sleep(10);
 }
-
-
 
 
 /**
    Função booktag_search_year_screen Tela de procura de pesquisa de booktag pelo ano
  **/
 void booktag_search_year_screen() {
-    printf("---------------------- Tela De Busca Por Ano - Digite o ano ----------------------"
-           "\n"
-           "\n"
-           "\n\n"
-           "Digite o ano a ser buscado: "
-        );
+    printf_colorful("------------------", ANSI_WHITE);
+    printf_colorful(" Tela De Busca Por Ano - Digite o ano ", ANSI_WHITE);
+    printf_colorful("------------------\n\n", ANSI_WHITE);
+
+    printf_colorful("Digite o ano a ser buscado: ", ANSI_CYAN);
+
     int year;
     scanf("%d", &year);
-    //
-    // TODO:
-    // adicoinar funcao de recuperar ano nova
-    //
-    //    recover_year(DATAFILE_PATH, year);
+
+    recover_year(DATAFILE_PATH, year);
+
+    printf("\n");
 }

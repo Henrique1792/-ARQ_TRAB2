@@ -12,18 +12,12 @@
    Henrique Fernandes de Mattos Freitas             numero USP: 8937225
    Gustavo Santiago                                numero USP: 8937416
 
-   Descricao do arquivo booktag.h: possui a definicao da estrutura e assinatura das funcoes (implementadas na booktag.c). Alem disso,
-   possui os defines do tamanho de dados (mais detalhes na documentacao impressa ou em formato pdf).
+   Descricao do arquivo booktag.h: possui a definicao da estrutura e assinatura das funcoes (implementadas na booktag.c).
 
 */
 
-#define TITLE_MAX 80  /*!< quantidade maxima de caracteres do titulo  */
-#define AUTHOR_MAX 40 /*!< quantidade maxima de caracteres do autor  */
-#define PUB_MAX 20 /*!< quantidade maxima de caracteres da editora  */
-#define LANG_MAX 30 /*!< quantidade maxima de caracteres da do idioma  */
 #define BUFFER_MAX 1024  /*!< tamanho maximo do buffer  */
 #define DATAFILE_PATH "data.bin"   /*!< nome do arquivo de dados  */
-#define TOPSTACK_PATH "top.stack" /*!< nome do arquivo da topstack  */
 #define IDXLISTAUT_PATH "idx_listaut.idx" /*!< nome do arquivo de lista invertida  */
 #define IDXLISTPUB_PATH "idx_listpub.idx" /*!< nome do arquivo de lista invertida  */
 #define IDXSECAUT_PATH "idx_author.idx" /*!< nome do arquivo de indice secundario  */
@@ -87,24 +81,13 @@ void read_booktag_list(char filename[]);
 
 /**
    Função markrem_booktag() remove logicamente uma booktag
-   A função recebe o RRN de um registro, procura ele no arquivo e se o encontrar
-   marca ele com CHAR_REM para remoçaõ
+   A função recebe o arquivo de dados aberto e o offset do registro a ser removido
 
-   @param char filename[] nome do arquivo de dados
-   @param int rrn a ser removido
-   @return int se encontrado ou não (-1 para erro, 1 para encontrado, 0 para não)
+   @param FILE *data arquivo de dados
+   @param int offset a ser removido
+   @return int se removido ou não (-1 para erro, 1 para encontrado)
 **/
-int  markrem_booktag(char filename[], char *field, int topstack);
-
-/**
-   Função diskrem_booktag() remove fisicamente uma booktag
-   A função recebe o nome do arquivo e o substitui por outro que
-   não possui as booktags removidas
-
-   @param char filename[] nome do arquivo de dados
-   @return int se sucedido ou não (-1 para erro, 1 se o arquivo foi gravado com sucesso)
-**/
-int  diskrem_booktag(char filename[]);
+int  markrem_booktag(FILE *data, int offset);
 
 /**
 * recover_year

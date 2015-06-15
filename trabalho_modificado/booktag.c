@@ -36,7 +36,7 @@ BOOKTAG_T *create_booktag() {
     //alocamos o novo livro
     BOOKTAG_T *book = malloc(sizeof(BOOKTAG_T)); // criamos a variavel
 
-//atribuindo ponteiros como NULL.
+    //atribuindo ponteiros como NULL.
 	book->title=NULL;
 	book->author=NULL;
 	book->publisher=NULL;
@@ -54,11 +54,11 @@ BOOKTAG_T *create_booktag() {
     return book;
 }
 
+
 /**
    @brief Função free_booktag() Libera uma booktag da memória
    @param BOOKTAG_T *booktag que será liberada
 **/
-
 void free_booktag(BOOKTAG_T *booktag) {
     if (booktag != NULL) { // verificamos parametro e os liberamos da memória
 		free(booktag->title);
@@ -68,6 +68,7 @@ void free_booktag(BOOKTAG_T *booktag) {
 		free(booktag);
 	}
 }
+
 
 int booktag_sizeof(BOOKTAG_T *booktag){
 	if(booktag != NULL){
@@ -88,6 +89,7 @@ int booktag_sizeof(BOOKTAG_T *booktag){
 	return -1; //não é possível operar
 }
 
+
 /**
    @brief Função write_booktags() recebe um booktag que irá ser gravado em um arquivo
 
@@ -96,8 +98,6 @@ int booktag_sizeof(BOOKTAG_T *booktag){
    @param int n número de booktags que serão gravadas no filename
    @return int
  **/
-
- /**alterado.*/
 void write_booktags(BOOKTAG_T *booktag, char filename[]) {
 	char chr = DELIM;
     //garantimos os paramêtros corretos para evitar erros no arquivo de dados
@@ -153,6 +153,7 @@ void str_untrim(char string[]) {
 
 
 }
+
 
 BOOKTAG_T *get_booktag(FILE *f, int *tam){
 	int size;
@@ -219,6 +220,7 @@ BOOKTAG_T *read_booktag(FILE *f) {
     return booktag_temp;
 }
 
+
 /**
  * Le uma string ate encontrar o delimitador
  *@param: target é o arquivo a ser lido.
@@ -241,6 +243,7 @@ char *readstr(FILE *target){
 	string[--i]='\0';
 	return string;
 }
+
 
 /**
    Função printf_booktag() que imprime uma booktag
@@ -303,13 +306,6 @@ void printf_booktag(BOOKTAG_T *booktag) {
 }
 
 
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////// funcoes nao alteradas ///////////////////////////////////////////// ////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 /**
    Funcao read_booktag_list() que le uma lista de booktags de um arquivo e os imprimi
 
@@ -336,46 +332,29 @@ void read_booktag_list(char filename[]) {
 
     int i = 0, size = 0;
     //lemos uma estrutura do arquivo e mostramos seu RRN e contéudo
-    while(fread(&size, sizeof(int), 1, f)) {
-//    while(fread(&size,sizeof(int),1,f) != 0) {
+    while(booktag_temp) {
 
-        booktag_temp->title=readstr(f);
+        booktag_temp = get_booktag(f, &size);
 
-        booktag_temp->author=readstr(f);
-
-        booktag_temp->publisher=readstr(f);
-
-        fread(&booktag_temp->year,sizeof(int), 1,f);
-
-        booktag_temp->language=readstr(f);
-
-        fread(&booktag_temp->pages,sizeof(int),1,f);
-
-        fread(&booktag_temp->price,sizeof(float),1,f);
-
-        printf("\n[%d] tamanho: %d", i, size);
-
-        printf_booktag(booktag_temp);
+        if(booktag_temp){
+            printf("\n[%d] tamanho: %d", i, size);
+            printf_booktag(booktag_temp);
+            free_booktag(booktag_temp);
+        }
 
         i++;
-        //printf_separator();
+
     }
 
     //liberamos memória e fechamos o ponteiro
+    fclose(f);
+    free_booktag(booktag_temp);
+
     printf_debug("Digite 1 para sair do relatorio: ");
+
     int op;
     scanf("%d", &op);
-    if (op == 1) {
-        fclose(f);
-        free_booktag(booktag_temp);
-        return;
-
-    } else {
-        sleep(10);
-        fclose(f);
-        free_booktag(booktag_temp);
-        return;
-    }
+    return;
 }
 
 
@@ -402,33 +381,24 @@ void read_booktag_list_one(char filename[]) {
         free(booktag_temp);
         return;
     }
+    int i = 0;
     int cont = 1;
     int size = 0;
     while(!feof(f) && cont == 1) {
 
-        fread(&size, sizeof(int), 1, f);
+        booktag_temp = get_booktag(f, &size);
 
-        booktag_temp->title=readstr(f);
+        if(booktag_temp){
+            printf("\n[%d] tamanho: %d", i, size);
+            printf_booktag(booktag_temp);
+            free_booktag(booktag_temp);
+            i++;
 
-        booktag_temp->author=readstr(f);
+            printf_colorful("\n\nDigite 1 para continuar a impressao ", ANSI_CYAN);
+            rewind(stdin);
+            scanf("%d", &cont);
+        }
 
-        booktag_temp->publisher=readstr(f);
-
-        fread(&booktag_temp->year,sizeof(int), 1,f);
-
-        booktag_temp->language=readstr(f);
-
-        fread(&booktag_temp->pages,sizeof(int),1,f);
-
-        fread(&booktag_temp->price,sizeof(float),1,f);
-
-        printf_booktag(booktag_temp);
-
-        printf_separator();
-
-        printf_colorful("\n\nDigite 1 para continuar a impressao ", ANSI_CYAN);
-        rewind(stdin);
-        scanf("%d", &cont);
     }
 
 
@@ -448,112 +418,30 @@ void read_booktag_list_one(char filename[]) {
 
 /**
    Função markrem_booktag() remove logicamente uma booktag
-   A função recebe o RRN de um registro, procura ele no arquivo e se o encontrar
-   marca ele com CHAR_REM para remoçaõ
+   A função recebe o arquivo de dados aberto e o offset do registro a ser removido
 
-   @param char filename[] nome do arquivo de dados
-   @param int rrn a ser removido
-   @return int se encontrado ou não (-1 para erro, 1 para encontrado, 0 para não encontrado)
+   @param FILE *data arquivo de dados
+   @param int offset a ser removido
+   @return int se removido ou não (-1 para erro, 1 para encontrado)
 **/
-
-
-int markrem_booktag(char filename[], char *field, int topstack){
+int markrem_booktag(FILE *data, int offset){
 
     //checamos os parametros
-    if (!filename || !field) {
-        printf("\n[AVISO] Nome do arquivo ou campo inválido\n");
+    if (!data) {
+        printf("\n[ERRO] Erro no arquivo\n");
         return -1;
     }
 
-    //alocamos a estrutura temporaria e o ponteiro do arquivo
-    BOOKTAG_T *booktag_temp = create_booktag();
-    FILE *f = fopen_log(filename, "rb");
+    char *mark = (char *) calloc(1,sizeof(char));
+    mark[0] = CHAR_REM;
 
-    //testamos o ponteiro do arquivo, em caso de erro, avisamos
-    if(f == NULL) {
-        printf("\n[ERRO]Erro na abertura do arquivo %s\n", filename);
-        free(booktag_temp);
-        return -1;
-    }
+    rewind(data);
+    fseek(data, offset + sizeof(int), SEEK_CUR);
 
-    rewind(f); //reiniciamos o ponteiro do arquivo (boa prática)
-    printf("\nProcurando..\n\n");
-
-    /*//começamos o loop de leitura no arquivo
-    do {
-
-        if (rrn_rem == rrn) { //encontramos os registro
-            if (booktag_temp->title[0] == '*') { // esse rrn ja esta removido
-                printf("\nEsse registro ja foi removido\n");
-                return 1;
-            } else {
-            	//recuperar o registro
-            	//fseek na posição do offset
-            	//escreve '*'
-            	//escreve topstack
-            	//printar o item removido
-                return 1;
-            }
-        }
-
-    } while(); // pesquisamos a chave secundária */
-
-    printf_colorful("\nRegistro não encontrado no arquivo D:\n", ANSI_RED);
-    fclose_log(f);
-    free(booktag_temp);
-    return 0; // não encontrou
-}
-
-/**
-   Função diskrem_booktag() remove fisicamente uma booktag
-   A função recebe o nome do arquivo e o substitui por outro que
-   não possui as booktags removidas
-
-   @param char filename[] nome do arquivo de dados
-   @return int se sucedido ou não (-1 para erro, 1 se o arquivo foi gravado com sucesso)
-**/
-int diskrem_booktag(char filename[]){
-
-    //verificamos se os parametros estão corretos
-    if (filename == NULL) {
-        printf("\n[AVISO] filename precisa ser o nome do arquivo a ser utilizado\n");
-        return -1;
-    }
-
-    //alocamos a estrutura temporaria, e dois ponteiros para arquivo de log e o
-    // arquivo temporário
-    BOOKTAG_T *booktag_temp = create_booktag();
-    FILE *f = fopen_log(filename, "r+");
-    FILE *arq = fopen("newfile.dtd","w+"); //arquivo temporário
-
-    if((f == NULL) || (arq == NULL)) { // checamos o retorno e caso de erro, avisamos
-        printf("\n[ERRO]Erro na abertura do arquivo %s\n", filename);
-        free(booktag_temp);
-        fclose(arq);
-        return -1;
-    }
-    //reniciamos o ponteiro do arquivo (boa prática)
-    rewind(f);
-
-    //lemos o arquivo binário
-    fread_log(booktag_temp, sizeof(BOOKTAG_T), 1, f);
-    // loop para ler todo os registros do arquivo
-    do{
-        //procuramos arquivos que tenham a marca da remoção
-        // * no primeiro char do título
-        if(booktag_temp->title[0] != '*'){
-            fwrite_log(booktag_temp, sizeof(BOOKTAG_T), 1, arq);
-        }
-    } while(fread_log(booktag_temp, sizeof(BOOKTAG_T), 1, f));
-
-    //fechamos o arquiov
-    fclose_log(f);
-    remove(filename); // removes o arquivo antigo
-    rename("newfile.dtd",filename); // mudamos o nome do arquivo temporario para o original
-    diskrem_booktag_log(filename); //logging
-    fclose_log(arq);//
+    fwrite(mark,sizeof(char),1,data);
     return 1;
 }
+
 
 /**
 * recover_year
@@ -562,37 +450,47 @@ int diskrem_booktag(char filename[]){
 @ @parma int year ano á ser pesquisado
 */
 void recover_year (char filename[], int year){
-    //verificamos os parametros
-    if (filename == NULL || year < 0) {
-        printf("\n[AVISO] erro nos parametros");
-        return;
-    }
-    //abrimos o arquivo e testamos
-    FILE *file = fopen(filename, "r");
-    if (!file) {
-        printf("[ERRO] erro na abertura do arquivo binario para leitura");
+    //verificamos os parametros e em caso de erro, avisamos
+    if (filename == NULL) {
+        printf("\n[AVISO] filename precisa ser o nome do arquivo a ser utilizado\n");
         return;
     }
 
-    //criamos o arquivo temporario e uma flag para checar se checamos
-    BOOKTAG_T *aux = create_booktag();
-    int found = 0;
+    //alocamos a estrutura temporária e o ponteiro para o arquivo
+    BOOKTAG_T *booktag_temp = create_booktag();
+    FILE *f = fopen(filename, "r");
 
-    //andamos no arquivo e vamos comparando o ano de todos os registros
-    // se os registros forem de mesmo ano digitado
-    // eu imprimo e marco a flag,
-    // senao, a flag imprimi uma mensagem de que nao foi
-    while (fread_log(aux, sizeof(BOOKTAG_T), 1,file)){
+    //verificamos o ponteiro de arquivo, em caso de erro, avisamos
+    if(f == NULL) {
+        printf_error("\n[ERRO]Erro na abertura do arquivo\n");
+        free(booktag_temp);
+        return;
+    }
 
-        if(aux->year == year){
-            printf("\nEncontrado: \n");
-            printf_booktag(aux);
-            found = 1;
+    int ok = 0, size = 0;
+    //lemos uma estrutura do arquivo e mostramos seu RRN e contéudo
+    while(booktag_temp) {
+
+        booktag_temp = get_booktag(f, &size);
+
+        if(booktag_temp){
+            if(booktag_temp->year == year){
+                printf_booktag(booktag_temp);
+                ok = 1;
+            }
+            free_booktag(booktag_temp);
         }
+
     }
 
-    if(found == 0) printf("\nNenhum livro foi encontrado!\n");
-//    sleep(TIME_PRINTF);
+    //liberamos memória e fechamos o ponteiro
+    fclose(f);
+    free_booktag(booktag_temp);
 
-    fclose(file);
+    if(!ok) printf_colorful("\nNenhum registro encontrado\n",ANSI_CYAN);
+    printf_debug("\nDigite 1 para sair do relatorio: ");
+
+    int op;
+    scanf("%d", &op);
+    return;
 }
