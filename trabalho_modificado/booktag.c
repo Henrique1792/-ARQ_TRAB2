@@ -42,18 +42,8 @@ BOOKTAG_T *create_booktag() {
 	book->publisher=NULL;
 	book->language=NULL;
 
-    //abrimos arquivo de log, caso de erro, mandamos msg
-    FILE *fp = fopen_log(LOG_FILENAME, "a");
-
-
-    if (fp != NULL) { // em caso de sucesso avisamos no arquivo
-        fprintf(fp, "********************************** Registro novo ******************************\n\n");
-    } else
-        fprintf(fp, "\n\n[AVISO] erro na abertura/escrita do arquivo de log\n\n");
-
     return book;
 }
-
 
 /**
    @brief Função free_booktag() Libera uma booktag da memória
@@ -115,20 +105,20 @@ void write_booktags(BOOKTAG_T *booktag, char filename[]) {
     int tam = booktag_sizeof(booktag);
     // gravamos os campos no arquivo
     fwrite_log(&tam, sizeof(int), 1, f);
-
+	
     fwrite_log(booktag->title, sizeof(char), strlen(booktag->title), f);
-	fwrite_log(&chr,sizeof(char),1,f);
+	fwrite_log(&chr,sizeof(char),1,f); // separador
 
 	fwrite_log(booktag->author, sizeof(char),strlen(booktag->author), f);
-	fwrite_log(&chr,sizeof(char),1,f);
+	fwrite_log(&chr,sizeof(char),1,f); // separador
 
 	fwrite_log(booktag->publisher, sizeof(char),strlen(booktag->publisher), f);
-    fwrite_log(&chr,sizeof(char),1,f);
+    fwrite_log(&chr,sizeof(char),1,f); // separador 
 
 	fwrite_log(&booktag->year, sizeof(int), 1, f);
 
 	fwrite_log(booktag->language, sizeof(char)*strlen(booktag->language), 1, f);
-	fwrite_log(&chr,sizeof(char),1,f);
+	fwrite_log(&chr,sizeof(char),1,f); // separador 
 
 	fwrite_log(&booktag->pages, sizeof(int), 1, f);
 	fwrite_log(&booktag->price, sizeof(float), 1, f);
@@ -143,7 +133,7 @@ void write_booktags(BOOKTAG_T *booktag, char filename[]) {
 
    @paramp char string[] string que terá o \0 no final
  **/
-void str_untrim(char string[]) {
+static void str_untrim(char string[]) {
 
     //verificamos parametro e inserirmos \0 no final da string
     if (string != NULL) {
@@ -153,8 +143,12 @@ void str_untrim(char string[]) {
 
 
 }
-
-
+/**
+ * Função que le uma booktag no arquivo de dados
+ * @param[in] FILE ponteiro para o arquivo
+ * @param[in,out] *tam tamanho do booktag lido
+ * @return BOOKTAG_T lida
+ **/
 BOOKTAG_T *get_booktag(FILE *f, int *tam){
 	int size;
 	if(f==NULL){
@@ -168,7 +162,8 @@ BOOKTAG_T *get_booktag(FILE *f, int *tam){
 
 	if(!fread(&size,sizeof(int),1,f)) return NULL;
 	*tam = size;
-
+	
+	// lendo (utilizamos a funçaõ readstr para ler até o delimitador
 	getter->title = readstr(f);	
 	getter->author = readstr(f);
 	getter->publisher = readstr(f);
@@ -182,9 +177,11 @@ BOOKTAG_T *get_booktag(FILE *f, int *tam){
 
 
 /**
-   Funcao read_booktag() lê do arquivo de nome filename e retorna o primeiro booktag
+   Funcao read_booktag() lê do arquivo de nome filename e retorna o primeiro booktag lido
+   função para casos em que precisamos checar se há pelo menos uma booktag no arquivo.
 
    @param char filename[] nome do arquivo a ser lido
+   @return BOOKTAG_T  lida
  **/
 BOOKTAG_T *read_booktag(FILE *f) {
 	int size;
@@ -226,7 +223,7 @@ BOOKTAG_T *read_booktag(FILE *f) {
  *@param: target é o arquivo a ser lido.
  *@return: string lida.
  **/
-char *readstr(FILE *target){
+static char *readstr(FILE *target){
 	char getter='a';
 	char *string = NULL;
 	int i=0;
@@ -247,29 +244,30 @@ char *readstr(FILE *target){
 
 /**
    Função printf_booktag() que imprime uma booktag
-
    @param booktag a ser impressa
  **/
 void printf_booktag(BOOKTAG_T *booktag) {
     //verificamos se o paramẽtro está ok
-
-
-
     if (booktag == NULL) {
         printf_error("[ERRO] booktag nula, precisa de paramêtro para impressão");
         return;
     }
+    
+    // checagens para ver se o conteúdo está valido
     if (sizeof(booktag) < 5) return;
     //vemos se o tamanho é zero, se for saimos porque naõ é um registro válido
     if (strlen(booktag->title) == 0 || booktag->title == NULL) return;
     if (booktag->price == 0 || booktag->pages == 0 || booktag->price == 0) return;
-
+	
+ 	// vemos se a booktag está marcada para remoção
     if(booktag->title[0] == '*'){
         printf_separator();
         printf_debug("Registro removido");
         printf_separator();
         return;
     }
+	
+	// imprimimos o conteudo    
     printf_separator();
 
     printf_colorful("Titulo: ", ANSI_CYAN);
@@ -308,7 +306,6 @@ void printf_booktag(BOOKTAG_T *booktag) {
 
 /**
    Funcao read_booktag_list() que le uma lista de booktags de um arquivo e os imprimi
-
    @param char filename[] nome do arquivo a ser lido
  **/
 void read_booktag_list(char filename[]) {
@@ -360,7 +357,6 @@ void read_booktag_list(char filename[]) {
 
 /**
    Funcao read_booktag_one() que le uma lista de booktags de um arquivo e os imprimi
-
    @param char filename[] nome do arquivo a ser lido
  **/
 void read_booktag_list_one(char filename[]) {
@@ -436,6 +432,7 @@ int markrem_booktag(FILE *data, int offset){
     mark[0] = CHAR_REM;
 
     rewind(data);
+   	// marcamos o espaço logo após do tamanho
     fseek(data, offset + sizeof(int), SEEK_CUR);
 
     fwrite(mark,sizeof(char),1,data);
@@ -444,10 +441,10 @@ int markrem_booktag(FILE *data, int offset){
 
 
 /**
-* recover_year
-* recupera regisstro de acordo com ano
-* @param FILE* file,
-@ @parma int year ano á ser pesquisado
+* recover_year 
+* recupera registro de acordo com ano
+* @param FILE* file do arquivo a ser procurado
+* @param int year ano á ser pesquisado
 */
 void recover_year (char filename[], int year){
     //verificamos os parametros e em caso de erro, avisamos
