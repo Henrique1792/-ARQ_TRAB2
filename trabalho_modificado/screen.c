@@ -8,6 +8,7 @@
 #include "debug.h"
 #include "screen.h"
 #include "idc.h"
+#include "cosec.h"
 
 // defines
 #define DATAFILE_PATH "data.bin"// nome do arquivo de dados utilizado
@@ -89,7 +90,7 @@ void start_screen() {
             //sai e faco a limpeza/checagem do arquivo
             printf("\nSaindo...\n");
 			int a = verify_index(DATAFILE_PATH);
-			if(a == 0) create_index(DATAFILE_PATH);
+			if(a == 1) create_index(DATAFILE_PATH);
             return;
         default:
             printf("\n Opção incorreta, digite novamente\n");
@@ -250,8 +251,8 @@ void insert_screen() {
         write_booktags(booktag_temp, DATAFILE_PATH);
 
         int a = verify_index(DATAFILE_PATH);
-        if(a == 0){
-            FILE *data = fopen(DATAFILE_PATH,"r");
+        if(a != 0){
+            FILE *data = fopen(DATAFILE_PATH,"a");
             INDICES_T *idx = (INDICES_T *) malloc(sizeof(INDICES_T));
 
             idx->author = fopen(IDXSECAUT_PATH,"r+");
@@ -259,7 +260,8 @@ void insert_screen() {
             idx->list_aut = fopen(IDXLISTAUT_PATH,"r+");
             idx->list_pub = fopen(IDXLISTPUB_PATH,"r+");
 
-            insert_to_index(idx, booktag_temp, get_offset(data));
+            if(a == 1) create_index(DATAFILE_PATH);
+            else insert_to_index(idx, booktag_temp, get_offset(data));
         }
 
         printf_debug("\nInformações cadastradas foram: ");
@@ -370,10 +372,10 @@ void booktag_search_screen() {
     printf_colorful(" Buscar por Autor",ANSI_BLUE);
 
     printf_colorful("\n\n4)", ANSI_WHITE);
-    printf_colorful(" Buscar por Autor E Editora(NAO IMPLEMENTADO)",ANSI_BLUE);
+    printf_colorful(" Buscar por Autor E Editora (Matching)",ANSI_BLUE);
 
     printf_colorful("\n\n5)", ANSI_WHITE);
-    printf_colorful(" Buscar por Autor OU Editora(NAO IMPLEMENTADO)",ANSI_BLUE);
+    printf_colorful(" Buscar por Autor OU Editora (Merge)",ANSI_BLUE);
 
     printf_colorful("\n\n6)", ANSI_WHITE);
     printf_colorful(" Buscar por Ano",ANSI_BLUE);
@@ -518,15 +520,22 @@ void booktag_search_publisher() {
 
 
 void booktag_search_publisher_author(int i) {
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("-----------", ANSI_WHITE);
 
     if (i == 1)
         printf_colorful(" Tela de Busca por Editora E Editora - Escolha as opções ", ANSI_WHITE);
     else
         printf_colorful(" Tela de Busca por Editora OU Editora - Escolha as opções ", ANSI_WHITE);
 
-    printf_colorful("----------------------", ANSI_WHITE);
+    printf_colorful("-----------", ANSI_WHITE);
     printf_colorful("\n\n", ANSI_WHITE);
+
+    printf_colorful("Digite o Autor que deseja procurar", ANSI_CYAN);
+    printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
+
+    char author[BUFFER_MAX];
+    getchar();
+    scanf("%[^\n]s",author);
 
     printf_colorful("Digite a Editora que deseja procurar", ANSI_CYAN);
     printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
@@ -535,21 +544,23 @@ void booktag_search_publisher_author(int i) {
     getchar();
     scanf("%[^\n]s",publisher);
 
-    printf_colorful("Digite o Autor que deseja procurar", ANSI_CYAN);
-    printf_error("(Caracteres alfanumericos [0-9/A-z]): ");
-    char author[BUFFER_MAX];
-    getchar();
-    scanf("%[^\n]s",author);
+    if(i == 1) index_match(author,publisher);
+    else index_merge(author,publisher);
 
+    printf_colorful("\nDigite 1 para voltar ou 2 para fazer outra pesquisa: ", ANSI_YELLOW);
 
-
-    //
-    // TODO: adicionar funcao que busca por editora e/ou digitado
-    // olha o indice secundario e mostra o que tiver com o autor digitado
-    //
-
-    //verifica qual o valor do parametro i e chama as funcoes correspondentes
-    //(1 para matching ou 2 para merging)
+    int op;
+    scanf("%d",&op);
+    switch(op){
+        case 1:
+            break;
+        case 2:
+            system("clear");
+            booktag_search_publisher_author(i);
+            break;
+        default:
+            break;
+    }
 }
 
 void booktag_show_lists() {

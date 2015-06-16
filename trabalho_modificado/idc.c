@@ -317,7 +317,7 @@ void index_remove_author(char *author){
 		}
 
 		if(ok != 1){
-			printf("\nNão foi possível encontrar o autor\n");
+			printf_colorful("\n[ERRO] Não foi possível encontrar o autor\n",ANSI_RED);
 			return;
 		}
 
@@ -336,7 +336,7 @@ void index_remove_author(char *author){
 
 			listelements[i].offset = listread->offset;
 			listelements[i].next = tmp; //guarda o tamanho do registro
-			print_list(&listelements[i]); //debug
+			//print_list(&listelements[i]); //debug
 
 			listread = read_list(list, listread->next);
 
@@ -371,13 +371,14 @@ void index_remove_author(char *author){
 			else printf_colorful("[ERRO] Não foi possível remover",ANSI_RED);
 		}
 
+		free(listelements);
+
 		fclose(data);
 		fclose(list);
 		fclose(idx);
 
 	}
 }
-
 
 
 /**
@@ -510,7 +511,7 @@ int insert_to_index(INDICES_T *idx, BOOKTAG_T *booktag, int offset){
 
 /**
    Função verify_index() verifica se os índices devem ser criados
-   @return 0 se não é para criar, 1 se é para criar
+   @return 0 se não é para criar, 1 se é para criar e 2 se já foi criado
  **/
 int verify_index(char *filename){
 	if(!filename){
@@ -534,7 +535,10 @@ int verify_index(char *filename){
 
 	fclose(fr);
 	if(i < 10) return 0;
-	else		return 1;
+	else if (i == 10)	return 1;
+	else if (i > 10)	return 2;
+
+	return 0;
 }
 
 /**
