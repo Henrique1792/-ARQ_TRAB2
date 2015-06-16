@@ -250,7 +250,7 @@ void insert_screen() {
         write_booktags(booktag_temp, DATAFILE_PATH);
 
         int a = verify_index(DATAFILE_PATH);
-        if(a == 0){
+        if(a == 1){
             FILE *data = fopen(DATAFILE_PATH,"r");
             INDICES_T *idx = (INDICES_T *) malloc(sizeof(INDICES_T));
 
