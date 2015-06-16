@@ -7,6 +7,19 @@
 #include "booktag.h"
 #include "debug.h"
 
+/*
+   Trabalho de Organizacao de Arquivos - Trabalho 2
+
+   Integrantes:
+
+   Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
+   Rita Raad                                       numero USP: 8061452
+   Henrique Fernandes de Mattos Freitas             numero USP: 8937225
+   Gustavo Santiago                                numero USP: 8937416
+
+   Descricao do arquivo idc.h: possui a definicao das estruturas e assinatura das funções (implementadas na idc.c).
+
+*/
 
 typedef struct IDX_SEC{
 	char *field; //author ou publisher
@@ -14,7 +27,6 @@ typedef struct IDX_SEC{
 }IDXSEC_T;
 
 typedef struct IDX_LIST{
-	char *key;	//chave primária
 	int offset;	//offset no arquivo de dados
 	int next;	//pseudo-ponteiro para o próximo
 }IDXLIST_T;
@@ -40,6 +52,7 @@ void index_show_lists();
 void index_show_index();
 void index_search_publisher(char *publisher);
 void index_search_author(char *author);
+void index_remove_author(char *author);
 
 int insert_to_index(INDICES_T *idx, BOOKTAG_T *booktag, int offset);
 int verify_index(char *filename);

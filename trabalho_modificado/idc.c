@@ -1,5 +1,20 @@
 #include "idc.h"
 
+/*
+   Trabalho de Organizacao de Arquivos - Trabalho 2
+
+   Integrantes:
+
+   Marcos Vinicius Barros L. Andrade Junqueira     numero USP: 8922393
+   Rita Raad                                       numero USP: 8061452
+   Henrique Fernandes de Mattos Freitas             numero USP: 8937225
+   Gustavo Santiago                                numero USP: 8937416
+
+   Descricao do arquivo idc.c: arquivo que possui a implementacao das funcoes definidas no arquivo idc.h.
+   Possui funcoes relativas a manipulacao, criacao, remocao e checagem dos índices e listas.
+
+*/
+
 /**
    Função get_offset() apenas deixa ftell() mais didático, para
    facilitar seu uso dentro do código
@@ -32,7 +47,7 @@ char *readline(FILE *stream){
 }
 
 //função interna de encontrar a posição na lista
-int list_find_pos(char filename[], char *key){
+int list_find_pos(char filename[]){
 	FILE *stream = fopen(filename,"r");
 
 	rewind(stream);
@@ -53,7 +68,6 @@ int list_find_pos(char filename[], char *key){
 }
 
 void free_list(IDXLIST_T *list){
-	free(list->key);
 	free(list);
 }
 
@@ -64,9 +78,7 @@ void free_idxsec(IDXSEC_T *idx){
 
 
 void print_list(IDXLIST_T *idx){
-	if(idx && idx->key){
-		printf_colorful("\t[Chave]: ",ANSI_CYAN);
-		printf("%s\n",idx->key);
+	if(idx){
 		printf_colorful("\t[Offset]: ",ANSI_CYAN);
 		printf("%d\n",idx->offset);
 		printf_colorful("\t[Próximo]: ",ANSI_CYAN);
@@ -101,8 +113,7 @@ IDXLIST_T *read_list(FILE *file, int pos){
 			}
 		}
 
-		read->key = strtok(line,"|");
-		read->offset = atoi(strtok(NULL,"|"));
+		read->offset = atoi(strtok(line,"|"));
 		read->next = atoi(strtok(NULL,"|"));
 
 		return read;
@@ -224,6 +235,10 @@ void index_search_publisher(char *publisher){
 			listread = read_list(list, listread->next);
 		}
 
+		fclose(data);
+		fclose(list);
+		fclose(idx);
+
 	}
 }
 
@@ -267,8 +282,103 @@ void index_search_author(char *author){
 			listread = read_list(list, listread->next);
 		}
 
+		fclose(data);
+		fclose(list);
+		fclose(idx);
+
 	}
 }
+
+
+void index_remove_author(char *author){
+	if(author){
+		FILE *data = fopen(DATAFILE_PATH,"r+");
+		FILE *list = fopen(IDXLISTAUT_PATH,"r");
+		FILE *idx = fopen(IDXSECAUT_PATH,"r");
+
+		if(!list || !idx){
+			printf("\n[AVISO] Índices não existem ou estão corrompidos\n");
+			return;
+		}
+
+		IDXSEC_T *read = read_idxsec(idx);
+		IDXLIST_T *listread;
+		IDXLIST_T *listelements;
+		BOOKTAG_T *booktag;
+
+		int ok = 0, tmp = 0;
+		while(read){
+			//print_idxsec(read);
+			if(strcmp(read->field,author) == 0){
+				ok = 1;
+				break;
+			}
+			read = read_idxsec(idx);
+		}
+
+		if(ok != 1){
+			printf("\nNão foi possível encontrar o autor\n");
+			return;
+		}
+
+		int i = 0; 	
+		listread = read_list(list, read->listPos);
+		listelements = (IDXLIST_T *) malloc(sizeof(IDXLIST_T));
+
+		while(listread){
+			rewind(data);
+			fseek(data, listread->offset, SEEK_CUR);
+
+			booktag = get_booktag(data, &tmp);
+			//print_list(listread);
+			printf("[%d] tamanho: %d", i, tmp);
+			printf_booktag(booktag);
+
+			listelements[i].offset = listread->offset;
+			listelements[i].next = tmp; //guarda o tamanho do registro
+			print_list(&listelements[i]); //debug
+
+			listread = read_list(list, listread->next);
+
+			if(listread){
+				realloc(listelements, sizeof(listread));
+				tmp = 0;
+				i++;
+			}
+		}
+
+		ok = -2;
+		int rem = -1;
+		while(ok == -2){
+			printf_colorful("Digite o registro a ser removido ou -1 para sair: ",ANSI_CYAN);
+			scanf("%d", &rem);
+
+			if(rem < -1 || rem > i){
+				printf_colorful("[ERRO] Registro inválido\n",ANSI_RED);
+				ok = -2;
+			}
+			else{
+				if(rem == -1) ok = -1;
+				else{
+					ok = 1;
+				}
+			}
+		}
+
+		if(ok == 1){
+			if(markrem_booktag(data, listelements[rem].offset))
+				printf_colorful("Removido com sucesso",ANSI_CYAN);
+			else printf_colorful("[ERRO] Não foi possível remover",ANSI_RED);
+		}
+
+		fclose(data);
+		fclose(list);
+		fclose(idx);
+
+	}
+}
+
+
 
 /**
    Função insert_to_index() insere em todos os índices e lista, tra-
@@ -328,17 +438,16 @@ int insert_to_index(INDICES_T *idx, BOOKTAG_T *booktag, int offset){
 
 	//escreve na lista invertida
 	if(idx->list_aut){
-		list_aut->key = booktag->title;
 		list_aut->offset = offset;
 		list_aut->next = pos;
-		fprintf(idx->list_aut, "%s|%d|%d\n", list_aut->key, list_aut->offset, list_aut->next);
+		fprintf(idx->list_aut, "%d|%d\n", list_aut->offset, list_aut->next);
 		fclose(idx->list_aut);
 	}
 
 	//escreve no índice de author
 	if(idx->author){
 		author->field = booktag->author;
-		author->listPos = list_find_pos(IDXLISTAUT_PATH,list_aut->key);
+		author->listPos = list_find_pos(IDXLISTAUT_PATH);
 		if(pos != -1) 	fseek(idx->author,seekpos,SEEK_CUR);
 		else			fseek(idx->author,0,SEEK_END);
 		fprintf(idx->author, "%s|%d\n", author->field, author->listPos);
@@ -379,17 +488,16 @@ int insert_to_index(INDICES_T *idx, BOOKTAG_T *booktag, int offset){
 
 	//escreve na lista invertida
 	if(idx->list_pub){
-		list_pub->key = booktag->title;
 		list_pub->offset = offset;
 		list_pub->next = pos;
-		fprintf(idx->list_pub, "%s|%d|%d\n", list_pub->key, list_pub->offset, list_pub->next);
+		fprintf(idx->list_pub, "%d|%d\n", list_pub->offset, list_pub->next);
 		fclose(idx->list_pub);
 	}
 
 	//escreve no índice de publisher
 	if(idx->publisher){
 		publisher->field = booktag->publisher;
-		publisher->listPos = list_find_pos(IDXLISTPUB_PATH,list_pub->key);
+		publisher->listPos = list_find_pos(IDXLISTPUB_PATH);
 		if(pos != -1) 	fseek(idx->publisher,seekpos,SEEK_CUR);
 		else			fseek(idx->publisher,0,SEEK_END);
 		fprintf(idx->publisher, "%s|%d\n", publisher->field, publisher->listPos);
@@ -425,7 +533,7 @@ int verify_index(char *filename){
 	}
 
 	fclose(fr);
-	if(i != 10) return 0;
+	if(i < 10) return 0;
 	else		return 1;
 }
 
