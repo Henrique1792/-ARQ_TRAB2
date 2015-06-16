@@ -12640,3 +12640,167 @@
 
 ********************************** Registro novo ******************************
 
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6050 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6510 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6990 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6510 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6990 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6510 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6990 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6510 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6990 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6510 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6990 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x24b6510 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x7fa790 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x7fac10 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x7fac10 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x7fb7f0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x7fbc70 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x7fbc70 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x7fbc70 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x7fc570 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782df0 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x783390 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x783870 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782280 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782280 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782280 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782280 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782280 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782280 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782280 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782280 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782280 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x782280 com sucesso
+
+[ABERTO] abrindo o arquivo log.txt modo a
+
+[FECHADO] fechando arquivo de handler 0x785c30 com sucesso
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+
+********************************** Registro novo ******************************
+

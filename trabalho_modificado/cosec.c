@@ -72,7 +72,7 @@ void index_match(char *author, char *publisher){
 		listreadpub = read_list(listpub, readpub->listPos);
 		listelements = (IDXLIST_T *) malloc(sizeof(IDXLIST_T));
 
-		while(listreadaut || listreadpub){
+		while(listreadaut && listreadpub){
 			if(listreadaut->offset < listreadpub->offset){
 				listreadpub = read_list(listpub, listreadpub->next);
 			}
@@ -82,14 +82,14 @@ void index_match(char *author, char *publisher){
 			}
 
 			else if(listreadaut->offset == listreadpub->offset){
+				printf("ok\n");
 				listelements[i].offset = listreadaut->offset;
 				listelements[i].next = tmp; //guarda o tamanho do registro
 
 				listreadaut = read_list(listaut, listreadaut->next);
 				listreadpub = read_list(listpub, listreadpub->next);
 
-				if(listreadaut) realloc(listelements, sizeof(listreadaut));
-				else if(listreadpub) realloc(listelements, sizeof(listreadpub));
+				realloc(listelements, sizeof(IDXLIST_T));
 				i++;
 			}
 		}
